@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Head from "next/head";
+import Image from "next/image";
 
 const NAV_LINKS = [
   { label: "Demandes en mariage", href: "#scenarios" },
@@ -15,37 +16,37 @@ const SCENARIOS = [
     titre: "Marry Me",
     desc: "Une demande intime et lumineuse, au crépuscule sur les hauteurs de l'île.",
     prix: "dès 890 €",
-    img: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=600&q=80",
+    img: "/images/galerie/photo-24.jpg",
   },
   {
     id: "02",
     titre: "Love on the Ocean",
     desc: "En mer, coucher de soleil, pétales, champagne et musicien à bord.",
     prix: "dès 1 890 €",
-    img: "https://images.unsplash.com/photo-1502635385003-ee1e6a1a742d?w=600&q=80",
+    img: "/images/galerie/photo-22.webp",
   },
   {
     id: "03",
     titre: "Lagoon Love",
     desc: "Dans les eaux translucides du lagon, un décor naturel incomparable.",
     prix: "dès 1 190 €",
-    img: "https://images.unsplash.com/photo-1551854838-212c9a5f8b7f?w=600&q=80",
+    img: "/images/galerie/photo-02.jpg",
   },
   {
     id: "04",
     titre: "Arche en Cœur",
     desc: "Sous une arche fleurie aux mille pétales, une mise en scène poétique.",
     prix: "dès 990 €",
-    img: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600&q=80",
+    img: "/images/galerie/photo-14.jpg",
   },
 ];
 
 const UNIVERS = [
-  { label: "Mariages", img: "https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80" },
-  { label: "Guinguette Bohème", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" },
-  { label: "Pyjama Party Premium", img: "https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=600&q=80" },
-  { label: "Cinétoilé", img: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=600&q=80" },
-  { label: "EVJF & EVG", img: "https://images.unsplash.com/photo-1529543544282-ea669407fca3?w=600&q=80" },
+  { label: "Mariages", img: "/images/galerie/photo-19.jpg" },
+  { label: "Guinguette Bohème", img: "/images/galerie/photo-05.jpg" },
+  { label: "Pyjama Party Premium", img: "/images/galerie/photo-20.jpg" },
+  { label: "Cinétoilé", img: "/images/galerie/photo-21.jpg" },
+  { label: "EVJF & EVG", img: "/images/galerie/photo-03.jpg" },
 ];
 
 export default function Home() {
@@ -97,9 +98,18 @@ export default function Home() {
       </div>
 
       <main>
-        {/* ── HERO ── */}
+        {/* ── HERO — photo-13 : piscine à débordement au coucher de soleil ── */}
         <section className="hero">
-          <div className="hero-bg" />
+          <div className="hero-bg">
+            <Image
+              src="/images/galerie/photo-13.jpg"
+              alt="Événement Wenten — La Réunion"
+              fill
+              priority
+              style={{ objectFit: "cover", objectPosition: "center 55%" }}
+              sizes="100vw"
+            />
+          </div>
           <div className="hero-gradient" />
           <div className="hero-content">
             <div className="hero-badge">
@@ -152,8 +162,13 @@ export default function Home() {
               {SCENARIOS.map((s) => (
                 <div key={s.id} className="scenario-card">
                   <div className="scenario-img-wrap">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={s.img} alt={s.titre} />
+                    <Image
+                      src={s.img}
+                      alt={s.titre}
+                      fill
+                      style={{ objectFit: "cover" }}
+                      sizes="(max-width: 520px) 100vw, (max-width: 900px) 50vw, 25vw"
+                    />
                     <span className="scenario-badge">Scénario {s.id}</span>
                   </div>
                   <div className="scenario-body">
@@ -182,8 +197,13 @@ export default function Home() {
             <div className="univers-grid">
               {UNIVERS.map((u) => (
                 <div key={u.label} className="univers-card">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={u.img} alt={u.label} className="univers-img" />
+                  <Image
+                    src={u.img}
+                    alt={u.label}
+                    fill
+                    style={{ objectFit: "cover" }}
+                    sizes="(max-width: 520px) 100vw, (max-width: 900px) 50vw, 33vw"
+                  />
                   <div className="univers-overlay">
                     <span className="univers-label">{u.label}</span>
                   </div>
