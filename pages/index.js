@@ -1,0 +1,229 @@
+import { useState, useEffect } from "react";
+import Head from "next/head";
+
+const NAV_LINKS = [
+  { label: "Demandes en mariage", href: "#scenarios" },
+  { label: "Mariages", href: "#univers" },
+  { label: "Concepts", href: "#univers" },
+  { label: "Entreprises", href: "#univers" },
+  { label: "Galerie", href: "#galerie" },
+];
+
+const SCENARIOS = [
+  {
+    id: "01",
+    titre: "Marry Me",
+    desc: "Une demande intime et lumineuse, au crépuscule sur les hauteurs de l'île.",
+    prix: "dès 890 €",
+    img: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=600&q=80",
+  },
+  {
+    id: "02",
+    titre: "Love on the Ocean",
+    desc: "En mer, coucher de soleil, pétales, champagne et musicien à bord.",
+    prix: "dès 1 890 €",
+    img: "https://images.unsplash.com/photo-1502635385003-ee1e6a1a742d?w=600&q=80",
+  },
+  {
+    id: "03",
+    titre: "Lagoon Love",
+    desc: "Dans les eaux translucides du lagon, un décor naturel incomparable.",
+    prix: "dès 1 190 €",
+    img: "https://images.unsplash.com/photo-1551854838-212c9a5f8b7f?w=600&q=80",
+  },
+  {
+    id: "04",
+    titre: "Arche en Cœur",
+    desc: "Sous une arche fleurie aux mille pétales, une mise en scène poétique.",
+    prix: "dès 990 €",
+    img: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600&q=80",
+  },
+];
+
+const UNIVERS = [
+  { label: "Mariages", img: "https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80" },
+  { label: "Guinguette Bohème", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" },
+  { label: "Pyjama Party Premium", img: "https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=600&q=80" },
+  { label: "Cinétoilé", img: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=600&q=80" },
+  { label: "EVJF & EVG", img: "https://images.unsplash.com/photo-1529543544282-ea669407fca3?w=600&q=80" },
+];
+
+export default function Home() {
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  return (
+    <>
+      <Head>
+        <title>Wenten Événementiel — La Réunion</title>
+        <meta name="description" content="Spécialiste des demandes en mariage, mariages et événements sur mesure à La Réunion. 14 ans d'expertise, plus de 200 événements réalisés." />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+      </Head>
+
+      {/* ── HEADER ── */}
+      <header className={`header ${scrolled ? "scrolled" : ""}`}>
+        <div className="header-inner">
+          <a href="#" className="logo-text">
+            WENTEN <span>événementiel</span>
+          </a>
+          <nav className="nav-links-desktop">
+            {NAV_LINKS.map((l) => (
+              <a key={l.label} href={l.href}>{l.label}</a>
+            ))}
+          </nav>
+          <a href="#contact" className="btn-devis">Devis →</a>
+          <button className="burger" aria-label="Menu" onClick={() => setMenuOpen(true)}>☰</button>
+        </div>
+      </header>
+
+      {/* ── DRAWER MOBILE ── */}
+      <div className={`mobile-drawer ${menuOpen ? "open" : ""}`}>
+        <div className="drawer-backdrop" onClick={() => setMenuOpen(false)} />
+        <div className="drawer-panel">
+          {NAV_LINKS.map((l) => (
+            <a key={l.label} href={l.href} className="drawer-link" onClick={() => setMenuOpen(false)}>{l.label}</a>
+          ))}
+          <a href="#contact" className="drawer-cta" onClick={() => setMenuOpen(false)}>Demander un devis →</a>
+        </div>
+      </div>
+
+      <main>
+        {/* ── HERO ── */}
+        <section className="hero">
+          <div className="hero-bg" />
+          <div className="hero-gradient" />
+          <div className="hero-content">
+            <div className="hero-badge">
+              <span className="hero-badge-line" />
+              14 ans d'expertise · La Réunion
+              <span className="hero-badge-line" />
+            </div>
+            <h1 className="hero-h1">
+              L'art de sublimer<br />vos plus beaux <em>instants</em>
+            </h1>
+            <p className="hero-sub">
+              Demandes en mariage, mariages, concepts événementiels et soirées d'entreprise —<br />
+              chaque création naît d'une histoire unique, la vôtre.
+            </p>
+            <div className="hero-ctas">
+              <a href="#scenarios" className="btn-primary">Découvrir nos scénarios →</a>
+              <a href="#contact" className="btn-outline-white">Demander un devis</a>
+            </div>
+          </div>
+        </section>
+
+        {/* ── CHIFFRES ── */}
+        <div className="stats-bar">
+          <div className="stats-grid">
+            {[
+              { num: "14", label: "ans d'expérience" },
+              { num: "200+", label: "événements réalisés" },
+              { num: "10", label: "scénarios signature" },
+              { num: "4.9★", label: "avis clients" },
+            ].map(({ num, label }) => (
+              <div key={label}>
+                <div className="stat-num">{num}</div>
+                <div className="stat-label">{label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* ── SCÉNARIOS ── */}
+        <section className="section" id="scenarios">
+          <div className="container">
+            <div className="section-header">
+              <div>
+                <div className="section-eyebrow">Nos créations phare</div>
+                <h2 className="section-title">Les demandes <em>en mariage</em></h2>
+              </div>
+              <a href="#scenarios" className="section-link">Voir les 10 scénarios →</a>
+            </div>
+            <div className="scenarios-grid">
+              {SCENARIOS.map((s) => (
+                <div key={s.id} className="scenario-card">
+                  <div className="scenario-img-wrap">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={s.img} alt={s.titre} />
+                    <span className="scenario-badge">Scénario {s.id}</span>
+                  </div>
+                  <div className="scenario-body">
+                    <div className="scenario-title">{s.titre}</div>
+                    <div className="scenario-desc">{s.desc}</div>
+                    <div className="scenario-price">{s.prix}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="section-cta">
+              <a href="#scenarios" className="btn-pill-outline">Voir tous les scénarios →</a>
+            </div>
+          </div>
+        </section>
+
+        {/* ── UNIVERS ── */}
+        <section className="section section-alt" id="univers">
+          <div className="container">
+            <div className="section-header">
+              <div>
+                <div className="section-eyebrow">De A à Z</div>
+                <h2 className="section-title">Nos <em>univers</em></h2>
+              </div>
+            </div>
+            <div className="univers-grid">
+              {UNIVERS.map((u) => (
+                <div key={u.label} className="univers-card">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={u.img} alt={u.label} className="univers-img" />
+                  <div className="univers-overlay">
+                    <span className="univers-label">{u.label}</span>
+                  </div>
+                </div>
+              ))}
+              <div className="univers-card-blank">
+                <div className="univers-blank-label">Entreprises</div>
+                <div className="univers-blank-sub">Séminaires · Galas · Team Building</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── TÉMOIGNAGE ── */}
+        <section className="testimonial-section">
+          <div className="testimonial-stars">★★★★★</div>
+          <blockquote className="testimonial-quote">
+            "Wenten a transformé notre demande en mariage en un moment magique, au-delà de tout ce qu'on aurait pu imaginer. Chaque détail était parfait, l'émotion était totale."
+          </blockquote>
+          <p className="testimonial-author">— Sofia & Thomas, demande en mariage · Lagon Love</p>
+        </section>
+
+        {/* ── CTA FINAL ── */}
+        <section className="cta-final" id="contact">
+          <div className="cta-final-eyebrow">Parlons de votre projet</div>
+          <h2 className="cta-final-title">Votre moment unique<br />mérite une <em>attention absolue</em></h2>
+          <p className="cta-final-sub">
+            Partagez-nous votre vision. Nous créons ensemble l'événement qui vous ressemble, sur mesure, à La Réunion.
+          </p>
+          <a href="mailto:contact@wenten-evenementiel.re" className="btn-fuchsia">
+            Demander un devis personnalisé →
+          </a>
+        </section>
+      </main>
+
+      {/* ── FOOTER ── */}
+      <footer className="footer">
+        <div className="footer-logo">WENTEN <span>événementiel</span></div>
+        <p className="footer-sub">La Réunion · Depuis 2017</p>
+      </footer>
+    </>
+  );
+}
