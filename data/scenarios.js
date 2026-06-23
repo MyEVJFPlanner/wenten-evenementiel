@@ -59,6 +59,13 @@ export const SCENARIOS = [
       { nom: "Musicien live (instrument au choix selon dispo)", prix: "200 à 350" },
       { nom: "Pack Cœur en Mélodie (chanson personnalisée)", prix: "79" },
     ],
+    photos: [
+      "/images/galerie/photo-22.webp",
+      "/images/galerie/photo-01.jpg",
+      "/images/galerie/photo-07.jpg",
+    ],
+    note: 4.9,
+    nombreAvis: 47,
     prix: "1300",
     prixNote: "TTC — forfait modulable selon type de bateau, durée & services choisis",
     duree: "Entre 15h et 19h",

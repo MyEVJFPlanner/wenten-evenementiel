@@ -1,7 +1,9 @@
+import { useState, useEffect } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import { SCENARIOS } from "../../data/scenarios";
 import SiteHeader from "../../components/SiteHeader";
+import FormulaireReservation from "../../components/FormulaireReservation";
 
 export function getStaticPaths() {
   return {
@@ -13,13 +15,64 @@ export function getStaticPaths() {
 export function getStaticProps({ params }) {
   const index = SCENARIOS.findIndex((s) => s.slug === params.slug);
   const scenario = SCENARIOS[index];
+  const mediaItems = [
+    ...(scenario.photos ? scenario.photos : [scenario.photo]).map((src) => ({
+      type: "image",
+      src,
+    })),
+    ...(scenario.videos || []).map((src) => ({ type: "video", src })),
+  ];
   const suggestions = [1, 2, 3].map(
     (offset) => SCENARIOS[(index + offset) % SCENARIOS.length]
   );
-  return { props: { scenario, suggestions } };
+  return { props: { scenario, mediaItems, suggestions } };
 }
 
-export default function ScenarioDetail({ scenario, suggestions }) {
+function RingRating({ note, nombreAvis }) {
+  return (
+    <div className="ring-rating">
+      {[1, 2, 3, 4, 5].map((i) => {
+        let opacity = 0.25;
+        if (i <= Math.floor(note)) opacity = 1;
+        else if (i === Math.ceil(note) && note % 1 > 0) opacity = note % 1;
+        return (
+          <span key={i} className="ring-icon" style={{ opacity }}>
+            💍
+          </span>
+        );
+      })}
+      <span className="ring-text">
+        {note}/5 · {nombreAvis} avis
+      </span>
+    </div>
+  );
+}
+
+export default function ScenarioDetail({ scenario, mediaItems, suggestions }) {
+  const [activeIdx, setActiveIdx] = useState(0);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [formOpen, setFormOpen] = useState(false);
+
+  const current = mediaItems[activeIdx];
+
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key === "Escape") {
+        setLightboxOpen(false);
+        setFormOpen(false);
+      }
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = lightboxOpen || formOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [lightboxOpen, formOpen]);
+
   return (
     <>
       <Head>
@@ -37,25 +90,112 @@ export default function ScenarioDetail({ scenario, suggestions }) {
       <SiteHeader />
 
       <main>
-        {/* ── HERO PLEINE PHOTO ── */}
+        {/* ── HERO GALERIE ── */}
         <section className="detail-hero">
-          <div className="detail-hero-bg">
-            <Image
-              src={scenario.photo}
-              alt={scenario.titre}
-              fill
-              priority
-              style={{ objectFit: "cover", objectPosition: "center" }}
-              sizes="100vw"
-            />
+          {/* Image/vidéo principale — clic = lightbox */}
+          <div
+            className="detail-hero-bg"
+            style={{ cursor: "zoom-in" }}
+            onClick={() => setLightboxOpen(true)}
+            role="button"
+            aria-label="Voir en grand"
+          >
+            {current.type === "image" ? (
+              <Image
+                src={current.src}
+                alt={scenario.titre}
+                fill
+                priority
+                style={{ objectFit: "cover", objectPosition: "center" }}
+                sizes="100vw"
+              />
+            ) : (
+              <video
+                src={current.src}
+                autoPlay
+                muted
+                loop
+                playsInline
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              />
+            )}
           </div>
           <div className="detail-hero-gradient" />
-          <div className="detail-hero-content">
+          <div
+            className="detail-hero-content"
+            onClick={(e) => e.stopPropagation()}
+          >
             <span className="detail-hero-numero">Scénario {scenario.numero}</span>
             <h1 className="detail-h1">{scenario.titre}</h1>
+            {scenario.note && (
+              <RingRating note={scenario.note} nombreAvis={scenario.nombreAvis} />
+            )}
             <p className="detail-accroche">{scenario.accroche}</p>
           </div>
         </section>
+
+        {/* ── MINIATURES ── */}
+        {mediaItems.length > 1 && (
+          <div className="detail-thumbs-strip">
+            {mediaItems.map((m, i) => (
+              <button
+                key={i}
+                className={`detail-thumb${i === activeIdx ? " active" : ""}`}
+                onClick={() => setActiveIdx(i)}
+                aria-label={`Média ${i + 1}`}
+              >
+                {m.type === "image" ? (
+                  <Image
+                    src={m.src}
+                    alt=""
+                    fill
+                    style={{ objectFit: "cover" }}
+                    sizes="88px"
+                  />
+                ) : (
+                  <>
+                    <video
+                      src={m.src}
+                      muted
+                      style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                    />
+                    <span className="detail-thumb-play">▶</span>
+                  </>
+                )}
+              </button>
+            ))}
+          </div>
+        )}
+
+        {/* ── LIGHTBOX ── */}
+        {lightboxOpen && (
+          <div className="lightbox" onClick={() => setLightboxOpen(false)}>
+            <button
+              className="lightbox-close"
+              onClick={() => setLightboxOpen(false)}
+              aria-label="Fermer"
+            >
+              ✕
+            </button>
+            <div className="lightbox-inner" onClick={(e) => e.stopPropagation()}>
+              {current.type === "image" ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={current.src}
+                  alt={scenario.titre}
+                  className="lightbox-img"
+                />
+              ) : (
+                <video
+                  src={current.src}
+                  controls
+                  autoPlay
+                  className="lightbox-video"
+                />
+              )}
+            </div>
+          </div>
+        )}
 
         {/* ── CORPS ── */}
         <section className="section">
@@ -66,7 +206,9 @@ export default function ScenarioDetail({ scenario, suggestions }) {
                 <div className="section-eyebrow">Le scénario</div>
                 <div className="detail-desc-body">
                   {scenario.description.split("\n\n").map((para, i) => (
-                    <p key={i} className="detail-desc-text">{para.trim()}</p>
+                    <p key={i} className="detail-desc-text">
+                      {para.trim()}
+                    </p>
                   ))}
                 </div>
 
@@ -107,9 +249,12 @@ export default function ScenarioDetail({ scenario, suggestions }) {
                   {scenario.maxPersonnes && (
                     <div className="info-personnes">👥 {scenario.maxPersonnes}</div>
                   )}
-                  <a href="mailto:contact@wenten-evenementiel.re" className="btn-fuchsia info-cta">
+                  <button
+                    className="btn-fuchsia info-cta"
+                    onClick={() => setFormOpen(true)}
+                  >
                     Demander ce scénario →
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>
@@ -161,16 +306,26 @@ export default function ScenarioDetail({ scenario, suggestions }) {
             Partagez-nous votre vision. Nous créons ensemble l'événement
             qui vous ressemble, sur mesure, à La Réunion.
           </p>
-          <a href="mailto:contact@wenten-evenementiel.re" className="btn-fuchsia">
+          <button className="btn-fuchsia" onClick={() => setFormOpen(true)}>
             Demander un devis personnalisé →
-          </a>
+          </button>
         </section>
       </main>
 
       <footer className="footer">
-        <div className="footer-logo">WENTEN <span>événementiel</span></div>
+        <div className="footer-logo">
+          WENTEN <span>événementiel</span>
+        </div>
         <p className="footer-sub">La Réunion · Depuis 2017</p>
       </footer>
+
+      {/* ── FORMULAIRE MODALE ── */}
+      {formOpen && (
+        <FormulaireReservation
+          scenario={scenario}
+          onClose={() => setFormOpen(false)}
+        />
+      )}
     </>
   );
 }
