@@ -112,11 +112,17 @@ export const SCENARIOS = [
         detail: "Questionnaire immersif, texte narratif sur mesure, musique adaptée, 1 modification incluse, livraison 24-48h",
       },
     ],
+    photos: [
+      "/images/coccinelle/coccinelle-01.jpg",
+      "/images/coccinelle/coccinelle-02.png",
+      "/images/coccinelle/coccinelle-04.png",
+      "/images/coccinelle/coccinelle-08.jpg",
+    ],
     prix: "1090",
     prixNote: "TTC pour 2 personnes — forfait modulable selon les services choisis",
     duree: "Soirée complète (transfert + dîner + retour)",
     maxPersonnes: "2 personnes",
-    photo: "/images/galerie/photo-09.jpg",
+    photo: "/images/coccinelle/coccinelle-01.jpg",
   },
   {
     slug: "cinema-plein-air-surprise",
