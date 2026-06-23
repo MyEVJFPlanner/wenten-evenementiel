@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Head from "next/head";
 import Image from "next/image";
+import { SCENARIOS } from "../data/scenarios";
 
 const NAV_LINKS = [
   { label: "Demandes en mariage", href: "#scenarios" },
@@ -10,36 +11,7 @@ const NAV_LINKS = [
   { label: "Galerie", href: "#galerie" },
 ];
 
-const SCENARIOS = [
-  {
-    id: "01",
-    titre: "Marry Me",
-    desc: "Une demande intime et lumineuse, au crépuscule sur les hauteurs de l'île.",
-    prix: "dès 890 €",
-    img: "/images/galerie/photo-24.jpg",
-  },
-  {
-    id: "02",
-    titre: "Love on the Ocean",
-    desc: "En mer, coucher de soleil, pétales, champagne et musicien à bord.",
-    prix: "dès 1 890 €",
-    img: "/images/galerie/photo-22.webp",
-  },
-  {
-    id: "03",
-    titre: "Lagoon Love",
-    desc: "Dans les eaux translucides du lagon, un décor naturel incomparable.",
-    prix: "dès 1 190 €",
-    img: "/images/galerie/photo-02.jpg",
-  },
-  {
-    id: "04",
-    titre: "Arche en Cœur",
-    desc: "Sous une arche fleurie aux mille pétales, une mise en scène poétique.",
-    prix: "dès 990 €",
-    img: "/images/galerie/photo-14.jpg",
-  },
-];
+const HOMEPAGE_SCENARIOS = SCENARIOS.slice(0, 4);
 
 const UNIVERS = [
   { label: "Mariages", img: "/images/galerie/photo-19.jpg" },
@@ -159,22 +131,22 @@ export default function Home() {
               <a href="#scenarios" className="section-link">Voir les 10 scénarios →</a>
             </div>
             <div className="scenarios-grid">
-              {SCENARIOS.map((s) => (
-                <div key={s.id} className="scenario-card">
+              {HOMEPAGE_SCENARIOS.map((s) => (
+                <div key={s.slug} className="scenario-card">
                   <div className="scenario-img-wrap">
                     <Image
-                      src={s.img}
+                      src={s.photo}
                       alt={s.titre}
                       fill
                       style={{ objectFit: "cover" }}
                       sizes="(max-width: 520px) 100vw, (max-width: 900px) 50vw, 25vw"
                     />
-                    <span className="scenario-badge">Scénario {s.id}</span>
+                    <span className="scenario-badge">Scénario {s.numero}</span>
                   </div>
                   <div className="scenario-body">
                     <div className="scenario-title">{s.titre}</div>
-                    <div className="scenario-desc">{s.desc}</div>
-                    <div className="scenario-price">{s.prix}</div>
+                    <div className="scenario-desc">{s.accroche}</div>
+                    <div className="scenario-price">dès {s.prix} €</div>
                   </div>
                 </div>
               ))}
