@@ -673,7 +673,9 @@ a { color: inherit; text-decoration: none; }
   border-bottom: 1px solid var(--border);
 }
 .options-item:last-child { border-bottom: none; padding-bottom: 0; }
+.options-item-left { display: flex; flex-direction: column; gap: 3px; }
 .options-item-nom { color: var(--text-muted); }
+.options-item-detail { font-size: 12px; color: var(--text-muted); opacity: 0.7; line-height: 1.4; }
 .options-item-prix { color: var(--primary); font-weight: 600; white-space: nowrap; flex-shrink: 0; }
 
 /* ── SUGGESTIONS ── */

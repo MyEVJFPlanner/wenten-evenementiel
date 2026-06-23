@@ -228,7 +228,12 @@ export default function ScenarioDetail({ scenario, mediaItems, suggestions }) {
                     <ul className="options-list">
                       {scenario.options.map((opt) => (
                         <li key={opt.nom} className="options-item">
-                          <span className="options-item-nom">{opt.nom}</span>
+                          <span className="options-item-left">
+                            <span className="options-item-nom">{opt.nom}</span>
+                            {opt.detail && (
+                              <span className="options-item-detail">{opt.detail}</span>
+                            )}
+                          </span>
                           <span className="options-item-prix">+ {opt.prix} €</span>
                         </li>
                       ))}
