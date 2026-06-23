@@ -1,15 +1,7 @@
-import { useState, useEffect } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import { SCENARIOS } from "../data/scenarios";
-
-const NAV_LINKS = [
-  { label: "Demandes en mariage", href: "#scenarios" },
-  { label: "Mariages", href: "#univers" },
-  { label: "Concepts", href: "#univers" },
-  { label: "Entreprises", href: "#univers" },
-  { label: "Galerie", href: "#galerie" },
-];
+import SiteHeader from "../components/SiteHeader";
 
 const HOMEPAGE_SCENARIOS = SCENARIOS.slice(0, 4);
 
@@ -22,52 +14,24 @@ const UNIVERS = [
 ];
 
 export default function Home() {
-  const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   return (
     <>
       <Head>
         <title>Wenten Événementiel — La Réunion</title>
-        <meta name="description" content="Spécialiste des demandes en mariage, mariages et événements sur mesure à La Réunion. 14 ans d'expertise, plus de 200 événements réalisés." />
+        <meta
+          name="description"
+          content="Spécialiste des demandes en mariage, mariages et événements sur mesure à La Réunion. 14 ans d'expertise, plus de 200 événements réalisés."
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
       </Head>
 
-      {/* ── HEADER ── */}
-      <header className={`header ${scrolled ? "scrolled" : ""}`}>
-        <div className="header-inner">
-          <a href="#" className="logo-text">
-            WENTEN <span>événementiel</span>
-          </a>
-          <nav className="nav-links-desktop">
-            {NAV_LINKS.map((l) => (
-              <a key={l.label} href={l.href}>{l.label}</a>
-            ))}
-          </nav>
-          <a href="#contact" className="btn-devis">Devis →</a>
-          <button className="burger" aria-label="Menu" onClick={() => setMenuOpen(true)}>☰</button>
-        </div>
-      </header>
-
-      {/* ── DRAWER MOBILE ── */}
-      <div className={`mobile-drawer ${menuOpen ? "open" : ""}`}>
-        <div className="drawer-backdrop" onClick={() => setMenuOpen(false)} />
-        <div className="drawer-panel">
-          {NAV_LINKS.map((l) => (
-            <a key={l.label} href={l.href} className="drawer-link" onClick={() => setMenuOpen(false)}>{l.label}</a>
-          ))}
-          <a href="#contact" className="drawer-cta" onClick={() => setMenuOpen(false)}>Demander un devis →</a>
-        </div>
-      </div>
+      <SiteHeader />
 
       <main>
         {/* ── HERO — photo-13 : piscine à débordement au coucher de soleil ── */}
@@ -97,7 +61,7 @@ export default function Home() {
               chaque création naît d'une histoire unique, la vôtre.
             </p>
             <div className="hero-ctas">
-              <a href="#scenarios" className="btn-primary">Découvrir nos scénarios →</a>
+              <a href="/demandes-en-mariage" className="btn-primary">Découvrir nos scénarios →</a>
               <a href="#contact" className="btn-outline-white">Demander un devis</a>
             </div>
           </div>
@@ -128,11 +92,15 @@ export default function Home() {
                 <div className="section-eyebrow">Nos créations phare</div>
                 <h2 className="section-title">Les demandes <em>en mariage</em></h2>
               </div>
-              <a href="#scenarios" className="section-link">Voir les 10 scénarios →</a>
+              <a href="/demandes-en-mariage" className="section-link">Voir les 10 scénarios →</a>
             </div>
             <div className="scenarios-grid">
               {HOMEPAGE_SCENARIOS.map((s) => (
-                <div key={s.slug} className="scenario-card">
+                <a
+                  key={s.slug}
+                  href={`/demandes-en-mariage/${s.slug}`}
+                  className="scenario-card"
+                >
                   <div className="scenario-img-wrap">
                     <Image
                       src={s.photo}
@@ -148,11 +116,11 @@ export default function Home() {
                     <div className="scenario-desc">{s.accroche}</div>
                     <div className="scenario-price">dès {s.prix} €</div>
                   </div>
-                </div>
+                </a>
               ))}
             </div>
             <div className="section-cta">
-              <a href="#scenarios" className="btn-pill-outline">Voir tous les scénarios →</a>
+              <a href="/demandes-en-mariage" className="btn-pill-outline">Voir tous les scénarios →</a>
             </div>
           </div>
         </section>
@@ -201,7 +169,9 @@ export default function Home() {
         {/* ── CTA FINAL ── */}
         <section className="cta-final" id="contact">
           <div className="cta-final-eyebrow">Parlons de votre projet</div>
-          <h2 className="cta-final-title">Votre moment unique<br />mérite une <em>attention absolue</em></h2>
+          <h2 className="cta-final-title">
+            Votre moment unique<br />mérite une <em>attention absolue</em>
+          </h2>
           <p className="cta-final-sub">
             Partagez-nous votre vision. Nous créons ensemble l'événement qui vous ressemble, sur mesure, à La Réunion.
           </p>
@@ -211,7 +181,6 @@ export default function Home() {
         </section>
       </main>
 
-      {/* ── FOOTER ── */}
       <footer className="footer">
         <div className="footer-logo">WENTEN <span>événementiel</span></div>
         <p className="footer-sub">La Réunion · Depuis 2017</p>
