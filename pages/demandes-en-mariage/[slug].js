@@ -61,10 +61,14 @@ export default function ScenarioDetail({ scenario, suggestions }) {
         <section className="section">
           <div className="container">
             <div className="detail-body-grid">
-              {/* Description + inclus */}
+              {/* Description + inclus + options */}
               <div className="detail-description-col">
                 <div className="section-eyebrow">Le scénario</div>
-                <p className="detail-desc-text">{scenario.description}</p>
+                <div className="detail-desc-body">
+                  {scenario.description.split("\n\n").map((para, i) => (
+                    <p key={i} className="detail-desc-text">{para.trim()}</p>
+                  ))}
+                </div>
 
                 <div className="inclus-header">Ce qui est inclus</div>
                 <ul className="inclus-list">
@@ -75,14 +79,34 @@ export default function ScenarioDetail({ scenario, suggestions }) {
                     </li>
                   ))}
                 </ul>
+
+                {scenario.options && (
+                  <div className="options-bloc">
+                    <div className="options-bloc-title">Options en plus</div>
+                    <ul className="options-list">
+                      {scenario.options.map((opt) => (
+                        <li key={opt.nom} className="options-item">
+                          <span className="options-item-nom">{opt.nom}</span>
+                          <span className="options-item-prix">+ {opt.prix} €</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </div>
 
               {/* Info pratique sticky */}
               <div className="detail-info-col">
                 <div className="info-card">
                   <div className="info-price">dès {scenario.prix} €</div>
+                  {scenario.prixNote && (
+                    <p className="info-prix-note">{scenario.prixNote}</p>
+                  )}
                   <div className="info-duree-label">Durée</div>
                   <div className="info-duree">{scenario.duree}</div>
+                  {scenario.maxPersonnes && (
+                    <div className="info-personnes">👥 {scenario.maxPersonnes}</div>
+                  )}
                   <a href="mailto:contact@wenten-evenementiel.re" className="btn-fuchsia info-cta">
                     Demander ce scénario →
                   </a>
