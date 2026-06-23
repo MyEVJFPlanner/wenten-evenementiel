@@ -38,11 +38,11 @@ export default function Home() {
         <section className="hero">
           <div className="hero-bg">
             <Image
-              src="/images/galerie/photo-13.jpg"
+              src="/images/hero-marry-me.jpg"
               alt="Événement Wenten — La Réunion"
               fill
               priority
-              style={{ objectFit: "cover", objectPosition: "center 55%" }}
+              style={{ objectFit: "cover", objectPosition: "center 50%" }}
               sizes="100vw"
             />
           </div>
