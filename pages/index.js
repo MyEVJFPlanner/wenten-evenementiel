@@ -167,7 +167,7 @@ export default function Home() {
         </section>
 
         {/* ── CTA FINAL ── */}
-        <section className="cta-final" id="contact">
+        <section className="cta-final section-dark" id="contact">
           <div className="cta-final-eyebrow">Parlons de votre projet</div>
           <h2 className="cta-final-title">
             Votre moment unique<br />mérite une <em>attention absolue</em>
