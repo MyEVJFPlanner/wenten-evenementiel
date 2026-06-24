@@ -192,7 +192,7 @@ export const SCENARIOS = [
         detail: "Questionnaire immersif, texte narratif sur mesure, musique adaptée, 1 modification incluse, livraison 24-48h",
       },
     ],
-    prix: "600",
+    prix: "850",
     prixNote: "TTC — forfait installation, décoration complète, chef à domicile, menu en 3 temps + vin, désinstallation. Frais kilométriques : 1€/km selon secteur",
     duree: "Soirée complète",
     photos: ["/images/cocoon-love/cocoon-love-01.jpg"],
