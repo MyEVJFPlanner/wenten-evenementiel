@@ -3,6 +3,7 @@ import Image from "next/image";
 import { SCENARIOS } from "../../data/scenarios";
 import SiteHeader from "../../components/SiteHeader";
 import SiteMeta from "../../components/SiteMeta";
+import SiteFooter from "../../components/SiteFooter";
 
 export default function DemandesEnMariage() {
   return (
@@ -77,11 +78,7 @@ export default function DemandesEnMariage() {
         </section>
       </main>
 
-      <footer className="footer">
-        <div className="footer-logo">WENTEN <span>événementiel</span></div>
-        <p className="footer-sub">La Réunion · Depuis 2017</p>
-        <p className="footer-sub footer-legal"><a href="/mentions-legales">Mentions légales</a></p>
-      </footer>
+      <SiteFooter />
     </>
   );
 }

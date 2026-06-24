@@ -2,6 +2,7 @@ import Head from "next/head";
 import { mentionsLegales } from "../data/mentions-legales";
 import SiteHeader from "../components/SiteHeader";
 import SiteMeta from "../components/SiteMeta";
+import SiteFooter from "../components/SiteFooter";
 
 export default function MentionsLegales() {
   const sections = Object.values(mentionsLegales);
@@ -41,15 +42,7 @@ export default function MentionsLegales() {
         </section>
       </main>
 
-      <footer className="footer">
-        <div className="footer-logo">WENTEN <span>événementiel</span></div>
-        <p className="footer-sub">La Réunion · Depuis 2017</p>
-        <p className="footer-sub" style={{ marginTop: "8px" }}>
-          <a href="/mentions-legales" style={{ color: "rgba(255,255,255,0.45)", textDecoration: "underline" }}>
-            Mentions légales
-          </a>
-        </p>
-      </footer>
+      <SiteFooter />
     </>
   );
 }

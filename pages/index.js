@@ -4,6 +4,7 @@ import { SCENARIOS } from "../data/scenarios";
 import SiteHeader from "../components/SiteHeader";
 import SiteMeta from "../components/SiteMeta";
 import EquipeSection from "../components/EquipeSection";
+import SiteFooter from "../components/SiteFooter";
 
 const HOMEPAGE_SCENARIOS = SCENARIOS.slice(0, 4);
 
@@ -187,11 +188,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="footer">
-        <div className="footer-logo">WENTEN <span>événementiel</span></div>
-        <p className="footer-sub">La Réunion · Depuis 2017</p>
-        <p className="footer-sub footer-legal"><a href="/mentions-legales">Mentions légales</a></p>
-      </footer>
+      <SiteFooter />
     </>
   );
 }
