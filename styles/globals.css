@@ -190,11 +190,13 @@ a { color: inherit; text-decoration: none; }
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    to bottom,
-    rgba(255,255,255,0.15) 0%,
-    rgba(14,140,140,0.12) 50%,
-    rgba(14,140,140,0.72) 100%
+    180deg,
+    rgba(0,0,0,0.10) 0%,
+    rgba(0,0,0,0.05) 20%,
+    rgba(0,0,0,0.30) 50%,
+    rgba(0,0,0,0.55) 100%
   );
+  pointer-events: none;
 }
 .hero-content {
   position: relative;
@@ -214,6 +216,7 @@ a { color: inherit; text-decoration: none; }
   letter-spacing: 0.12em;
   text-transform: uppercase;
   margin-bottom: 24px;
+  text-shadow: 0 2px 14px rgba(0,0,0,0.45);
 }
 .hero-badge-line { width: 28px; height: 1px; background: rgba(255,255,255,0.6); }
 .hero-h1 {
@@ -221,6 +224,7 @@ a { color: inherit; text-decoration: none; }
   color: #fff;
   margin-bottom: 20px;
   font-weight: 400;
+  text-shadow: 0 2px 14px rgba(0,0,0,0.45);
 }
 .hero-h1 em { color: var(--accent); font-style: italic; }
 .hero-sub {
@@ -229,6 +233,7 @@ a { color: inherit; text-decoration: none; }
   line-height: 1.7;
   margin-bottom: 36px;
   font-weight: 300;
+  text-shadow: 0 2px 14px rgba(0,0,0,0.45);
 }
 .hero-ctas {
   display: flex;
