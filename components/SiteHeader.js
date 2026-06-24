@@ -27,9 +27,9 @@ export default function SiteHeader() {
             <Image
               src="/images/logo-wenten.png"
               alt="Wenten Événementiel — La Réunion"
-              width={86}
-              height={86}
-              style={{ objectFit: "contain" }}
+              width={1181}
+              height={1181}
+              style={{ height: "clamp(64px, 8vw, 130px)", width: "auto", objectFit: "contain" }}
               priority
             />
           </a>
