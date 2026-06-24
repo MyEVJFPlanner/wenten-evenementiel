@@ -25,11 +25,11 @@ export default function SiteHeader() {
         <div className="header-inner">
           <a href="/" className="logo-img-link">
             <Image
-              src="/images/logo-wenten.jpg"
+              src="/images/logo-wenten.png"
               alt="Wenten Événementiel — La Réunion"
-              width={200}
-              height={68}
-              style={{ objectFit: "contain", objectPosition: "left center" }}
+              width={86}
+              height={86}
+              style={{ objectFit: "contain" }}
               priority
             />
           </a>
@@ -48,10 +48,10 @@ export default function SiteHeader() {
         <div className="drawer-panel">
           <a href="/" className="drawer-logo">
             <Image
-              src="/images/logo-wenten.jpg"
+              src="/images/logo-wenten.png"
               alt="Wenten Événementiel"
-              width={100}
-              height={36}
+              width={64}
+              height={64}
               style={{ objectFit: "contain" }}
             />
           </a>
