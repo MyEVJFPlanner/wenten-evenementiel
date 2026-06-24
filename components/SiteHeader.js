@@ -23,12 +23,12 @@ export default function SiteHeader() {
     <>
       <header className={`header ${scrolled ? "scrolled" : ""}`}>
         <div className="header-inner">
-          <a href="/" className={`logo-img-link ${!scrolled ? "logo-on-dark" : ""}`}>
+          <a href="/" className="logo-img-link">
             <Image
               src="/images/logo-wenten.jpg"
               alt="Wenten Événementiel — La Réunion"
-              width={140}
-              height={48}
+              width={200}
+              height={68}
               style={{ objectFit: "contain", objectPosition: "left center" }}
               priority
             />
