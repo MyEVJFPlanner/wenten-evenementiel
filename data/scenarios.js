@@ -31,8 +31,12 @@ export const SCENARIOS = [
     prix: "490",
     prixNote: "TTC — forfait modulable selon durée & services choisis",
     duree: "1h30 sur place",
-    photos: ["/images/galerie/photo-24.jpg"],
-    photo: "/images/galerie/photo-24.jpg",
+    photos: [
+      "/images/marry-me/marry-me-01.JPG",
+      "/images/marry-me/Marry-me-02.JPG",
+      "/images/marry-me/Marry-Me-03.jpg",
+    ],
+    photo: "/images/marry-me/marry-me-01.JPG",
   },
   {
     slug: "sky-love",
