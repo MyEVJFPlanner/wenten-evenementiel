@@ -4,7 +4,7 @@ export const mentionsLegales = {
     contenu: `Le site wenten-evenementiel.com (ci-après « le Site ») est édité par :
 
 SARL Ninja Presta
-SARL au capital de [À COMPLÉTER] €
+SARL au capital de 250 €
 Siège social : 8 Ruelle Boulot, 97400 Saint-Denis, La Réunion
 RCS Saint-Denis sous le numéro 942 669 623
 SIRET : 942 669 623 00012
