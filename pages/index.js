@@ -3,6 +3,7 @@ import Image from "next/image";
 import { SCENARIOS } from "../data/scenarios";
 import SiteHeader from "../components/SiteHeader";
 import SiteMeta from "../components/SiteMeta";
+import EquipeSection from "../components/EquipeSection";
 
 const HOMEPAGE_SCENARIOS = SCENARIOS.slice(0, 4);
 
@@ -167,6 +168,9 @@ export default function Home() {
           </blockquote>
           <p className="testimonial-author">— Sofia & Thomas, demande en mariage · Lagon Love</p>
         </section>
+
+        {/* ── ÉQUIPE ── */}
+        <EquipeSection />
 
         {/* ── CTA FINAL ── */}
         <section className="cta-final section-dark" id="contact">
