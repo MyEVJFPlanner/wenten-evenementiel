@@ -43,17 +43,41 @@ export const SCENARIOS = [
     numero: "02",
     titre: "Sky Love",
     accroche: "Une demande en mariage à 1000 mètres au-dessus de La Réunion.",
-    description:
-      "Un vol en hélicoptère privatisé au-dessus des cirques, remparts et lagons de l'île. Le pilote vous emmène survoler les plus beaux panoramas de La Réunion, et c'est là, entre ciel et terre, que vous posez la question la plus importante de votre vie.",
-    inclus: [
-      "Vol en hélicoptère privatisé",
-      "Survol des sites emblématiques de l'île",
-      "Coordination avec le pilote",
-      "Option captation vidéo/photo depuis l'hélicoptère",
-    ],
-    prix: "1490",
-    duree: "30 à 45 min de vol",
+    description: "Un vol en hélicoptère privatisé au-dessus des cirques, remparts et lagons de l'île. Le pilote vous emmène survoler les plus beaux panoramas de La Réunion, et c'est là, entre ciel et terre, que vous posez la question la plus importante de votre vie.\n\nTrois formules sont proposées selon la durée du vol et le niveau de prestation souhaité, de l'envolée express à l'expérience la plus complète avec déjeuner gastronomique.",
+    duree: "10 à 45 min de vol selon la formule",
     photo: "/images/galerie/photo-13.jpg",
+    packages: [
+      {
+        nom: "Envol",
+        prix: "1200",
+        inclus: [
+          "Vol en hélicoptère 10 minutes",
+          "Accès terrasse panoramique",
+          "Décoration romantique",
+          "Bouteille de champagne",
+        ],
+      },
+      {
+        nom: "Sublime",
+        prix: "2600",
+        inclus: [
+          "Vol en hélicoptère grandiose",
+          "Accès terrasse panoramique",
+          "Décoration romantique",
+          "Champagne & mignardises",
+        ],
+      },
+      {
+        nom: "Royal",
+        prix: "3500",
+        inclus: [
+          "Vol en hélicoptère grandiose",
+          "Déjeuner gîte au Bras de la Plaine",
+          "Décoration exclusive",
+          "Champagne, mignardises & bouquet de fleurs",
+        ],
+      },
+    ],
   },
   {
     slug: "love-on-the-ocean",

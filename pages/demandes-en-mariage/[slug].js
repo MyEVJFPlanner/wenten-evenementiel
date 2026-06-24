@@ -209,15 +209,43 @@ export default function ScenarioDetail({ scenario, mediaItems, suggestions }) {
                   ))}
                 </div>
 
-                <div className="inclus-header">Ce qui est inclus</div>
-                <ul className="inclus-list">
-                  {scenario.inclus.map((item) => (
-                    <li key={item} className="inclus-item">
-                      <span className="inclus-check">✓</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+                {scenario.inclus && (
+                  <>
+                    <div className="inclus-header">Ce qui est inclus</div>
+                    <ul className="inclus-list">
+                      {scenario.inclus.map((item) => (
+                        <li key={item} className="inclus-item">
+                          <span className="inclus-check">✓</span>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </>
+                )}
+
+                {scenario.packages && (
+                  <>
+                    <div className="inclus-header">Choisissez votre formule</div>
+                    <div className="packages-grid">
+                      {scenario.packages.map((pkg) => (
+                        <div key={pkg.nom} className="package-card">
+                          <div className="package-header">
+                            <span className="package-nom">{pkg.nom}</span>
+                            <span className="package-prix">{pkg.prix} €</span>
+                          </div>
+                          <ul className="package-inclus">
+                            {pkg.inclus.map((item) => (
+                              <li key={item} className="inclus-item">
+                                <span className="inclus-check">✓</span>
+                                {item}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                  </>
+                )}
 
                 {scenario.options && (
                   <div className="options-bloc">
@@ -242,7 +270,11 @@ export default function ScenarioDetail({ scenario, mediaItems, suggestions }) {
               {/* Info pratique sticky */}
               <div className="detail-info-col">
                 <div className="info-card">
-                  <div className="info-price">dès {scenario.prix} €</div>
+                  <div className="info-price">
+                    dès {scenario.packages
+                      ? Math.min(...scenario.packages.map((p) => parseInt(p.prix, 10)))
+                      : scenario.prix} €
+                  </div>
                   {scenario.prixNote && (
                     <p className="info-prix-note">{scenario.prixNote}</p>
                   )}

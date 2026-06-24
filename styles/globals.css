@@ -946,4 +946,54 @@ a { color: inherit; text-decoration: none; }
   .suggestions-grid { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
   .modal-panel { padding: 28px 18px 24px; border-radius: 14px; }
+  .packages-grid { grid-template-columns: 1fr; }
+}
+
+/* ── PACKAGES (formules multi-tarifs) ── */
+.packages-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 16px;
+}
+.package-card {
+  border: 1px solid rgba(14,140,140,0.18);
+  border-radius: 14px;
+  padding: 20px 18px;
+  background: rgba(255,255,255,0.7);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.package-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(14,140,140,0.14);
+}
+.package-nom {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #16302E;
+  letter-spacing: 0.02em;
+}
+.package-prix {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #D64292;
+}
+.package-inclus {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+@media (max-width: 760px) {
+  .packages-grid { grid-template-columns: 1fr; }
 }
