@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { SCENARIOS } from "../../data/scenarios";
 import SiteHeader from "../../components/SiteHeader";
+import SiteMeta from "../../components/SiteMeta";
 
 export default function DemandesEnMariage() {
   return (
@@ -13,12 +14,7 @@ export default function DemandesEnMariage() {
           content="Découvrez nos 10 scénarios de demande en mariage sur mesure à La Réunion. De l'hélicoptère au lagon de l'Île Maurice, chaque instant est unique."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
+        <SiteMeta />
       </Head>
 
       <SiteHeader />

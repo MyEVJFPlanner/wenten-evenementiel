@@ -3,6 +3,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { SCENARIOS } from "../../data/scenarios";
 import SiteHeader from "../../components/SiteHeader";
+import SiteMeta from "../../components/SiteMeta";
 import FormulaireReservation from "../../components/FormulaireReservation";
 
 export function getStaticPaths() {
@@ -79,12 +80,7 @@ export default function ScenarioDetail({ scenario, mediaItems, suggestions }) {
         <title>{scenario.titre} — Wenten Événementiel La Réunion</title>
         <meta name="description" content={scenario.accroche} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
+        <SiteMeta />
       </Head>
 
       <SiteHeader />

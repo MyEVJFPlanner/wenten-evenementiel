@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { SCENARIOS } from "../data/scenarios";
 import SiteHeader from "../components/SiteHeader";
+import SiteMeta from "../components/SiteMeta";
 
 const HOMEPAGE_SCENARIOS = SCENARIOS.slice(0, 4);
 
@@ -23,12 +24,7 @@ export default function Home() {
           content="Spécialiste des demandes en mariage, mariages et événements sur mesure à La Réunion. 14 ans d'expertise, plus de 200 événements réalisés."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
+        <SiteMeta />
       </Head>
 
       <SiteHeader />

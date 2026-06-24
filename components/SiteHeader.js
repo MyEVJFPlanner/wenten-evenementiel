@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 const NAV_LINKS = [
   { label: "Demandes en mariage", href: "/demandes-en-mariage" },
@@ -22,8 +23,15 @@ export default function SiteHeader() {
     <>
       <header className={`header ${scrolled ? "scrolled" : ""}`}>
         <div className="header-inner">
-          <a href="/" className="logo-text">
-            WENTEN <span>événementiel</span>
+          <a href="/" className={`logo-img-link ${!scrolled ? "logo-on-dark" : ""}`}>
+            <Image
+              src="/images/logo-wenten.jpg"
+              alt="Wenten Événementiel — La Réunion"
+              width={140}
+              height={48}
+              style={{ objectFit: "contain", objectPosition: "left center" }}
+              priority
+            />
           </a>
           <nav className="nav-links-desktop">
             {NAV_LINKS.map((l) => (
@@ -38,6 +46,15 @@ export default function SiteHeader() {
       <div className={`mobile-drawer ${menuOpen ? "open" : ""}`}>
         <div className="drawer-backdrop" onClick={() => setMenuOpen(false)} />
         <div className="drawer-panel">
+          <a href="/" className="drawer-logo">
+            <Image
+              src="/images/logo-wenten.jpg"
+              alt="Wenten Événementiel"
+              width={100}
+              height={36}
+              style={{ objectFit: "contain" }}
+            />
+          </a>
           {NAV_LINKS.map((l) => (
             <a key={l.label} href={l.href} className="drawer-link" onClick={() => setMenuOpen(false)}>{l.label}</a>
           ))}
