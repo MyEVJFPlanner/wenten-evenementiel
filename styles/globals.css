@@ -44,11 +44,14 @@ a { color: inherit; text-decoration: none; }
   top: 0; left: 0; right: 0;
   z-index: 1000;
   padding: 0 24px;
+  background: rgba(255,255,255,0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.3);
   transition: background 0.3s, box-shadow 0.3s;
 }
 .header.scrolled {
-  background: rgba(255,255,255,0.95);
-  backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.88);
   box-shadow: 0 1px 0 var(--border);
 }
 .header-inner {
@@ -91,14 +94,29 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   gap: 32px;
 }
-.nav-links-desktop a {
+.nav-link {
+  font-family: 'Inter', sans-serif;
   font-size: 13px;
   font-weight: 500;
-  color: var(--text);
-  letter-spacing: 0.03em;
-  transition: color 0.2s;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #16302E;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.2s ease;
 }
-.nav-links-desktop a:hover { color: var(--primary); }
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: #D6428E;
+  transition: width 0.25s ease;
+}
+.nav-link:hover::after { width: 100%; }
+.nav-link:hover { color: #0E8C8C; }
 .btn-devis {
   display: inline-flex;
   align-items: center;
@@ -119,7 +137,7 @@ a { color: inherit; text-decoration: none; }
   border: none;
   font-size: 22px;
   cursor: pointer;
-  color: var(--text);
+  color: #16302E;
   padding: 6px;
 }
 
@@ -153,14 +171,17 @@ a { color: inherit; text-decoration: none; }
 .mobile-drawer.open .drawer-panel { transform: translateX(0); }
 .drawer-link {
   display: block;
-  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
   font-weight: 500;
-  color: var(--text);
-  padding: 12px 0;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #16302E;
+  padding: 14px 0;
   border-bottom: 1px solid var(--border);
   transition: color 0.2s;
 }
-.drawer-link:hover { color: var(--primary); }
+.drawer-link:hover { color: #0E8C8C; }
 .drawer-cta {
   display: block;
   text-align: center;

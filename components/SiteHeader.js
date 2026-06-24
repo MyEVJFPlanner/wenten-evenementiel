@@ -35,7 +35,7 @@ export default function SiteHeader() {
           </a>
           <nav className="nav-links-desktop">
             {NAV_LINKS.map((l) => (
-              <a key={l.label} href={l.href}>{l.label}</a>
+              <a key={l.label} href={l.href} className="nav-link">{l.label}</a>
             ))}
           </nav>
           <a href="/#contact" className="btn-devis">Devis →</a>
