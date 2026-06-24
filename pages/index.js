@@ -186,6 +186,7 @@ export default function Home() {
       <footer className="footer">
         <div className="footer-logo">WENTEN <span>événementiel</span></div>
         <p className="footer-sub">La Réunion · Depuis 2017</p>
+        <p className="footer-sub footer-legal"><a href="/mentions-legales">Mentions légales</a></p>
       </footer>
     </>
   );

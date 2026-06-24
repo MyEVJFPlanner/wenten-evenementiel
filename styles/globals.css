@@ -500,6 +500,35 @@ a { color: inherit; text-decoration: none; }
 }
 .btn-fuchsia:hover { background: #b83278; transform: translateY(-2px); }
 
+/* ── MENTIONS LÉGALES ── */
+.mentions-body {
+  max-width: 760px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+.mentions-section { border-bottom: 1px solid var(--border); padding-bottom: 40px; }
+.mentions-section:last-child { border-bottom: none; padding-bottom: 0; }
+.mentions-titre {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+.mentions-contenu {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.mentions-contenu p {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.8;
+  white-space: pre-line;
+}
+
 /* ── FOOTER ── */
 .footer {
   background: var(--footer-bg);
@@ -509,6 +538,9 @@ a { color: inherit; text-decoration: none; }
 .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #fff; margin-bottom: 8px; }
 .footer-logo span { color: var(--accent); font-style: italic; font-size: 14px; letter-spacing: 0.06em; }
 .footer-sub { font-size: 12px; color: rgba(255,255,255,0.45); letter-spacing: 0.08em; text-transform: uppercase; }
+.footer-legal { margin-top: 10px; text-transform: none; letter-spacing: 0; }
+.footer-legal a { color: rgba(255,255,255,0.35); text-decoration: underline; transition: color 0.2s; }
+.footer-legal a:hover { color: rgba(255,255,255,0.7); }
 
 /* ── PAGE HERO (sans photo, fond crème) ── */
 .page-hero {
