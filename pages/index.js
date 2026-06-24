@@ -11,7 +11,7 @@ const UNIVERS = [
   { label: "Guinguette Bohème", img: "/images/galerie/photo-05.jpg" },
   { label: "Pyjama Party Premium", img: "/images/galerie/photo-20.jpg" },
   { label: "Cinétoilé", img: "/images/galerie/photo-21.jpg" },
-  { label: "EVJF & EVG", img: "/images/galerie/photo-03.jpg" },
+  { label: "EVJF & EVG", img: "/images/galerie/photo-03.jpg", href: "https://www.myevjfplanner.com" },
 ];
 
 export default function Home() {
@@ -131,20 +131,26 @@ export default function Home() {
               </div>
             </div>
             <div className="univers-grid">
-              {UNIVERS.map((u) => (
-                <div key={u.label} className="univers-card">
-                  <Image
-                    src={u.img}
-                    alt={u.label}
-                    fill
-                    style={{ objectFit: "cover" }}
-                    sizes="(max-width: 520px) 100vw, (max-width: 900px) 50vw, 33vw"
-                  />
-                  <div className="univers-overlay">
-                    <span className="univers-label">{u.label}</span>
-                  </div>
-                </div>
-              ))}
+              {UNIVERS.map((u) => {
+                const Tag = u.href ? "a" : "div";
+                const linkProps = u.href
+                  ? { href: u.href, target: "_blank", rel: "noopener noreferrer" }
+                  : {};
+                return (
+                  <Tag key={u.label} className="univers-card" style={u.href ? { cursor: "pointer" } : {}} {...linkProps}>
+                    <Image
+                      src={u.img}
+                      alt={u.label}
+                      fill
+                      style={{ objectFit: "cover" }}
+                      sizes="(max-width: 520px) 100vw, (max-width: 900px) 50vw, 33vw"
+                    />
+                    <div className="univers-overlay">
+                      <span className="univers-label">{u.label}</span>
+                    </div>
+                  </Tag>
+                );
+              })}
               <div className="univers-card-blank">
                 <div className="univers-blank-label">Entreprises</div>
                 <div className="univers-blank-sub">Séminaires · Galas · Team Building</div>
