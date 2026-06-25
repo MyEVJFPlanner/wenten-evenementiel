@@ -258,6 +258,25 @@ export default function ScenarioDetail({ scenario, mediaItems, suggestions }) {
                   </>
                 )}
 
+                {scenario.offreComplementaire && (
+                  <div className="offre-complementaire">
+                    <div className="offre-complementaire-titre">
+                      {scenario.offreComplementaire.titre}
+                    </div>
+                    <div className="offre-complementaire-desc">
+                      {scenario.offreComplementaire.description.split("\n\n").map((para, i) => (
+                        <p key={i}>{para}</p>
+                      ))}
+                    </div>
+                    <button
+                      className="btn-fuchsia offre-complementaire-cta"
+                      onClick={() => setFormOpen(true)}
+                    >
+                      {scenario.offreComplementaire.cta} →
+                    </button>
+                  </div>
+                )}
+
                 {scenario.options && (
                   <div className="options-bloc">
                     <div className="options-bloc-title">Options en plus</div>
