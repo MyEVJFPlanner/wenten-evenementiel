@@ -5,6 +5,15 @@ import SiteHeader from "../../components/SiteHeader";
 import SiteMeta from "../../components/SiteMeta";
 import SiteFooter from "../../components/SiteFooter";
 
+function getPrixLabel(c) {
+  if (c.prix) return `dès ${c.prix} €${c.prixUnite || ""}${c.minPersonnes ? ` · ${c.minPersonnes} pers. min.` : ""}`;
+  if (c.packs) {
+    const min = Math.min(...c.packs.map((p) => parseInt(p.prixLivraison, 10)));
+    return `dès ${min} €`;
+  }
+  return "Sur devis";
+}
+
 export default function ConceptsIndex() {
   return (
     <>
@@ -49,10 +58,7 @@ export default function ConceptsIndex() {
                   <div className="concept-body">
                     <div className="concept-title">{c.titre}</div>
                     <div className="concept-desc">{c.accroche}</div>
-                    <div className="concept-price">
-                      dès {c.prix} €{c.prixUnite || ""}
-                      {c.minPersonnes ? ` · ${c.minPersonnes} pers. min.` : ""}
-                    </div>
+                    <div className="concept-price">{getPrixLabel(c)}</div>
                   </div>
                 </a>
               ))}

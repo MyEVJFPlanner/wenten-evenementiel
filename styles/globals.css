@@ -1207,10 +1207,68 @@ a { color: inherit; text-decoration: none; }
   margin-top: 1px;
 }
 
+/* ── PACKS PYJAMA PARTY ── */
+.packs-pyjama-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+.pack-pyjama-card {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px 18px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+.pack-pyjama-nom {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--text);
+  padding-bottom: 12px;
+  margin-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+}
+.pack-pyjama-inclus {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+  margin-bottom: 18px;
+}
+.pack-pyjama-prix {
+  border-top: 1px solid var(--border);
+  padding-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.pack-pyjama-prix-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+.pack-pyjama-prix-label {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.pack-pyjama-prix-val {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--fuchsia);
+  white-space: nowrap;
+}
+
 @media (max-width: 900px) {
   .concepts-grid { grid-template-columns: repeat(2, 1fr); }
   .repas-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 520px) {
   .concepts-grid { grid-template-columns: 1fr; }
+  .packs-pyjama-grid { grid-template-columns: 1fr; }
 }

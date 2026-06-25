@@ -72,6 +72,74 @@ export const concepts = [
     photo: "/images/concepts/pack-cinetoile.jpg"
   },
   {
+    slug: "pyjama-party",
+    titre: "Pyjama Party",
+    emoji: "🌟",
+    accroche: "Des tipis cosy et une ambiance magique pour une nuit (ou un après-midi) inoubliable.",
+    description: "Nous proposons une gamme de services Pyjama Party. Notre approche est axée sur l'adaptation à vos besoins, en fournissant des packs pratiques et à l'image de votre événement et de vos invités !",
+    packs: [
+      {
+        nom: "Rêves d'Étoiles",
+        inclus: [
+          "5 tipis",
+          "Ambiance \"ciel étoilé\" lumière avec Voie Lactée",
+          "Matelas individuels avec draps + oreillers + couvertures/plaid",
+          "Décoration"
+        ],
+        prixLivraison: "210",
+        prixLivraisonInstallation: "330"
+      },
+      {
+        nom: "Cinéma & Pop-corn",
+        inclus: [
+          "5 tipis",
+          "Écran + rétroprojecteur pour une séance film",
+          "Enceinte connectée + Pop Corn",
+          "Ambiance \"ciel étoilé\" lumière avec Voie Lactée",
+          "Matelas individuels avec draps + oreillers + couvertures/plaid",
+          "Décoration"
+        ],
+        prixLivraison: "290",
+        prixLivraisonInstallation: "410"
+      },
+      {
+        nom: "Dance Party",
+        inclus: [
+          "5 tipis",
+          "Ambiance disco : ciel étoilé + enceinte connectée + micro",
+          "Boule à facettes + jeux de lumière",
+          "Matelas individuels avec draps + oreillers + couvertures/plaid",
+          "Décoration"
+        ],
+        prixLivraison: "290",
+        prixLivraisonInstallation: "410"
+      },
+      {
+        nom: "Mini Kids",
+        inclus: [
+          "5 tipis (sans matelas)",
+          "Coussins + tapis pour un après-midi détente ou goûter",
+          "Décoration adaptée pour les 4-6 ans (à préciser)"
+        ],
+        prixLivraison: "50",
+        prixLivraisonInstallation: "160"
+      },
+      {
+        nom: "Mini Kids Plus",
+        inclus: [
+          "5 tipis (sans matelas)",
+          "Coussins + tapis + plateaux enfant pour un après-midi festif avant la nuit ou pour plus petits",
+          "Décoration adaptée pour les 4-6 ans (à préciser)"
+        ],
+        prixLivraison: "70",
+        prixLivraisonInstallation: "180"
+      }
+    ],
+    tipiSupplementaire: "35",
+    prixNote: "Tipi supplémentaire : +35€. Frais kilométriques selon secteur : 1€/km",
+    photo: "/images/concepts/pyjama-party.jpg"
+  },
+  {
     slug: "vintage-vinyles",
     titre: "Pack Vintage & Vinyles",
     emoji: "🎷",

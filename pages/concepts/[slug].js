@@ -23,6 +23,15 @@ export function getStaticProps({ params }) {
   return { props: { concept, suggestions } };
 }
 
+function getMinPrix(concept) {
+  if (concept.prix) return `dès ${concept.prix} €${concept.prixUnite || ""}`;
+  if (concept.packs) {
+    const min = Math.min(...concept.packs.map((p) => parseInt(p.prixLivraison, 10)));
+    return `dès ${min} €`;
+  }
+  return "Sur devis";
+}
+
 export default function ConceptDetail({ concept, suggestions }) {
   const [formOpen, setFormOpen] = useState(false);
 
@@ -98,6 +107,38 @@ export default function ConceptDetail({ concept, suggestions }) {
                   </>
                 )}
 
+                {/* Packs (Pyjama Party) */}
+                {concept.packs && (
+                  <div style={{ marginTop: "8px" }}>
+                    <div className="inclus-header">Choisissez votre pack</div>
+                    <div className="packs-pyjama-grid">
+                      {concept.packs.map((pack) => (
+                        <div key={pack.nom} className="pack-pyjama-card">
+                          <div className="pack-pyjama-nom">{pack.nom}</div>
+                          <ul className="pack-pyjama-inclus">
+                            {pack.inclus.map((item) => (
+                              <li key={item} className="inclus-item">
+                                <span className="inclus-check">✓</span>
+                                {item}
+                              </li>
+                            ))}
+                          </ul>
+                          <div className="pack-pyjama-prix">
+                            <div className="pack-pyjama-prix-row">
+                              <span className="pack-pyjama-prix-label">Livraison seule</span>
+                              <span className="pack-pyjama-prix-val">{pack.prixLivraison} €</span>
+                            </div>
+                            <div className="pack-pyjama-prix-row">
+                              <span className="pack-pyjama-prix-label">Livraison + installation</span>
+                              <span className="pack-pyjama-prix-val">{pack.prixLivraisonInstallation} €</span>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
                 {/* Ce qui est inclus */}
                 {concept.inclus && (
                   <>
@@ -168,9 +209,7 @@ export default function ConceptDetail({ concept, suggestions }) {
               {/* Colonne info sticky */}
               <div className="detail-info-col">
                 <div className="info-card">
-                  <div className="info-price">
-                    dès {concept.prix} €{concept.prixUnite || ""}
-                  </div>
+                  <div className="info-price">{getMinPrix(concept)}</div>
                   {concept.minPersonnes && (
                     <p className="info-prix-note">
                       À partir de {concept.minPersonnes} personnes
@@ -218,9 +257,7 @@ export default function ConceptDetail({ concept, suggestions }) {
                   <div className="concept-body">
                     <div className="concept-title">{s.titre}</div>
                     <div className="concept-desc">{s.accroche}</div>
-                    <div className="concept-price">
-                      dès {s.prix} €{s.prixUnite || ""}
-                    </div>
+                    <div className="concept-price">{getMinPrix(s)}</div>
                   </div>
                 </a>
               ))}
