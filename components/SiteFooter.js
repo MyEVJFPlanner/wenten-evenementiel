@@ -1,5 +1,29 @@
 import Image from "next/image";
 import InstagramIcon from "./InstagramIcon";
+import FacebookIcon from "./FacebookIcon";
+
+const socialLinkStyle = {
+  display: "inline-flex",
+  alignItems: "center",
+  color: "rgba(255,255,255,0.55)",
+  transition: "color 0.2s",
+};
+
+function SocialLink({ href, label, children }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={label}
+      style={socialLinkStyle}
+      onMouseEnter={(e) => (e.currentTarget.style.color = "#D6428E")}
+      onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.55)")}
+    >
+      {children}
+    </a>
+  );
+}
 
 export default function SiteFooter() {
   return (
@@ -28,23 +52,14 @@ export default function SiteFooter() {
       }}>
         La Réunion · Depuis 2012
       </p>
-      <a
-        href="https://www.instagram.com/wentenevenementielreunion/"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Suivez-nous sur Instagram"
-        style={{
-          display: "inline-flex",
-          alignItems: "center",
-          marginTop: "14px",
-          color: "rgba(255,255,255,0.55)",
-          transition: "color 0.2s",
-        }}
-        onMouseEnter={(e) => e.currentTarget.style.color = "#D6428E"}
-        onMouseLeave={(e) => e.currentTarget.style.color = "rgba(255,255,255,0.55)"}
-      >
-        <InstagramIcon size={22} />
-      </a>
+      <div style={{ display: "flex", gap: "16px", marginTop: "14px", justifyContent: "center" }}>
+        <SocialLink href="https://www.instagram.com/wentenevenementielreunion/" label="Suivez-nous sur Instagram">
+          <InstagramIcon size={22} />
+        </SocialLink>
+        <SocialLink href="https://www.facebook.com/WentenEvenementielReunion" label="Suivez-nous sur Facebook">
+          <FacebookIcon size={22} />
+        </SocialLink>
+      </div>
       <p className="footer-sub footer-legal">
         <a href="/mentions-legales">Mentions légales</a>
       </p>

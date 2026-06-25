@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import InstagramIcon from "./InstagramIcon";
+import FacebookIcon from "./FacebookIcon";
 
 const NAV_LINKS = [
   { label: "Demandes en mariage", href: "/demandes-en-mariage" },
@@ -49,6 +50,15 @@ export default function SiteHeader() {
             >
               <InstagramIcon size={20} />
             </a>
+            <a
+              href="https://www.facebook.com/WentenEvenementielReunion"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Suivez-nous sur Facebook"
+              className="header-instagram"
+            >
+              <FacebookIcon size={20} />
+            </a>
             <a href="/#contact" className="btn-devis">Devis →</a>
           </div>
           <button className="burger" aria-label="Menu" onClick={() => setMenuOpen(true)}>☰</button>
@@ -81,6 +91,18 @@ export default function SiteHeader() {
           >
             <InstagramIcon size={18} />
             Instagram
+          </a>
+          <a
+            href="https://www.facebook.com/WentenEvenementielReunion"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Suivez-nous sur Facebook"
+            className="drawer-link"
+            style={{ display: "flex", alignItems: "center", gap: "10px" }}
+            onClick={() => setMenuOpen(false)}
+          >
+            <FacebookIcon size={18} />
+            Facebook
           </a>
           <a href="/#contact" className="drawer-cta" onClick={() => setMenuOpen(false)}>Demander un devis →</a>
         </div>
