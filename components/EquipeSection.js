@@ -53,7 +53,7 @@ export default function EquipeSection() {
                       src={member.photo}
                       alt={member.prenom}
                       fill
-                      style={{ objectFit: "cover" }}
+                      style={{ objectFit: "cover", objectPosition: member.position || "center" }}
                       sizes="150px"
                     />
                   </div>
