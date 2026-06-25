@@ -11,7 +11,7 @@ SIRET : 942 669 623 00012
 N° de TVA intracommunautaire : FR71 942 669 623
 Nom commercial : Wenten Événementiel Réunion
 Directrice de la publication : Candice Debord, gérante
-Email : candice@myevjfplanner.com
+Email : info@wentenevenementielreunion.com
 Téléphone : 0692 42 19 99`,
   },
   hebergement: {
@@ -33,7 +33,7 @@ Contact : privacy@vercel.com`,
 
 Ces données sont utilisées uniquement pour le traitement de votre demande et ne sont transmises à aucun tiers à des fins commerciales.
 
-Conformément à la réglementation, vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation et d'opposition au traitement de vos données, que vous pouvez exercer en écrivant à candice@myevjfplanner.com.`,
+Conformément à la réglementation, vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation et d'opposition au traitement de vos données, que vous pouvez exercer en écrivant à info@wentenevenementielreunion.com.`,
   },
   responsabilite: {
     titre: "5. Limitation de responsabilité",

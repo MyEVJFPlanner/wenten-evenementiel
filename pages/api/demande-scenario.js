@@ -110,7 +110,7 @@ export default async function handler(req, res) {
 
   try {
     await sendEmail(apiKey, {
-      to: [{ email: "candice@myevjfplanner.com", name: "Candice — Wenten" }],
+      to: [{ email: "info@wentenevenementielreunion.com", name: "Candice — Wenten" }],
       subject: `🔔 Nouvelle demande — ${scenario}`,
       htmlContent: adminHtml,
     });
