@@ -226,23 +226,34 @@ export default function ScenarioDetail({ scenario, mediaItems, suggestions }) {
                 {scenario.packages && (
                   <>
                     <div className="inclus-header">Choisissez votre formule</div>
-                    <div className="packages-grid">
-                      {scenario.packages.map((pkg) => (
-                        <div key={pkg.nom} className="package-card">
-                          <div className="package-header">
-                            <span className="package-nom">{pkg.nom}</span>
-                            <span className="package-prix">{pkg.prix} €</span>
-                          </div>
-                          <ul className="package-inclus">
-                            {pkg.inclus.map((item) => (
-                              <li key={item} className="inclus-item">
-                                <span className="inclus-check">✓</span>
-                                {item}
-                              </li>
+                    <div className={`packages-grid${scenario.packages.some(p => p.description) ? " packages-grid--rich" : ""}`}>
+                      {scenario.packages.map((pkg) => {
+                        const isNumeric = !isNaN(parseInt(pkg.prix, 10));
+                        return (
+                          <div key={pkg.nom} className="package-card">
+                            <div className="package-header">
+                              <span className="package-nom">{pkg.nom}</span>
+                              {pkg.horaire && (
+                                <span className="package-horaire">{pkg.horaire}</span>
+                              )}
+                              <span className="package-prix">
+                                {isNumeric ? `${pkg.prix} €` : pkg.prix}
+                              </span>
+                            </div>
+                            {pkg.description && pkg.description.split("\n\n").map((para, i) => (
+                              <p key={i} className="package-desc">{para.trim()}</p>
                             ))}
-                          </ul>
-                        </div>
-                      ))}
+                            <ul className="package-inclus">
+                              {pkg.inclus.map((item) => (
+                                <li key={item} className="inclus-item">
+                                  <span className="inclus-check">✓</span>
+                                  {item}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        );
+                      })}
                     </div>
                   </>
                 )}
@@ -271,9 +282,13 @@ export default function ScenarioDetail({ scenario, mediaItems, suggestions }) {
               <div className="detail-info-col">
                 <div className="info-card">
                   <div className="info-price">
-                    dès {scenario.packages
-                      ? Math.min(...scenario.packages.map((p) => parseInt(p.prix, 10)))
-                      : scenario.prix} €
+                    {(() => {
+                      if (scenario.packages) {
+                        const nums = scenario.packages.map(p => parseInt(p.prix, 10)).filter(n => !isNaN(n));
+                        return nums.length ? `dès ${Math.min(...nums)} €` : "Sur devis";
+                      }
+                      return isNaN(parseInt(scenario.prix, 10)) ? scenario.prix : `dès ${scenario.prix} €`;
+                    })()}
                   </div>
                   {scenario.prixNote && (
                     <p className="info-prix-note">{scenario.prixNote}</p>

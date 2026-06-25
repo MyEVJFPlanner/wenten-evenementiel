@@ -1021,6 +1021,20 @@ a { color: inherit; text-decoration: none; }
   font-weight: 700;
   color: #D64292;
 }
+.package-horaire {
+  font-family: 'Inter', sans-serif;
+  font-size: 11.5px;
+  font-style: italic;
+  color: #6b7c7a;
+  margin-top: 2px;
+}
+.package-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 13.5px;
+  color: var(--text-muted);
+  line-height: 1.65;
+  white-space: pre-line;
+}
 .package-inclus {
   list-style: none;
   padding: 0;
@@ -1028,6 +1042,9 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   flex-direction: column;
   gap: 7px;
+}
+.packages-grid--rich {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
 @media (max-width: 760px) {
