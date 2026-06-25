@@ -59,9 +59,9 @@ export const SCENARIOS = [
       },
       {
         nom: "Sublime",
-        prix: "2600",
+        prix: "2800",
         inclus: [
-          "Vol en hélicoptère grandiose",
+          "Vol en hélicoptère 55 minutes",
           "Accès terrasse panoramique",
           "Décoration romantique",
           "Champagne & mignardises",
@@ -69,10 +69,10 @@ export const SCENARIOS = [
       },
       {
         nom: "Royal",
-        prix: "3500",
+        prix: "3800",
         inclus: [
-          "Vol en hélicoptère grandiose",
-          "Déjeuner gîte au Bras de la Plaine",
+          "Vol en hélicoptère 55 minutes",
+          "Déjeuner au gîte au Bras de la Plaine",
           "Décoration exclusive",
           "Champagne, mignardises & bouquet de fleurs",
         ],
