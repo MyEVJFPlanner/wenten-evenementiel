@@ -45,7 +45,7 @@ export const SCENARIOS = [
     accroche: "Une demande en mariage à 1000 mètres au-dessus de La Réunion.",
     description: "Un vol en hélicoptère privatisé au-dessus des cirques, remparts et lagons de l'île. Le pilote vous emmène survoler les plus beaux panoramas de La Réunion, et c'est là, entre ciel et terre, que vous posez la question la plus importante de votre vie.\n\nTrois formules sont proposées selon la durée du vol et le niveau de prestation souhaité, de l'envolée express à l'expérience la plus complète avec déjeuner gastronomique.",
     duree: "10 à 45 min de vol selon la formule",
-    photo: "/images/galerie/photo-13.jpg",
+    photo: "/images/sky-love/sky-love-01.png",
     packages: [
       {
         nom: "Envol",
