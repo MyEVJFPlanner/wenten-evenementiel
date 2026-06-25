@@ -5,6 +5,7 @@ import { SCENARIOS } from "../../data/scenarios";
 import SiteHeader from "../../components/SiteHeader";
 import SiteMeta from "../../components/SiteMeta";
 import FormulaireReservation from "../../components/FormulaireReservation";
+import FormulaireSejourMaurice from "../../components/FormulaireSejourMaurice";
 import SiteFooter from "../../components/SiteFooter";
 
 export function getStaticPaths() {
@@ -54,6 +55,7 @@ export default function ScenarioDetail({ scenario, mediaItems, suggestions }) {
   const [activeIdx, setActiveIdx] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [formOpen, setFormOpen] = useState(false);
+  const [sejourFormOpen, setSejourFormOpen] = useState(false);
 
   const current = mediaItems[activeIdx];
 
@@ -69,11 +71,11 @@ export default function ScenarioDetail({ scenario, mediaItems, suggestions }) {
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = lightboxOpen || formOpen ? "hidden" : "";
+    document.body.style.overflow = lightboxOpen || formOpen || sejourFormOpen ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
-  }, [lightboxOpen, formOpen]);
+  }, [lightboxOpen, formOpen, sejourFormOpen]);
 
   return (
     <>
@@ -209,6 +211,25 @@ export default function ScenarioDetail({ scenario, mediaItems, suggestions }) {
                   ))}
                 </div>
 
+                {scenario.offreComplementaire && (
+                  <div className="offre-complementaire">
+                    <div className="offre-complementaire-titre">
+                      {scenario.offreComplementaire.titre}
+                    </div>
+                    <div className="offre-complementaire-desc">
+                      {scenario.offreComplementaire.description.split("\n\n").map((para, i) => (
+                        <p key={i}>{para}</p>
+                      ))}
+                    </div>
+                    <button
+                      className="btn-fuchsia offre-complementaire-cta"
+                      onClick={() => setSejourFormOpen(true)}
+                    >
+                      {scenario.offreComplementaire.cta} →
+                    </button>
+                  </div>
+                )}
+
                 {scenario.inclus && (
                   <>
                     <div className="inclus-header">Ce qui est inclus</div>
@@ -256,25 +277,6 @@ export default function ScenarioDetail({ scenario, mediaItems, suggestions }) {
                       })}
                     </div>
                   </>
-                )}
-
-                {scenario.offreComplementaire && (
-                  <div className="offre-complementaire">
-                    <div className="offre-complementaire-titre">
-                      {scenario.offreComplementaire.titre}
-                    </div>
-                    <div className="offre-complementaire-desc">
-                      {scenario.offreComplementaire.description.split("\n\n").map((para, i) => (
-                        <p key={i}>{para}</p>
-                      ))}
-                    </div>
-                    <button
-                      className="btn-fuchsia offre-complementaire-cta"
-                      onClick={() => setFormOpen(true)}
-                    >
-                      {scenario.offreComplementaire.cta} →
-                    </button>
-                  </div>
                 )}
 
                 {scenario.options && (
@@ -388,6 +390,10 @@ export default function ScenarioDetail({ scenario, mediaItems, suggestions }) {
           scenario={scenario}
           onClose={() => setFormOpen(false)}
         />
+      )}
+
+      {sejourFormOpen && (
+        <FormulaireSejourMaurice onClose={() => setSejourFormOpen(false)} />
       )}
     </>
   );
