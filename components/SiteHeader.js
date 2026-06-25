@@ -5,9 +5,9 @@ import FacebookIcon from "./FacebookIcon";
 
 const NAV_LINKS = [
   { label: "Demandes en mariage", href: "/demandes-en-mariage" },
-  { label: "Mariages", href: "/#univers" },
-  { label: "Concepts", href: "/#univers" },
-  { label: "Entreprises", href: "/#univers" },
+  { label: "Concepts", href: "/concepts" },
+  { label: "Mariages", href: "/#mariages" },
+  { label: "Entreprises", href: "/#entreprises" },
   { label: "Galerie", href: "/#galerie" },
 ];
 
