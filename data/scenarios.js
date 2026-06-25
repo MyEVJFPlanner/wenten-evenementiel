@@ -289,7 +289,12 @@ export const SCENARIOS = [
     duree: "Selon le scénario choisi (sunset ou nocturne)",
     prix: "Sur devis",
     prixNote: "Privatisation, décoration personnalisée, menu 4 plats, champagne/vin et boissons inclus — tarif selon scénario choisi",
-    photo: "/images/galerie/photo-02.jpg",
+    photo: "/images/lagoon-love/lagoon-love-01.webp",
+    photos: [
+      "/images/lagoon-love/lagoon-love-01.webp",
+      "/images/lagoon-love/lagoon-love-02.webp",
+      "/images/lagoon-love/lagoon-love-03.png",
+    ],
     packages: [
       {
         nom: "L'Éclat du Sunset — L'Heure de l'Or",
