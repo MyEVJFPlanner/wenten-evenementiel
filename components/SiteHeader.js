@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import { Instagram } from "lucide-react";
 
 const NAV_LINKS = [
   { label: "Demandes en mariage", href: "/demandes-en-mariage" },
@@ -38,7 +39,18 @@ export default function SiteHeader() {
               <a key={l.label} href={l.href} className="nav-link">{l.label}</a>
             ))}
           </nav>
-          <a href="/#contact" className="btn-devis">Devis →</a>
+          <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+            <a
+              href="https://www.instagram.com/wentenevenementielreunion/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Suivez-nous sur Instagram"
+              className="header-instagram"
+            >
+              <Instagram size={20} />
+            </a>
+            <a href="/#contact" className="btn-devis">Devis →</a>
+          </div>
           <button className="burger" aria-label="Menu" onClick={() => setMenuOpen(true)}>☰</button>
         </div>
       </header>
@@ -58,6 +70,18 @@ export default function SiteHeader() {
           {NAV_LINKS.map((l) => (
             <a key={l.label} href={l.href} className="drawer-link" onClick={() => setMenuOpen(false)}>{l.label}</a>
           ))}
+          <a
+            href="https://www.instagram.com/wentenevenementielreunion/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Suivez-nous sur Instagram"
+            className="drawer-link"
+            style={{ display: "flex", alignItems: "center", gap: "10px" }}
+            onClick={() => setMenuOpen(false)}
+          >
+            <Instagram size={18} />
+            Instagram
+          </a>
           <a href="/#contact" className="drawer-cta" onClick={() => setMenuOpen(false)}>Demander un devis →</a>
         </div>
       </div>

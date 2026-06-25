@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Instagram } from "lucide-react";
 
 export default function SiteFooter() {
   return (
@@ -27,6 +28,23 @@ export default function SiteFooter() {
       }}>
         La Réunion · Depuis 2012
       </p>
+      <a
+        href="https://www.instagram.com/wentenevenementielreunion/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Suivez-nous sur Instagram"
+        style={{
+          display: "inline-flex",
+          alignItems: "center",
+          marginTop: "14px",
+          color: "rgba(255,255,255,0.55)",
+          transition: "color 0.2s",
+        }}
+        onMouseEnter={(e) => e.currentTarget.style.color = "#D6428E"}
+        onMouseLeave={(e) => e.currentTarget.style.color = "rgba(255,255,255,0.55)"}
+      >
+        <Instagram size={22} />
+      </a>
       <p className="footer-sub footer-legal">
         <a href="/mentions-legales">Mentions légales</a>
       </p>
