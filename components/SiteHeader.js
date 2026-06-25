@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { Instagram } from "lucide-react";
+import InstagramIcon from "./InstagramIcon";
 
 const NAV_LINKS = [
   { label: "Demandes en mariage", href: "/demandes-en-mariage" },
@@ -47,7 +47,7 @@ export default function SiteHeader() {
               aria-label="Suivez-nous sur Instagram"
               className="header-instagram"
             >
-              <Instagram size={20} />
+              <InstagramIcon size={20} />
             </a>
             <a href="/#contact" className="btn-devis">Devis →</a>
           </div>
@@ -79,7 +79,7 @@ export default function SiteHeader() {
             style={{ display: "flex", alignItems: "center", gap: "10px" }}
             onClick={() => setMenuOpen(false)}
           >
-            <Instagram size={18} />
+            <InstagramIcon size={18} />
             Instagram
           </a>
           <a href="/#contact" className="drawer-cta" onClick={() => setMenuOpen(false)}>Demander un devis →</a>

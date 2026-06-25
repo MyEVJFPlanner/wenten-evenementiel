@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Instagram } from "lucide-react";
+import InstagramIcon from "./InstagramIcon";
 
 export default function SiteFooter() {
   return (
@@ -43,7 +43,7 @@ export default function SiteFooter() {
         onMouseEnter={(e) => e.currentTarget.style.color = "#D6428E"}
         onMouseLeave={(e) => e.currentTarget.style.color = "rgba(255,255,255,0.55)"}
       >
-        <Instagram size={22} />
+        <InstagramIcon size={22} />
       </a>
       <p className="footer-sub footer-legal">
         <a href="/mentions-legales">Mentions légales</a>
