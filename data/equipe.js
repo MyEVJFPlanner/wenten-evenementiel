@@ -4,6 +4,6 @@ export const equipe = [
   { prenom: "Maeva", fonction: "Assistante administrative", photo: "/images/equipe/maeva.png", position: "center 20%" },
   { prenom: "Aurora", fonction: "Photographe", photo: "/images/equipe/aurora.jpg", position: "30% 25%" },
   { prenom: "Matthias JOMA", fonction: "Chef à domicile et traiteur", photo: "/images/equipe/matthias.jpg", position: "center 35%" },
-  { prenom: "Ketty", fonction: "Fleuriste", photo: null },
+  { prenom: "Axelle & Ketty", fonction: "Fleuristes", photo: "/images/equipe/axelle-ketty.jpg", position: "center 20%" },
   { prenom: "Nicolas", fonction: "Chauffeur VTC", photo: "/images/equipe/nicolas.jpg" },
 ];
