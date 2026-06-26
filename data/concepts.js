@@ -73,6 +73,10 @@ export const concepts = [
     photos: [
       "/images/concepts/pack-cinetoile.jpg",
       "/images/concepts/pack-cinetoile-02.jpg",
+      "/images/concepts/pack-cinetoile-03.jpg",
+      "/images/concepts/pack-cinetoile-04.jpg",
+      "/images/concepts/pack-cinetoile-05.jpg",
+      "/images/concepts/pack-cinetoile-06.jpg",
     ]
   },
   {
