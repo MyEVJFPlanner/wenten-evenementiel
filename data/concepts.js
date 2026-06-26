@@ -69,7 +69,11 @@ export const concepts = [
     ],
     prix: "290",
     prixNote: "TTC — forfait modulable selon lieu, installation & options choisies. Frais kilométriques : 1€/km selon secteur",
-    photo: "/images/concepts/pack-cinetoile.jpg"
+    photo: "/images/concepts/pack-cinetoile.jpg",
+    photos: [
+      "/images/concepts/pack-cinetoile.jpg",
+      "/images/concepts/pack-cinetoile-02.jpg",
+    ]
   },
   {
     slug: "pyjama-party",
