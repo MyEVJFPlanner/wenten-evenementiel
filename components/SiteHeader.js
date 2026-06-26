@@ -8,7 +8,7 @@ const NAV_LINKS = [
   { label: "Concepts", href: "/concepts" },
   { label: "Mariages", href: "/#mariages" },
   { label: "Entreprises", href: "/#entreprises" },
-  { label: "Galerie", href: "/#galerie" },
+  { label: "Galerie", href: "/galerie" },
 ];
 
 export default function SiteHeader() {
