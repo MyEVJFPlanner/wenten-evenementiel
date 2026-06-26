@@ -1218,9 +1218,34 @@ a { color: inherit; text-decoration: none; }
   max-width: 600px;
   text-shadow: 0 2px 12px rgba(0,0,0,0.5);
 }
+.maurice-hero-items {
+  display: flex;
+  gap: 32px;
+  margin-top: 4px;
+}
+.maurice-hero-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.maurice-hero-item-icon {
+  font-size: 24px;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4));
+}
+.maurice-hero-item-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.8);
+  text-shadow: 0 1px 6px rgba(0,0,0,0.5);
+}
 @media (max-width: 640px) {
-  .maurice-hero-section { min-height: 380px; }
+  .maurice-hero-section { min-height: 420px; }
   .maurice-hero-content { padding: 60px 20px; }
+  .maurice-hero-items { gap: 20px; }
 }
 
 /* ── PACKAGES (formules multi-tarifs) ── */

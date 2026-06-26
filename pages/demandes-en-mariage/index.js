@@ -1,19 +1,12 @@
-import { useState, useEffect } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import { SCENARIOS } from "../../data/scenarios";
 import SiteHeader from "../../components/SiteHeader";
 import SiteMeta from "../../components/SiteMeta";
-import FormulaireSejourMaurice from "../../components/FormulaireSejourMaurice";
+import SejourMauriceSection from "../../components/SejourMauriceSection";
 import SiteFooter from "../../components/SiteFooter";
 
 export default function DemandesEnMariage() {
-  const [sejourFormOpen, setSejourFormOpen] = useState(false);
-
-  useEffect(() => {
-    document.body.style.overflow = sejourFormOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
-  }, [sejourFormOpen]);
 
   return (
     <>
@@ -71,24 +64,8 @@ export default function DemandesEnMariage() {
           </div>
         </section>
 
-        {/* ── BANNIÈRE SÉJOUR MAURICE ── */}
-        <section className="section">
-          <div className="container">
-            <div className="maurice-banner">
-              <div className="maurice-banner-content">
-                <p className="maurice-banner-text">
-                  🌴 Organisez votre week-end de demande en mariage à l'Île Maurice, en formule tout compris&nbsp;! Grâce à notre partenariat rapproché avec une agence de voyage locale, nous pouvons inclure vols, hébergement et l'un de nos scénarios magiques.
-                </p>
-                <button
-                  className="btn-fuchsia"
-                  onClick={() => setSejourFormOpen(true)}
-                >
-                  Demander ce séjour →
-                </button>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* ── SÉJOUR MAURICE ── */}
+        <SejourMauriceSection />
 
         {/* ── CTA FINAL ── */}
         <section className="cta-final section-dark" id="contact">
@@ -107,10 +84,6 @@ export default function DemandesEnMariage() {
       </main>
 
       <SiteFooter />
-
-      {sejourFormOpen && (
-        <FormulaireSejourMaurice onClose={() => setSejourFormOpen(false)} />
-      )}
     </>
   );
 }

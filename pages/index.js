@@ -1,11 +1,10 @@
-import { useState, useEffect } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import { SCENARIOS } from "../data/scenarios";
 import SiteHeader from "../components/SiteHeader";
 import SiteMeta from "../components/SiteMeta";
 import EquipeSection from "../components/EquipeSection";
-import FormulaireSejourMaurice from "../components/FormulaireSejourMaurice";
+import SejourMauriceSection from "../components/SejourMauriceSection";
 import SiteFooter from "../components/SiteFooter";
 
 const HOMEPAGE_SCENARIOS = SCENARIOS.slice(0, 4);
@@ -19,13 +18,6 @@ const UNIVERS = [
 ];
 
 export default function Home() {
-  const [sejourFormOpen, setSejourFormOpen] = useState(false);
-
-  useEffect(() => {
-    document.body.style.overflow = sejourFormOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
-  }, [sejourFormOpen]);
-
   return (
     <>
       <Head>
@@ -180,28 +172,7 @@ export default function Home() {
         </section>
 
         {/* ── SÉJOUR MAURICE ── */}
-        <section className="maurice-hero-section">
-          <div className="maurice-hero-bg">
-            <Image
-              src="/images/maurice-plage.jpg"
-              alt="Demande en mariage à l'Île Maurice"
-              fill
-              style={{ objectFit: "cover", objectPosition: "center" }}
-              sizes="100vw"
-            />
-            <div className="maurice-hero-overlay" />
-          </div>
-          <div className="maurice-hero-content">
-            <div className="section-eyebrow" style={{ color: "rgba(255,255,255,0.7)" }}>Formule exclusive</div>
-            <h2 className="maurice-hero-title">🌴 Votre week-end complet à l'Île Maurice</h2>
-            <p className="maurice-hero-text">
-              Organisez votre week-end de demande en mariage à l'Île Maurice, en formule tout compris&nbsp;! Grâce à notre partenariat rapproché avec une agence de voyage partenaire, nous pouvons inclure vols, hébergement et l'un de nos scénarios magiques.
-            </p>
-            <button className="btn-fuchsia" onClick={() => setSejourFormOpen(true)}>
-              Demander ce séjour →
-            </button>
-          </div>
-        </section>
+        <SejourMauriceSection />
 
         {/* ── ÉQUIPE ── */}
         <EquipeSection />
@@ -222,10 +193,6 @@ export default function Home() {
       </main>
 
       <SiteFooter />
-
-      {sejourFormOpen && (
-        <FormulaireSejourMaurice onClose={() => setSejourFormOpen(false)} />
-      )}
     </>
   );
 }
