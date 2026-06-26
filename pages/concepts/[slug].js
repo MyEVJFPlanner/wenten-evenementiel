@@ -17,10 +17,11 @@ export function getStaticPaths() {
 export function getStaticProps({ params }) {
   const index = concepts.findIndex((c) => c.slug === params.slug);
   const concept = concepts[index];
+  const photos = concept.photos || [concept.photo];
   const suggestions = [1, 2].map(
     (offset) => concepts[(index + offset) % concepts.length]
   );
-  return { props: { concept, suggestions } };
+  return { props: { concept, photos, suggestions } };
 }
 
 function getMinPrix(concept) {
@@ -32,21 +33,23 @@ function getMinPrix(concept) {
   return "Sur devis";
 }
 
-export default function ConceptDetail({ concept, suggestions }) {
+export default function ConceptDetail({ concept, photos, suggestions }) {
+  const [activeIdx, setActiveIdx] = useState(0);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
   const [formOpen, setFormOpen] = useState(false);
 
   useEffect(() => {
     const onKey = (e) => {
-      if (e.key === "Escape") setFormOpen(false);
+      if (e.key === "Escape") { setLightboxOpen(false); setFormOpen(false); }
     };
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = formOpen ? "hidden" : "";
+    document.body.style.overflow = (lightboxOpen || formOpen) ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
-  }, [formOpen]);
+  }, [lightboxOpen, formOpen]);
 
   return (
     <>
@@ -62,9 +65,15 @@ export default function ConceptDetail({ concept, suggestions }) {
       <main>
         {/* ── HERO ── */}
         <section className="detail-hero">
-          <div className="detail-hero-bg">
+          <div
+            className="detail-hero-bg"
+            style={{ cursor: photos.length > 1 ? "zoom-in" : "default" }}
+            onClick={() => photos.length > 1 && setLightboxOpen(true)}
+            role={photos.length > 1 ? "button" : undefined}
+            aria-label={photos.length > 1 ? "Voir en grand" : undefined}
+          >
             <Image
-              src={concept.photo}
+              src={photos[activeIdx]}
               alt={concept.titre}
               fill
               priority
@@ -73,7 +82,7 @@ export default function ConceptDetail({ concept, suggestions }) {
             />
           </div>
           <div className="detail-hero-gradient" />
-          <div className="detail-hero-content">
+          <div className="detail-hero-content" onClick={(e) => e.stopPropagation()}>
             <span className="detail-hero-numero">
               {concept.emoji} Concept événementiel
             </span>
@@ -81,6 +90,49 @@ export default function ConceptDetail({ concept, suggestions }) {
             <p className="detail-accroche">{concept.accroche}</p>
           </div>
         </section>
+
+        {/* ── MINIATURES ── */}
+        {photos.length > 1 && (
+          <div className="detail-thumbs-strip">
+            {photos.map((src, i) => (
+              <button
+                key={i}
+                className={`detail-thumb${i === activeIdx ? " active" : ""}`}
+                onClick={() => setActiveIdx(i)}
+                aria-label={`Photo ${i + 1}`}
+              >
+                <Image
+                  src={src}
+                  alt=""
+                  fill
+                  style={{ objectFit: "cover" }}
+                  sizes="88px"
+                />
+              </button>
+            ))}
+          </div>
+        )}
+
+        {/* ── LIGHTBOX ── */}
+        {lightboxOpen && (
+          <div className="lightbox" onClick={() => setLightboxOpen(false)}>
+            <button
+              className="lightbox-close"
+              onClick={() => setLightboxOpen(false)}
+              aria-label="Fermer"
+            >
+              ✕
+            </button>
+            <div className="lightbox-inner" onClick={(e) => e.stopPropagation()}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={photos[activeIdx]}
+                alt={concept.titre}
+                className="lightbox-img"
+              />
+            </div>
+          </div>
+        )}
 
         {/* ── CORPS ── */}
         <section className="section">

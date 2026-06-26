@@ -137,7 +137,11 @@ export const concepts = [
     ],
     tipiSupplementaire: "35",
     prixNote: "Tipi supplémentaire : +35€. Frais kilométriques selon secteur : 1€/km",
-    photo: "/images/concepts/pyjama-party.jpg"
+    photo: "/images/concepts/pyjama-party-01.jpg",
+    photos: [
+      "/images/concepts/pyjama-party-01.jpg",
+      "/images/concepts/pyjama-party-02.jpg"
+    ]
   },
   {
     slug: "vintage-vinyles",
