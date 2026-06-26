@@ -140,7 +140,11 @@ export const concepts = [
     photo: "/images/concepts/pyjama-party-01.jpg",
     photos: [
       "/images/concepts/pyjama-party-01.jpg",
-      "/images/concepts/pyjama-party-02.jpg"
+      "/images/concepts/pyjama-party-02.jpg",
+      "/images/concepts/pyjama-party-03.jpg",
+      "/images/concepts/pyjama-party-04.jpg",
+      "/images/concepts/pyjama-party-05.jpg",
+      "/images/concepts/pyjama-party-06.jpg"
     ]
   },
   {
