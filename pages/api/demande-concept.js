@@ -1,5 +1,5 @@
 const BREVO_URL = "https://api.brevo.com/v3/smtp/email";
-const SENDER = { name: "Wenten Événementiel", email: "contact@wenten-evenementiel.re" };
+const SENDER = { name: "Wenten Événementiel", email: "candice@myevjfplanner.com" };
 
 async function sendEmail(apiKey, payload) {
   const res = await fetch(BREVO_URL, {
