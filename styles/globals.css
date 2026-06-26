@@ -845,6 +845,117 @@ a { color: inherit; text-decoration: none; }
   font-size: 18px;
 }
 
+/* ── PHOTO LIGHTBOX (composant partagé) ── */
+.plb-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0,0,0,0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.plb-close {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  background: rgba(255,255,255,0.12);
+  border: none;
+  color: #fff;
+  font-size: 17px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  z-index: 2;
+}
+.plb-close:hover { background: rgba(255,255,255,0.28); }
+.plb-counter {
+  position: absolute;
+  top: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255,255,255,0.65);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  pointer-events: none;
+  z-index: 2;
+}
+.plb-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.10);
+  border: none;
+  color: #fff;
+  font-size: 46px;
+  line-height: 1;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, opacity 0.2s;
+  z-index: 2;
+  padding: 0;
+  opacity: 0.25;
+}
+.plb-overlay:hover .plb-nav { opacity: 1; }
+.plb-nav:hover { background: rgba(255,255,255,0.25); }
+.plb-nav--prev { left: 16px; }
+.plb-nav--next { right: 16px; }
+.plb-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 92vw;
+  max-height: 90vh;
+}
+.plb-media {
+  max-width: 92vw;
+  max-height: 88vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 4px;
+  display: block;
+  user-select: none;
+  -webkit-user-select: none;
+}
+@media (max-width: 640px) {
+  .plb-nav { opacity: 1; width: 44px; height: 44px; font-size: 34px; }
+  .plb-nav--prev { left: 6px; }
+  .plb-nav--next { right: 6px; }
+}
+
+/* Hero — indicateur zoom */
+.detail-hero-bg { position: relative; }
+.detail-hero-zoom-hint {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  width: 38px;
+  height: 38px;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(4px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.25s;
+  pointer-events: none;
+  z-index: 1;
+}
+.detail-hero-bg:hover .detail-hero-zoom-hint { opacity: 1; }
+
 /* ── LIGHTBOX ── */
 .lightbox {
   position: fixed;

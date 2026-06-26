@@ -6,6 +6,7 @@ import SiteHeader from "../../components/SiteHeader";
 import SiteMeta from "../../components/SiteMeta";
 import FormulaireReservation from "../../components/FormulaireReservation";
 import FormulaireSejourMaurice from "../../components/FormulaireSejourMaurice";
+import PhotoLightbox from "../../components/PhotoLightbox";
 import SiteFooter from "../../components/SiteFooter";
 
 export function getStaticPaths() {
@@ -61,21 +62,16 @@ export default function ScenarioDetail({ scenario, mediaItems, suggestions }) {
 
   useEffect(() => {
     const onKey = (e) => {
-      if (e.key === "Escape") {
-        setLightboxOpen(false);
-        setFormOpen(false);
-      }
+      if (e.key === "Escape") { setFormOpen(false); setSejourFormOpen(false); }
     };
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = lightboxOpen || formOpen || sejourFormOpen ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [lightboxOpen, formOpen, sejourFormOpen]);
+    document.body.style.overflow = formOpen || sejourFormOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [formOpen, sejourFormOpen]);
 
   return (
     <>
@@ -91,7 +87,6 @@ export default function ScenarioDetail({ scenario, mediaItems, suggestions }) {
       <main>
         {/* ── HERO GALERIE ── */}
         <section className="detail-hero">
-          {/* Image/vidéo principale — clic = lightbox */}
           <div
             className="detail-hero-bg"
             style={{ cursor: "zoom-in" }}
@@ -118,6 +113,11 @@ export default function ScenarioDetail({ scenario, mediaItems, suggestions }) {
                 style={{ width: "100%", height: "100%", objectFit: "cover" }}
               />
             )}
+            <div className="detail-hero-zoom-hint" aria-hidden="true">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round">
+                <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/>
+              </svg>
+            </div>
           </div>
           <div className="detail-hero-gradient" />
           <div
@@ -140,7 +140,7 @@ export default function ScenarioDetail({ scenario, mediaItems, suggestions }) {
               <button
                 key={i}
                 className={`detail-thumb${i === activeIdx ? " active" : ""}`}
-                onClick={() => setActiveIdx(i)}
+                onClick={() => { setActiveIdx(i); setLightboxOpen(true); }}
                 aria-label={`Média ${i + 1}`}
               >
                 {m.type === "image" ? (
@@ -166,34 +166,12 @@ export default function ScenarioDetail({ scenario, mediaItems, suggestions }) {
           </div>
         )}
 
-        {/* ── LIGHTBOX ── */}
         {lightboxOpen && (
-          <div className="lightbox" onClick={() => setLightboxOpen(false)}>
-            <button
-              className="lightbox-close"
-              onClick={() => setLightboxOpen(false)}
-              aria-label="Fermer"
-            >
-              ✕
-            </button>
-            <div className="lightbox-inner" onClick={(e) => e.stopPropagation()}>
-              {current.type === "image" ? (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  src={current.src}
-                  alt={scenario.titre}
-                  className="lightbox-img"
-                />
-              ) : (
-                <video
-                  src={current.src}
-                  controls
-                  autoPlay
-                  className="lightbox-video"
-                />
-              )}
-            </div>
-          </div>
+          <PhotoLightbox
+            photos={mediaItems}
+            startIndex={activeIdx}
+            onClose={() => setLightboxOpen(false)}
+          />
         )}
 
         {/* ── CORPS ── */}

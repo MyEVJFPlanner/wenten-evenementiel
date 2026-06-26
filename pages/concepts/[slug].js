@@ -5,6 +5,7 @@ import { concepts } from "../../data/concepts";
 import SiteHeader from "../../components/SiteHeader";
 import SiteMeta from "../../components/SiteMeta";
 import FormulaireConcept from "../../components/FormulaireConcept";
+import PhotoLightbox from "../../components/PhotoLightbox";
 import SiteFooter from "../../components/SiteFooter";
 
 export function getStaticPaths() {
@@ -40,16 +41,16 @@ export default function ConceptDetail({ concept, photos, suggestions }) {
 
   useEffect(() => {
     const onKey = (e) => {
-      if (e.key === "Escape") { setLightboxOpen(false); setFormOpen(false); }
+      if (e.key === "Escape") setFormOpen(false);
     };
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = (lightboxOpen || formOpen) ? "hidden" : "";
+    document.body.style.overflow = formOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
-  }, [lightboxOpen, formOpen]);
+  }, [formOpen]);
 
   return (
     <>
@@ -80,6 +81,13 @@ export default function ConceptDetail({ concept, photos, suggestions }) {
               style={{ objectFit: "cover", objectPosition: "center" }}
               sizes="100vw"
             />
+            {photos.length > 1 && (
+              <div className="detail-hero-zoom-hint" aria-hidden="true">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round">
+                  <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/>
+                </svg>
+              </div>
+            )}
           </div>
           <div className="detail-hero-gradient" />
           <div className="detail-hero-content" onClick={(e) => e.stopPropagation()}>
@@ -98,7 +106,7 @@ export default function ConceptDetail({ concept, photos, suggestions }) {
               <button
                 key={i}
                 className={`detail-thumb${i === activeIdx ? " active" : ""}`}
-                onClick={() => setActiveIdx(i)}
+                onClick={() => { setActiveIdx(i); setLightboxOpen(true); }}
                 aria-label={`Photo ${i + 1}`}
               >
                 <Image
@@ -113,25 +121,12 @@ export default function ConceptDetail({ concept, photos, suggestions }) {
           </div>
         )}
 
-        {/* ── LIGHTBOX ── */}
         {lightboxOpen && (
-          <div className="lightbox" onClick={() => setLightboxOpen(false)}>
-            <button
-              className="lightbox-close"
-              onClick={() => setLightboxOpen(false)}
-              aria-label="Fermer"
-            >
-              ✕
-            </button>
-            <div className="lightbox-inner" onClick={(e) => e.stopPropagation()}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={photos[activeIdx]}
-                alt={concept.titre}
-                className="lightbox-img"
-              />
-            </div>
-          </div>
+          <PhotoLightbox
+            photos={photos}
+            startIndex={activeIdx}
+            onClose={() => setLightboxOpen(false)}
+          />
         )}
 
         {/* ── CORPS ── */}
