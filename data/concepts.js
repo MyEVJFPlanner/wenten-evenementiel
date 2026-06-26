@@ -77,6 +77,7 @@ export const concepts = [
       "/images/concepts/pack-cinetoile-04.jpg",
       "/images/concepts/pack-cinetoile-05.jpg",
       "/images/concepts/pack-cinetoile-06.jpg",
+      "/images/concepts/pack-cinetoile-07.jpg",
     ]
   },
   {
