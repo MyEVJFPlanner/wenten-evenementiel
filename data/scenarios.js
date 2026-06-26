@@ -323,7 +323,7 @@ export const SCENARIOS = [
     ],
     offreComplementaire: {
       titre: "🌴 Votre week-end complet à l'Île Maurice",
-      description: "Envie de vivre toute l'expérience sans rien organiser vous-même ? En collaboration avec [une agence de voyage partenaire / Yes Weekend Travel], nous vous proposons un séjour clé en main incluant :\n\n✈️ Le vol aller-retour vers l'Île Maurice\n🏨 L'hébergement pour votre séjour\n💍 Le scénario de demande en mariage Lagoon Love, organisé entièrement par Wenten Événementiel\n\nUne formule pensée pour que vous n'ayez qu'une seule chose à faire : profiter du moment.",
+      description: "Envie de vivre toute l'expérience sans rien organiser vous-même ? En collaboration avec une agence de voyage partenaire, nous vous proposons un séjour clé en main incluant :\n\n✈️ Le vol aller-retour vers l'Île Maurice\n🏨 L'hébergement pour votre séjour\n💍 Le scénario de demande en mariage Lagoon Love, organisé entièrement par Wenten Événementiel\n\nUne formule pensée pour que vous n'ayez qu'une seule chose à faire : profiter du moment.",
       cta: "Demander ce séjour complet",
     },
   },
