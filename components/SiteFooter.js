@@ -1,6 +1,7 @@
 import Image from "next/image";
 import InstagramIcon from "./InstagramIcon";
 import FacebookIcon from "./FacebookIcon";
+import TikTokIcon from "./TikTokIcon";
 
 const socialLinkStyle = {
   display: "inline-flex",
@@ -58,6 +59,9 @@ export default function SiteFooter() {
         </SocialLink>
         <SocialLink href="https://www.facebook.com/WentenEvenementielReunion" label="Suivez-nous sur Facebook">
           <FacebookIcon size={22} />
+        </SocialLink>
+        <SocialLink href="https://www.tiktok.com/@wenten.evenementiel" label="Suivez-nous sur TikTok">
+          <TikTokIcon size={22} />
         </SocialLink>
       </div>
       <p className="footer-sub footer-legal">

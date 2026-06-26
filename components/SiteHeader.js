@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import InstagramIcon from "./InstagramIcon";
 import FacebookIcon from "./FacebookIcon";
+import TikTokIcon from "./TikTokIcon";
 
 const NAV_LINKS = [
   { label: "Demandes en mariage", href: "/demandes-en-mariage" },
@@ -59,6 +60,15 @@ export default function SiteHeader() {
             >
               <FacebookIcon size={20} />
             </a>
+            <a
+              href="https://www.tiktok.com/@wenten.evenementiel"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Suivez-nous sur TikTok"
+              className="header-instagram"
+            >
+              <TikTokIcon size={20} />
+            </a>
             <a href="/#contact" className="btn-devis">Devis →</a>
           </div>
           <button className="burger" aria-label="Menu" onClick={() => setMenuOpen(true)}>☰</button>
@@ -103,6 +113,18 @@ export default function SiteHeader() {
           >
             <FacebookIcon size={18} />
             Facebook
+          </a>
+          <a
+            href="https://www.tiktok.com/@wenten.evenementiel"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Suivez-nous sur TikTok"
+            className="drawer-link"
+            style={{ display: "flex", alignItems: "center", gap: "10px" }}
+            onClick={() => setMenuOpen(false)}
+          >
+            <TikTokIcon size={18} />
+            TikTok
           </a>
           <a href="/#contact" className="drawer-cta" onClick={() => setMenuOpen(false)}>Demander un devis →</a>
         </div>
