@@ -179,9 +179,6 @@ export default function Home() {
           <p className="testimonial-author">— Sofia & Thomas, demande en mariage · Lagon Love</p>
         </section>
 
-        {/* ── ÉQUIPE ── */}
-        <EquipeSection />
-
         {/* ── SÉJOUR MAURICE ── */}
         <section className="maurice-hero-section">
           <div className="maurice-hero-bg">
@@ -205,6 +202,9 @@ export default function Home() {
             </button>
           </div>
         </section>
+
+        {/* ── ÉQUIPE ── */}
+        <EquipeSection />
 
         {/* ── CTA FINAL ── */}
         <section className="cta-final section-dark" id="contact">
