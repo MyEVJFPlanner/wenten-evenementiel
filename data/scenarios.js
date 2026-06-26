@@ -272,7 +272,13 @@ export const SCENARIOS = [
     ],
     prix: "690",
     duree: "1h sur place",
-    photo: "/images/galerie/photo-12.jpg",
+    photo: "/images/lamour-le-doux/lamour-le-doux-01.jpg",
+    photos: [
+      "/images/lamour-le-doux/lamour-le-doux-01.jpg",
+      "/images/lamour-le-doux/lamour-le-doux-02.jpg",
+      "/images/lamour-le-doux/lamour-le-doux-03.jpg",
+      "/images/lamour-le-doux/lamour-le-doux-04.jpg",
+    ],
   },
   {
     slug: "lagoon-love",
