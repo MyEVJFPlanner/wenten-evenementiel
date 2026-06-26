@@ -183,7 +183,7 @@ export default function Home() {
         <section className="maurice-hero-section">
           <div className="maurice-hero-bg">
             <Image
-              src="/images/lagoon-love/lagoon-love-01.webp"
+              src="/images/maurice-plage.jpg"
               alt="Demande en mariage à l'Île Maurice"
               fill
               style={{ objectFit: "cover", objectPosition: "center" }}
