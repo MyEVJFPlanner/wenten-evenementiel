@@ -83,7 +83,7 @@ export default async function handler(req, res) {
   </div>
   <div style="background:#F4FBFA;padding:16px 32px;border-top:1px solid #E2EFEC;">
     <p style="font-size:11px;color:#5C7370;margin:0;">
-      Wenten Événementiel · <a href="mailto:contact@wenten-evenementiel.re" style="color:#0E8C8C;">contact@wenten-evenementiel.re</a>
+      Wenten Événementiel · <a href="mailto:info@wentenevenementielreunion.com" style="color:#0E8C8C;">info@wentenevenementielreunion.com</a>
     </p>
   </div>
 </div>`;

@@ -75,7 +75,7 @@ export default function ConceptsIndex() {
             Chaque détail est pensé pour vous. Parlez-nous de votre projet
             et nous créons ensemble l'événement qui vous ressemble.
           </p>
-          <a href="mailto:contact@wenten-evenementiel.re" className="btn-fuchsia">
+          <a href="mailto:info@wentenevenementielreunion.com" className="btn-fuchsia">
             Demander un devis personnalisé →
           </a>
         </section>

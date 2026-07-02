@@ -93,7 +93,7 @@ export default function Galerie() {
             Partagez-nous votre vision. Nous créons ensemble l'événement
             qui vous ressemble, sur mesure, à La Réunion.
           </p>
-          <a href="mailto:contact@wenten-evenementiel.re" className="btn-fuchsia">
+          <a href="mailto:info@wentenevenementielreunion.com" className="btn-fuchsia">
             Demander un devis personnalisé →
           </a>
         </section>
