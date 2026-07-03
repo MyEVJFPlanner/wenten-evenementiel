@@ -6,6 +6,13 @@ import SiteMeta from "../../components/SiteMeta";
 import SejourMauriceSection from "../../components/SejourMauriceSection";
 import SiteFooter from "../../components/SiteFooter";
 
+function getPrixLabel(s) {
+  const p = s.prix;
+  if (!p) return null;
+  if (!isNaN(Number(p))) return `dès ${p} €`;
+  return p; // "Sur devis" ou autre texte
+}
+
 export default function DemandesEnMariage() {
 
   return (
@@ -56,7 +63,9 @@ export default function DemandesEnMariage() {
                   <div className="scenario-body">
                     <div className="scenario-title">{s.titre}</div>
                     <div className="scenario-desc">{s.accroche}</div>
-                    <div className="scenario-price">dès {s.prix} €</div>
+                    {getPrixLabel(s) && (
+                      <div className="scenario-price">{getPrixLabel(s)}</div>
+                    )}
                   </div>
                 </a>
               ))}
