@@ -40,6 +40,11 @@ export default function DemandesEnMariage() {
           </p>
         </section>
 
+        {/* ── SIGNATURE 100% OUI ── */}
+        <p className="demandes-signature">
+          💍 Depuis 14 ans, chaque demande en mariage organisée par Wenten s'est conclue par un OUI. 100&nbsp;% de réussite.
+        </p>
+
         {/* ── GRILLE DES SCÉNARIOS ── */}
         <section className="section">
           <div className="container">

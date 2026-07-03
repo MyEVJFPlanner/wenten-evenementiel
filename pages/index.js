@@ -49,7 +49,7 @@ export default function Home() {
           <div className="hero-content">
             <div className="hero-badge">
               <span className="hero-badge-line" />
-              14 ans d'expertise · La Réunion
+              14 ans d'expertise · 100% de OUI · La Réunion &amp; Île Maurice
               <span className="hero-badge-line" />
             </div>
             <h1 className="hero-h1">
@@ -72,6 +72,7 @@ export default function Home() {
             {[
               { num: "14", label: "ans d'expérience" },
               { num: "200+", label: "événements réalisés" },
+              { num: "100%", label: "de OUI 💍" },
               { num: "10", label: "scénarios signature" },
               { num: "4.9★", label: "avis clients" },
             ].map(({ num, label }) => (
