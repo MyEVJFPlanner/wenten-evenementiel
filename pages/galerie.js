@@ -5,8 +5,8 @@ import SiteHeader from "../components/SiteHeader";
 import SiteMeta from "../components/SiteMeta";
 import SiteFooter from "../components/SiteFooter";
 
-const EXT = { 11: "png", 22: "webp" };
-const PHOTOS = Array.from({ length: 24 }, (_, i) => {
+const EXT = { 22: "webp" };
+const PHOTOS = Array.from({ length: 23 }, (_, i) => {
   const n = i + 1;
   const ext = EXT[n] || "jpg";
   return `/images/galerie/photo-${String(n).padStart(2, "0")}.${ext}`;
