@@ -208,5 +208,45 @@ export const concepts = [
       "/images/concepts/vintage-vinyles-02.jpg",
       "/images/concepts/vintage-vinyles-03.jpg",
     ]
+  },
+  {
+    slug: "beach-brunch",
+    titre: "Beach Brunch",
+    emoji: "🌴",
+    accroche: "Un brunch gourmand et bohème, les pieds dans le sable.",
+    description: "En partenariat avec Matthias JOMA, chef à domicile, nous installons pour vous un brunch généreux façon grazing table, servi dans un cadre bohème et raffiné — sur la plage ou à domicile.\n\nCharcuteries, fromages, pancakes maison, tartinades, boissons fraîches... un buffet gourmand avec une vraie touche tropicale, pensé pour sublimer vos événements.",
+    inclus: [
+      "Brunch complet préparé par Matthias JOMA, chef à domicile — grazing table : 3 sortes de charcuteries, 3 sortes de fromages, 2 sortes de légumes, 1 salade de fruits, 10 muffins au chocolat, 20 pancakes maison, 2 variétés de pain, yaourt & muesli, miel / confiture / chocolat, 2 tartinades maison (crémeux aux herbes et houmous)",
+      "1 boisson fraîche au choix (4 L) : citronnade-gingembre ou thé glacé menthe fraîche",
+      "Installation complète du buffet : table, nappe, vaisselle, planche en bois, distributeur à boisson",
+      "Décoration bohème soignée : nappes, coussins, déco florale",
+      "Éclairage d'ambiance pour les événements après 17h",
+      "Installation & désinstallation"
+    ],
+    idealPour: [
+      "Événement d'entreprise",
+      "Anniversaire",
+      "Vin d'honneur",
+      "EVJF",
+      "Célébration privée"
+    ],
+    options: [
+      { nom: "Mignardises salées sur demande" },
+      { nom: "Photographe" },
+      { nom: "Atelier créatif" },
+      { nom: "Musique live" }
+    ],
+    infosPratiques: [
+      "Pack disponible à partir de 10 personnes",
+      "Durée : environ 3h, horaires flexibles (matinal ou fin de matinée)",
+      "Pour les groupes importants, contactez-nous pour un devis personnalisé",
+      "Frais kilométriques : 1€/km selon secteur",
+      "Lieu au choix"
+    ],
+    prix: "65",
+    prixUnite: "/pers.",
+    minPersonnes: 10,
+    prixNote: "TTC par personne — à partir de 10 personnes. Forfait modulable selon le nombre de participants & le lieu choisi",
+    photo: "/images/concepts/beach-brunch.jpg"
   }
 ];
