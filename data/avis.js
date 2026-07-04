@@ -42,6 +42,14 @@ export const avisGoogle = {
       note: 5,
       date: "il y a 5 mois",
       texte: "Notre partenaire de longue date sur des événements complètement personnalisés créés avec passion et sérieux !"
+    },
+    {
+      prenom: "Mamzelle Nanou",
+      initiale: "M",
+      couleur: "#FF9800",
+      note: 4,
+      date: "il y a un mois",
+      texte: "Super prestation sur Grand-Anse. Merci encore Candice, ce fut un beau moment grâce à toi et Justine, merci encore pour cette prestation de diiinguueee 🥳🥰😈🥰"
     }
   ]
 };
