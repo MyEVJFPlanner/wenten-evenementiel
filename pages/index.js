@@ -5,6 +5,7 @@ import SiteHeader from "../components/SiteHeader";
 import SiteMeta from "../components/SiteMeta";
 import EquipeSection from "../components/EquipeSection";
 import SejourMauriceSection from "../components/SejourMauriceSection";
+import GoogleReviews from "../components/GoogleReviews";
 import SiteFooter from "../components/SiteFooter";
 
 const HOMEPAGE_SCENARIOS = SCENARIOS.slice(0, 4);
@@ -17,7 +18,42 @@ const UNIVERS = [
   { label: "EVJF & EVG", img: "/images/galerie/photo-03.jpg", href: "https://www.myevjfplanner.com" },
 ];
 
-export default function Home() {
+export async function getStaticProps() {
+  const apiKey = process.env.GOOGLE_PLACES_API_KEY;
+  let googleReviews = null;
+
+  if (apiKey) {
+    try {
+      const PLACE_ID = "ChIJK-OeryiCGBgRAnfIiBO0ae4";
+      const res = await fetch(
+        `https://maps.googleapis.com/maps/api/place/details/json?place_id=${PLACE_ID}&fields=name,rating,user_ratings_total,reviews&language=fr&reviews_sort=most_relevant&key=${apiKey}`
+      );
+      const data = await res.json();
+      if (data.status === "OK" && data.result) {
+        const result = data.result;
+        const reviews = (result.reviews || [])
+          .filter((r) => r.rating >= 4)
+          .slice(0, 5);
+        if (reviews.length > 0) {
+          googleReviews = {
+            rating: result.rating ?? null,
+            total: result.user_ratings_total ?? 0,
+            reviews,
+          };
+        }
+      }
+    } catch {
+      // API indisponible — section masquée silencieusement
+    }
+  }
+
+  return {
+    props: { googleReviews },
+    revalidate: 86400,
+  };
+}
+
+export default function Home({ googleReviews }) {
   return (
     <>
       <Head>
@@ -174,6 +210,9 @@ export default function Home() {
 
         {/* ── SÉJOUR MAURICE ── */}
         <SejourMauriceSection />
+
+        {/* ── AVIS GOOGLE ── */}
+        <GoogleReviews data={googleReviews} />
 
         {/* ── ÉQUIPE ── */}
         <EquipeSection />
