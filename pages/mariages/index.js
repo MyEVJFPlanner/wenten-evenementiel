@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Image from "next/image";
 import SiteHeader from "../../components/SiteHeader";
 import SiteMeta from "../../components/SiteMeta";
 import SiteFooter from "../../components/SiteFooter";
@@ -19,7 +20,7 @@ const ANNONCES = [
       "Remise des photos en fin de prestation",
     ],
     idealPour: ["Vin d'honneur", "Soirée de mariage", "Anniversaire", "Événement d'entreprise"],
-    gradient: "linear-gradient(135deg, #1a4a4a 0%, #0E8C8C 60%, #5FD4C8 100%)",
+    photo: "/images/mariages/borne-photo.jpg",
   },
   {
     slug: "livre-or-audio",
@@ -36,7 +37,7 @@ const ANNONCES = [
       "Récupération des enregistrements",
     ],
     idealPour: ["Vin d'honneur", "Mariage", "Anniversaire", "Départ en retraite"],
-    gradient: "linear-gradient(135deg, #2a1a4a 0%, #6B4FB8 60%, #9B7FD4 100%)",
+    photo: "/images/mariages/livre-or-audio.jpg",
   },
   {
     slug: "vins-dhonneur",
@@ -92,9 +93,19 @@ export default function Mariages() {
                   {/* Zone visuelle */}
                   <div
                     className="mariage-card-visual"
-                    style={{ background: a.gradient }}
+                    style={a.photo ? {} : { background: a.gradient }}
                   >
-                    <span className="mariage-card-emoji">{a.emoji}</span>
+                    {a.photo ? (
+                      <Image
+                        src={a.photo}
+                        alt={a.titre}
+                        fill
+                        style={{ objectFit: "cover", objectPosition: "center" }}
+                        sizes="(max-width: 900px) 100vw, 33vw"
+                      />
+                    ) : (
+                      <span className="mariage-card-emoji">{a.emoji}</span>
+                    )}
                     <span className="mariage-soon-badge">Bientôt disponible</span>
                   </div>
 

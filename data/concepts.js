@@ -247,6 +247,10 @@ export const concepts = [
     prixUnite: "/pers.",
     minPersonnes: 10,
     prixNote: "TTC par personne — à partir de 10 personnes. Forfait modulable selon le nombre de participants & le lieu choisi",
-    photo: "/images/concepts/beach-brunch.jpg"
+    photo: "/images/concepts/beach-brunch-01.jpg",
+    photos: [
+      "/images/concepts/beach-brunch-01.jpg",
+      "/images/concepts/beach-brunch-02.jpg",
+    ]
   }
 ];
