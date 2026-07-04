@@ -11,10 +11,10 @@ import SiteFooter from "../components/SiteFooter";
 const HOMEPAGE_SCENARIOS = SCENARIOS.slice(0, 4);
 
 const UNIVERS = [
-  { label: "Mariages", img: "/images/galerie/photo-19.jpg" },
-  { label: "Guinguette Bohème", img: "/images/galerie/photo-05.jpg" },
-  { label: "Pyjama Party Premium", img: "/images/galerie/photo-20.jpg" },
-  { label: "Cinétoilé", img: "/images/galerie/photo-21.jpg" },
+  { label: "Mariages", img: "/images/galerie/photo-19.jpg", href: "/mariages" },
+  { label: "Guinguette Bohème", img: "/images/galerie/photo-05.jpg", href: "/concepts/guinguette-boheme" },
+  { label: "Pyjama Party Premium", img: "/images/galerie/photo-20.jpg", href: "/concepts/pyjama-party" },
+  { label: "Cinétoilé", img: "/images/galerie/photo-21.jpg", href: "/concepts/pack-cinetoile" },
   { label: "EVJF & EVG", img: "/images/galerie/photo-03.jpg", href: "https://www.myevjfplanner.com" },
 ];
 
@@ -138,8 +138,9 @@ export default function Home() {
             <div className="univers-grid">
               {UNIVERS.map((u) => {
                 const Tag = u.href ? "a" : "div";
+                const isExternal = u.href && u.href.startsWith("http");
                 const linkProps = u.href
-                  ? { href: u.href, target: "_blank", rel: "noopener noreferrer" }
+                  ? { href: u.href, ...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {}) }
                   : {};
                 return (
                   <Tag key={u.label} className="univers-card" style={u.href ? { cursor: "pointer" } : {}} {...linkProps}>
