@@ -1,4 +1,5 @@
 import "../styles/globals.css";
+import WentenClarity from "../components/WentenClarity";
 
 function WhatsAppButton() {
   return (
@@ -43,6 +44,7 @@ function WhatsAppButton() {
 export default function App({ Component, pageProps }) {
   return (
     <>
+      <WentenClarity />
       <Component {...pageProps} />
       <WhatsAppButton />
     </>
