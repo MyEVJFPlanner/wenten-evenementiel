@@ -950,7 +950,6 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* Hero — indicateur zoom */
-.detail-hero-bg { position: relative; }
 .detail-hero-zoom-hint {
   position: absolute;
   bottom: 16px;
