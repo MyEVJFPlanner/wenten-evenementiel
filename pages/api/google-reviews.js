@@ -30,12 +30,16 @@ export default async function handler(req, res) {
       results.legacyTextsearch = await r.json();
     } catch (e) { results.legacyTextsearch = { error: e.message }; }
 
-    // Test 3 : Legacy nearbysearch (any business near Saint-Denis)
+    // Test 3 : nearbysearch keyword "wenten" toute la Réunion
     try {
-      const r = await fetch(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-20.8823,55.4504&radius=5000&type=establishment&keyword=evenementiel&key=${apiKey}`);
+      const r = await fetch(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-21.1151,55.5364&radius=100000&keyword=wenten&key=${apiKey}`);
       const d = await r.json();
-      results.legacyNearby = { status: d.status, count: d.results?.length, first: d.results?.[0]?.name };
-    } catch (e) { results.legacyNearby = { error: e.message }; }
+      results.nearbyWenten = {
+        status: d.status,
+        count: d.results?.length,
+        results: d.results?.slice(0, 5).map(p => ({ name: p.name, place_id: p.place_id, rating: p.rating, user_ratings_total: p.user_ratings_total, vicinity: p.vicinity })),
+      };
+    } catch (e) { results.nearbyWenten = { error: e.message }; }
 
     return res.status(200).json(results);
   }
