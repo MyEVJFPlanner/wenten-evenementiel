@@ -22,6 +22,19 @@ export async function getStaticProps() {
   const apiKey = process.env.GOOGLE_PLACES_API_KEY;
   let googleReviews = null;
 
+  // DEBUG — à supprimer après confirmation
+  console.log("GOOGLE KEY:", apiKey ? "PRESENT" : "UNDEFINED");
+
+  try {
+    const debugRes = await fetch(
+      `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=Wenten%20Ev%C3%A9nementiel%20R%C3%A9union&inputtype=textquery&fields=place_id,name,rating,user_ratings_total&key=${apiKey}`
+    );
+    const debugData = await debugRes.json();
+    console.log("PLACES API RESPONSE:", JSON.stringify(debugData));
+  } catch (e) {
+    console.log("PLACES API ERROR:", e.message);
+  }
+
   if (apiKey) {
     try {
       const PLACE_ID = "ChIJK-OeryiCGBgRAnfIiBO0ae4";
@@ -29,11 +42,13 @@ export async function getStaticProps() {
         `https://maps.googleapis.com/maps/api/place/details/json?place_id=${PLACE_ID}&fields=name,rating,user_ratings_total,reviews&language=fr&reviews_sort=most_relevant&key=${apiKey}`
       );
       const data = await res.json();
+      console.log("PLACE DETAILS STATUS:", data.status);
       if (data.status === "OK" && data.result) {
         const result = data.result;
         const reviews = (result.reviews || [])
           .filter((r) => r.rating >= 4)
           .slice(0, 5);
+        console.log("REVIEWS COUNT:", reviews.length);
         if (reviews.length > 0) {
           googleReviews = {
             rating: result.rating ?? null,
@@ -42,8 +57,8 @@ export async function getStaticProps() {
           };
         }
       }
-    } catch {
-      // API indisponible — section masquée silencieusement
+    } catch (e) {
+      console.log("PLACE DETAILS ERROR:", e.message);
     }
   }
 
