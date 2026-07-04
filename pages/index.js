@@ -7,7 +7,6 @@ import EquipeSection from "../components/EquipeSection";
 import SejourMauriceSection from "../components/SejourMauriceSection";
 import GoogleReviews from "../components/GoogleReviews";
 import SiteFooter from "../components/SiteFooter";
-import { getGoogleReviews } from "../lib/getGoogleReviews";
 
 const HOMEPAGE_SCENARIOS = SCENARIOS.slice(0, 4);
 
@@ -19,28 +18,7 @@ const UNIVERS = [
   { label: "EVJF & EVG", img: "/images/galerie/photo-03.jpg", href: "https://www.myevjfplanner.com" },
 ];
 
-export async function getStaticProps() {
-  const apiKey = process.env.GOOGLE_PLACES_API_KEY;
-  let googleReviews = null;
-
-  if (apiKey) {
-    try {
-      const data = await getGoogleReviews(apiKey);
-      if (data.reviews.length > 0) {
-        googleReviews = data;
-      }
-    } catch {
-      // API indisponible — section masquée silencieusement
-    }
-  }
-
-  return {
-    props: { googleReviews },
-    revalidate: 86400,
-  };
-}
-
-export default function Home({ googleReviews }) {
+export default function Home() {
   return (
     <>
       <Head>
@@ -199,7 +177,7 @@ export default function Home({ googleReviews }) {
         <SejourMauriceSection />
 
         {/* ── AVIS GOOGLE ── */}
-        <GoogleReviews data={googleReviews} />
+        <GoogleReviews />
 
         {/* ── ÉQUIPE ── */}
         <EquipeSection />
