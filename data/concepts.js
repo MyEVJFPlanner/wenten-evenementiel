@@ -146,8 +146,10 @@ export const concepts = [
     ],
     tipiSupplementaire: "35",
     prixNote: "Tipi supplémentaire : +35€. Frais kilométriques selon secteur : 1€/km",
-    photo: "/images/concepts/pyjama-party-01.jpg",
+    photo: "/images/concepts/pyjama-party-07.png",
     photos: [
+      "/images/concepts/pyjama-party-07.png",
+      "/images/concepts/pyjama-party-08.png",
       "/images/concepts/pyjama-party-01.jpg",
       "/images/concepts/pyjama-party-02.jpg",
       "/images/concepts/pyjama-party-03.jpg",
