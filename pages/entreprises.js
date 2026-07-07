@@ -56,12 +56,12 @@ export default function Entreprises() {
             />
           </div>
           <div className="maurice-hero-overlay" />
-          <div className="maurice-hero-content">
+          <div className="maurice-hero-content" style={{ paddingTop: "clamp(140px, 16vw, 190px)" }}>
             <div className="section-eyebrow" style={{ color: "#BFE9E2" }}>
               Événements d'entreprise
             </div>
             <h1 className="maurice-hero-title">{entreprises.hero.titre}</h1>
-            <p className="maurice-hero-sub">{entreprises.hero.accroche}</p>
+            <p className="maurice-hero-text">{entreprises.hero.accroche}</p>
             <button
               className="btn-fuchsia"
               onClick={() => setModalOpen(true)}
