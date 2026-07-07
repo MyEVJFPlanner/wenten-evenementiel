@@ -15,7 +15,7 @@ const APERCU_CARDS = [
     titre: "Pack Cinétoilé",
     tagline: "Cinéma en plein air, cosy & inoubliable",
     href: "/concepts/pack-cinetoile",
-    photo: "/images/concepts/pack-cinetoile-02.jpg",
+    photo: "/images/concepts/pack-cinetoile-08.jpg",
   },
   {
     titre: "Soirée Pyjama Party",
