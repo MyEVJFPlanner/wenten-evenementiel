@@ -26,6 +26,7 @@ export function getStaticProps({ params }) {
 }
 
 function getMinPrix(concept) {
+  if (concept.tarifs) return `dès ${concept.tarifs[0].prix} €`;
   if (concept.prix) return `dès ${concept.prix} €${concept.prixUnite || ""}`;
   if (concept.packs) {
     const min = Math.min(...concept.packs.map((p) => parseInt(p.prixLivraison, 10)));
@@ -38,6 +39,10 @@ export default function ConceptDetail({ concept, photos, suggestions }) {
   const [activeIdx, setActiveIdx] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [formOpen, setFormOpen] = useState(false);
+  const [nbPersonnes, setNbPersonnes] = useState(
+    concept.tarifs ? concept.tarifs[0].personnes : 2
+  );
+  const [avecChef, setAvecChef] = useState(false);
 
   useEffect(() => {
     const onKey = (e) => {
@@ -233,7 +238,11 @@ export default function ConceptDetail({ concept, photos, suggestions }) {
                               <span className="options-item-detail">{opt.detail}</span>
                             )}
                           </span>
-                          <span className="options-item-prix">+ {opt.prix} €</span>
+                          {opt.prixParPers ? (
+                            <span className="options-item-prix">+ {opt.prixParPers} €/pers</span>
+                          ) : opt.prix ? (
+                            <span className="options-item-prix">+ {opt.prix} €</span>
+                          ) : null}
                         </li>
                       ))}
                     </ul>
@@ -256,16 +265,70 @@ export default function ConceptDetail({ concept, photos, suggestions }) {
               {/* Colonne info sticky */}
               <div className="detail-info-col">
                 <div className="info-card">
-                  <div className="info-price">{getMinPrix(concept)}</div>
-                  {concept.minPersonnes && (
-                    <p className="info-prix-note">
-                      À partir de {concept.minPersonnes} personnes
-                    </p>
-                  )}
-                  {concept.prixNote && (
-                    <p className="info-prix-note" style={{ marginTop: concept.minPersonnes ? "6px" : undefined }}>
-                      {concept.prixNote}
-                    </p>
+                  {concept.tarifs ? (
+                    <>
+                      <div className="tarif-label">Nombre de personnes</div>
+                      <select
+                        className="tarif-select"
+                        value={nbPersonnes}
+                        onChange={(e) => setNbPersonnes(Number(e.target.value))}
+                      >
+                        {concept.tarifs.map((t) => (
+                          <option key={t.personnes} value={t.personnes}>
+                            {t.personnes} personne{t.personnes > 1 ? "s" : ""}
+                          </option>
+                        ))}
+                      </select>
+
+                      {concept.optionChef && (
+                        <label className="chef-toggle">
+                          <input
+                            type="checkbox"
+                            className="chef-toggle-checkbox"
+                            checked={avecChef}
+                            onChange={(e) => setAvecChef(e.target.checked)}
+                          />
+                          <span className="chef-toggle-text">
+                            <span className="chef-toggle-label">Option traiteur · +{concept.optionChef.prix} €/pers</span>
+                            <span className="chef-toggle-sub">{concept.optionChef.label}</span>
+                            <span className="chef-toggle-sub">{concept.optionChef.description}</span>
+                          </span>
+                        </label>
+                      )}
+
+                      <div className="tarif-total-bloc">
+                        <div className="tarif-total-label">Total estimé</div>
+                        <div className="tarif-total-prix">
+                          {(
+                            (concept.tarifs.find((t) => t.personnes === nbPersonnes)?.prix || 0) +
+                            (avecChef && concept.optionChef ? concept.optionChef.prix * nbPersonnes : 0)
+                          ).toLocaleString("fr-FR")} €
+                        </div>
+                        {avecChef && concept.optionChef && (
+                          <div className="tarif-total-detail">
+                            Base {concept.tarifs.find((t) => t.personnes === nbPersonnes)?.prix} € + Chef {concept.optionChef.prix * nbPersonnes} €
+                          </div>
+                        )}
+                      </div>
+
+                      {concept.prixNote && (
+                        <p className="info-prix-note">{concept.prixNote}</p>
+                      )}
+                    </>
+                  ) : (
+                    <>
+                      <div className="info-price">{getMinPrix(concept)}</div>
+                      {concept.minPersonnes && (
+                        <p className="info-prix-note">
+                          À partir de {concept.minPersonnes} personnes
+                        </p>
+                      )}
+                      {concept.prixNote && (
+                        <p className="info-prix-note" style={{ marginTop: concept.minPersonnes ? "6px" : undefined }}>
+                          {concept.prixNote}
+                        </p>
+                      )}
+                    </>
                   )}
                   <div className="info-duree-label" style={{ marginTop: "20px" }}>Lieu</div>
                   <div className="info-duree">Au choix</div>

@@ -31,9 +31,39 @@ export const concepts = [
         nom: "Guinguettes lumineuses (batterie nomade incluse)",
         prix: "150",
         detail: "Apportez une ambiance chaleureuse, faciles à installer"
+      },
+      {
+        nom: "Brunch ou Cocktail dînatoire (Chef Matthias JOMA)",
+        prixParPers: "29",
+        detail: "Grazing table gourmande ou cocktail dînatoire élaboré, préparé par notre chef partenaire à domicile. Le montant s'ajuste selon le nombre de personnes."
       }
     ],
-    prix: "190",
+    optionChef: {
+      prix: 29,
+      label: "Brunch ou Cocktail dînatoire",
+      description: "En partenariat avec Matthias JOMA, chef à domicile",
+    },
+    tarifs: [
+      { personnes: 2, prix: 190 },
+      { personnes: 3, prix: 220 },
+      { personnes: 4, prix: 250 },
+      { personnes: 5, prix: 280 },
+      { personnes: 6, prix: 310 },
+      { personnes: 7, prix: 340 },
+      { personnes: 8, prix: 370 },
+      { personnes: 9, prix: 400 },
+      { personnes: 10, prix: 430 },
+      { personnes: 11, prix: 455 },
+      { personnes: 12, prix: 480 },
+      { personnes: 13, prix: 510 },
+      { personnes: 14, prix: 535 },
+      { personnes: 15, prix: 565 },
+      { personnes: 16, prix: 590 },
+      { personnes: 17, prix: 620 },
+      { personnes: 18, prix: 650 },
+      { personnes: 19, prix: 680 },
+      { personnes: 20, prix: 710 },
+    ],
     prixNote: "TTC — forfait modulable selon le nombre de participants & le lieu choisi. Lieu au choix. Frais kilométriques : 1€/km selon secteur",
     photo: "/images/concepts/guinguette-boheme.jpg"
   },

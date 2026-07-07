@@ -1960,3 +1960,101 @@ a { color: inherit; text-decoration: none; }
   .gr-global-num { font-size: 44px; }
   .gr-section { padding: 56px 0; }
 }
+
+/* ── TARIF SELECTOR (Guinguette Bohème & concepts with tarifs) ── */
+.tarif-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+.tarif-select {
+  width: 100%;
+  padding: 10px 36px 10px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  font-size: 15px;
+  font-family: inherit;
+  color: var(--text);
+  background: #F8FDFC;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%230E8C8C' stroke-width='2.5' stroke-linecap='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  cursor: pointer;
+  margin-bottom: 14px;
+  transition: border-color 0.2s;
+}
+.tarif-select:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+.chef-toggle {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1.5px solid var(--border);
+  background: #F8FDFC;
+  margin-bottom: 18px;
+  transition: border-color 0.2s, background 0.2s;
+}
+.chef-toggle:has(.chef-toggle-checkbox:checked) {
+  border-color: var(--primary);
+  background: rgba(14, 140, 140, 0.05);
+}
+.chef-toggle-checkbox {
+  width: 17px;
+  height: 17px;
+  margin-top: 3px;
+  accent-color: var(--primary);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.chef-toggle-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.chef-toggle-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+}
+.chef-toggle-sub {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+.tarif-total-bloc {
+  background: linear-gradient(135deg, rgba(14,140,140,0.06) 0%, rgba(95,212,200,0.10) 100%);
+  border: 1px solid rgba(14,140,140,0.15);
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin-bottom: 14px;
+}
+.tarif-total-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+.tarif-total-prix {
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--text);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  line-height: 1.1;
+}
+.tarif-total-detail {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 5px;
+}
