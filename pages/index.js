@@ -10,6 +10,33 @@ import SiteFooter from "../components/SiteFooter";
 
 const HOMEPAGE_SCENARIOS = SCENARIOS.slice(0, 4);
 
+const APERCU_CARDS = [
+  {
+    titre: "Pack Cinétoilé",
+    tagline: "Cinéma en plein air, cosy & inoubliable",
+    href: "/concepts/pack-cinetoile",
+    photo: "/images/concepts/pack-cinetoile-02.jpg",
+  },
+  {
+    titre: "Soirée Pyjama Party",
+    tagline: "Tipis, étoiles et nuit féerique",
+    href: "/concepts/pyjama-party",
+    photo: "/images/concepts/pyjama-party-07.png",
+  },
+  {
+    titre: "Love on the Ocean",
+    tagline: "Demande en mariage sur catamaran",
+    href: "/demandes-en-mariage/love-on-the-ocean",
+    photo: "/images/galerie/photo-22.webp",
+  },
+  {
+    titre: "Guinguette Bohème",
+    tagline: "Votre événement clés en main",
+    href: "/concepts/guinguette-boheme",
+    photo: "/images/concepts/guinguette-boheme.jpg",
+  },
+];
+
 const UNIVERS = [
   { label: "Mariages", img: "/images/galerie/photo-19.jpg", href: "/mariages" },
   { label: "Guinguette Bohème", img: "/images/galerie/photo-05.jpg", href: "/concepts/guinguette-boheme" },
@@ -64,6 +91,28 @@ export default function Home() {
               <a href="/demandes-en-mariage" className="btn-primary">Découvrir nos scénarios →</a>
               <a href="#contact" className="btn-outline-white">Demander un devis</a>
             </div>
+          </div>
+        </section>
+
+        {/* ── APERÇU EN UN COUP D'ŒIL ── */}
+        <section className="apercu-section">
+          <div className="apercu-grid">
+            {APERCU_CARDS.map((c) => (
+              <a key={c.href} href={c.href} className="apercu-card">
+                <Image
+                  src={c.photo}
+                  alt={c.titre}
+                  fill
+                  style={{ objectFit: "cover", objectPosition: "center" }}
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                />
+                <div className="apercu-overlay" />
+                <div className="apercu-content">
+                  <div className="apercu-title">{c.titre}</div>
+                  <div className="apercu-tagline">{c.tagline}</div>
+                </div>
+              </a>
+            ))}
           </div>
         </section>
 
