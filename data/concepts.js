@@ -265,6 +265,8 @@ export const concepts = [
       "/images/concepts/vintage-vinyles.jpg",
       "/images/concepts/vintage-vinyles-02.jpg",
       "/images/concepts/vintage-vinyles-03.jpg",
+      "/images/concepts/vintage-vinyles-04.jpg",
+      "/images/concepts/vintage-vinyles-05.jpg",
     ]
   },
   {
