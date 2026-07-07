@@ -35,7 +35,7 @@ export default function DemandesEnMariage() {
           <div className="section-eyebrow">10 scénarios signature</div>
           <h1 className="page-hero-h1">Les demandes <em>en mariage</em></h1>
           <p className="page-hero-sub">
-            200+ histoires d'amour et d'événements inoubliables.<br />
+            1000+ histoires d'amour et d'événements inoubliables.<br />
             Choisissez votre scénario, nous créons le reste.
           </p>
         </section>

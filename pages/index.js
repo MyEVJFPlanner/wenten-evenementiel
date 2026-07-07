@@ -121,7 +121,7 @@ export default function Home() {
           <div className="stats-grid">
             {[
               { num: "14", label: "ans d'expérience" },
-              { num: "200+", label: "événements réalisés" },
+              { num: "1000+", label: "événements réalisés" },
               { num: "100%", label: "de OUI 💍" },
               { num: "10", label: "scénarios signature" },
               { num: "4.9★", label: "avis clients" },
