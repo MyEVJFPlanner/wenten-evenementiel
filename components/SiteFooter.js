@@ -66,6 +66,8 @@ export default function SiteFooter() {
       </div>
       <p className="footer-sub footer-legal">
         <a href="/mentions-legales">Mentions légales</a>
+        <span style={{ margin: "0 8px", opacity: 0.4 }}>·</span>
+        <a href="/cgv">CGV</a>
       </p>
     </footer>
   );
