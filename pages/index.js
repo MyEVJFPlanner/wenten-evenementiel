@@ -6,6 +6,9 @@ import SiteMeta from "../components/SiteMeta";
 import EquipeSection from "../components/EquipeSection";
 import SejourMauriceSection from "../components/SejourMauriceSection";
 import GoogleReviews from "../components/GoogleReviews";
+import AvisFacebook from "../components/AvisFacebook";
+import FaqAccordeon from "../components/FaqAccordeon";
+import LigneReassurance from "../components/LigneReassurance";
 import SiteFooter from "../components/SiteFooter";
 
 const HOMEPAGE_SCENARIOS = SCENARIOS.slice(0, 4);
@@ -232,6 +235,12 @@ export default function Home() {
         {/* ── ÉQUIPE ── */}
         <EquipeSection />
 
+        {/* ── AVIS FACEBOOK ── */}
+        <AvisFacebook />
+
+        {/* ── FAQ ── */}
+        <FaqAccordeon />
+
         {/* ── CTA FINAL ── */}
         <section className="cta-final section-dark" id="contact">
           <div className="cta-final-eyebrow">Parlons de votre projet</div>
@@ -244,6 +253,7 @@ export default function Home() {
           <a href="mailto:info@wentenevenementielreunion.com" className="btn-fuchsia">
             Demander un devis personnalisé →
           </a>
+          <LigneReassurance dark />
         </section>
       </main>
 

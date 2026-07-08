@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import SiteHeader from "../../components/SiteHeader";
 import SiteMeta from "../../components/SiteMeta";
+import LigneReassurance from "../../components/LigneReassurance";
 import SiteFooter from "../../components/SiteFooter";
 
 const ANNONCES = [
@@ -159,6 +160,7 @@ export default function Mariages() {
           <a href="mailto:info@wentenevenementielreunion.com" className="btn-fuchsia">
             Nous contacter →
           </a>
+          <LigneReassurance dark />
         </section>
       </main>
 

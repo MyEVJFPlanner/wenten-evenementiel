@@ -6,6 +6,7 @@ import SiteHeader from "../../components/SiteHeader";
 import SiteMeta from "../../components/SiteMeta";
 import FormulaireConcept from "../../components/FormulaireConcept";
 import PhotoLightbox from "../../components/PhotoLightbox";
+import LigneReassurance from "../../components/LigneReassurance";
 import SiteFooter from "../../components/SiteFooter";
 
 export function getStaticPaths() {
@@ -388,6 +389,7 @@ export default function ConceptDetail({ concept, photos, suggestions }) {
           <button className="btn-fuchsia" onClick={() => setFormOpen(true)}>
             Demander un devis personnalisé →
           </button>
+          <LigneReassurance dark />
         </section>
       </main>
 

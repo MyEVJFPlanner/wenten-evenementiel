@@ -6,6 +6,7 @@ import SiteHeader from "../../components/SiteHeader";
 import SiteMeta from "../../components/SiteMeta";
 import FormulaireReservation from "../../components/FormulaireReservation";
 import FormulaireSejourMaurice from "../../components/FormulaireSejourMaurice";
+import LigneReassurance from "../../components/LigneReassurance";
 import PhotoLightbox from "../../components/PhotoLightbox";
 import SiteFooter from "../../components/SiteFooter";
 
@@ -357,6 +358,7 @@ export default function ScenarioDetail({ scenario, mediaItems, suggestions }) {
           <button className="btn-fuchsia" onClick={() => setFormOpen(true)}>
             Demander un devis personnalisé →
           </button>
+          <LigneReassurance dark />
         </section>
       </main>
 

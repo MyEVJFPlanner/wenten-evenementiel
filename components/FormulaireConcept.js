@@ -1,4 +1,5 @@
 import { useState } from "react";
+import LigneReassurance from "./LigneReassurance";
 
 const CHAMPS_REQUIS = ["prenom", "nom", "email", "telephone", "nombrePersonnes", "dateEvenement"];
 
@@ -62,6 +63,7 @@ export default function FormulaireConcept({ concept, onClose }) {
           <p className="modal-sub">
             Complétez ce formulaire et nous vous recontactons très rapidement.
           </p>
+          <LigneReassurance />
         </div>
 
         {success ? (

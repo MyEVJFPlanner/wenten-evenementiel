@@ -1,4 +1,5 @@
 import { useState } from "react";
+import LigneReassurance from "./LigneReassurance";
 
 const CHAMPS_REQUIS = ["prenom", "nom", "email", "telephone", "date", "prenomConjoint"];
 
@@ -62,6 +63,7 @@ export default function FormulaireReservation({ scenario, onClose }) {
           <p className="modal-sub">
             Complétez ce formulaire et nous vous recontactons très rapidement.
           </p>
+          <LigneReassurance />
         </div>
 
         {success ? (

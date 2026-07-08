@@ -4,6 +4,7 @@ import { SCENARIOS } from "../../data/scenarios";
 import SiteHeader from "../../components/SiteHeader";
 import SiteMeta from "../../components/SiteMeta";
 import SejourMauriceSection from "../../components/SejourMauriceSection";
+import LigneReassurance from "../../components/LigneReassurance";
 import SiteFooter from "../../components/SiteFooter";
 
 function getPrixLabel(s) {
@@ -94,6 +95,7 @@ export default function DemandesEnMariage() {
           <a href="mailto:info@wentenevenementielreunion.com" className="btn-fuchsia">
             Demander un devis personnalisé →
           </a>
+          <LigneReassurance dark />
         </section>
       </main>
 
