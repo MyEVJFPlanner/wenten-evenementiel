@@ -127,9 +127,9 @@ export const concepts = [
     ],
     prix: "290",
     prixNote: "TTC — forfait modulable selon lieu, installation & options choisies. Frais kilométriques : 1€/km selon secteur",
-    photo: "/images/concepts/pack-cinetoile-hero.jpg",
+    photo: "/images/concepts/cinetoile-final-v2-portrait.jpg",
     photos: [
-      "/images/concepts/pack-cinetoile-hero.jpg",
+      "/images/concepts/cinetoile-final-v2-portrait.jpg",
       "/images/concepts/pack-cinetoile-04.jpg",
       "/images/concepts/pack-cinetoile-05.jpg",
       "/images/concepts/pack-cinetoile-06.jpg",
