@@ -56,6 +56,43 @@ const ANNONCES = [
     idealPour: ["Mariage", "Cérémonie laïque", "Fiançailles"],
     gradient: "linear-gradient(135deg, #3a2010 0%, #C4781A 60%, #E8A84A 100%)",
   },
+  {
+    slug: "vin-honneur-gourmand",
+    emoji: "🍽️",
+    titre: "Vin d'Honneur Gourmand — avec Matthias JOMA",
+    tagline: "Un moment convivial, gourmand et soigné",
+    prix: "79 € / pers. · min. 15 personnes",
+    description:
+      "En partenariat avec Matthias JOMA, chef à domicile, Wenten Événementiel vous propose une formule complète pour votre vin d'honneur ou votre engagement party : un buffet gourmand et raffiné, associé à notre décoration et mise en ambiance signature, pour un moment clé en main.",
+    inclusSections: [
+      {
+        titre: "Traiteur — Matthias JOMA",
+        items: [
+          "3 sortes de charcuteries fines, 3 sortes de fromages affinés",
+          "Variété de pains artisanaux, légumes de saison frais coupés",
+          "Condiments : cornichons, olives",
+          "Houmous maison au cumin & huile d'olive",
+          "Rillettes de poisson fumé maison, fromage frais & moutarde à l'ancienne",
+          "Tapenade maison aux olives noires & basilic frais",
+          "Créolité : samoussas poulet, samoussas fromage, beignets songe (2/pers chacun)",
+          "Riz chauffé",
+          "Dessert : 2 mignardises / pers. (tartelette duo chocolat grand cru & ganache vanille · tartelette citron meringuée au zeste de combava)",
+          "Boissons : citronnade maison au sirop de fleur de sureau · thé vert glacé à la pitaya",
+          "Table de cocktail avec nappe noire",
+        ],
+      },
+      {
+        titre: "Décoration & coordination — Wenten",
+        items: [
+          "Décoration bohème soignée, adaptable selon le thème",
+          "Mise en ambiance et installation complète",
+          "Coordination sur place le jour J",
+        ],
+      },
+    ],
+    idealPour: ["Vin d'honneur", "Cérémonie laïque", "Fiançailles", "Mariage", "Événement d'entreprise"],
+    gradient: "linear-gradient(135deg, #0E2016 0%, #1B5233 55%, #A8C686 100%)",
+  },
 ];
 
 export default function Mariages() {
@@ -112,19 +149,40 @@ export default function Mariages() {
                   <div className="mariage-card-body">
                     <div className="concept-title">{a.titre}</div>
                     <div className="mariage-card-tagline">{a.tagline}</div>
+                    {a.prix && (
+                      <div className="mariage-card-prix">{a.prix}</div>
+                    )}
                     <p className="detail-desc-text" style={{ marginBottom: "24px" }}>
                       {a.description}
                     </p>
 
-                    <div className="inclus-header">Ce qui est inclus</div>
-                    <ul className="inclus-list" style={{ marginBottom: "20px" }}>
-                      {a.inclus.map((item) => (
-                        <li key={item} className="inclus-item">
-                          <span className="inclus-check">✓</span>
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
+                    {a.inclusSections ? (
+                      a.inclusSections.map((section) => (
+                        <div key={section.titre}>
+                          <div className="inclus-header">{section.titre}</div>
+                          <ul className="inclus-list" style={{ marginBottom: "20px" }}>
+                            {section.items.map((item) => (
+                              <li key={item} className="inclus-item">
+                                <span className="inclus-check">✓</span>
+                                {item}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))
+                    ) : (
+                      <>
+                        <div className="inclus-header">Ce qui est inclus</div>
+                        <ul className="inclus-list" style={{ marginBottom: "20px" }}>
+                          {a.inclus.map((item) => (
+                            <li key={item} className="inclus-item">
+                              <span className="inclus-check">✓</span>
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </>
+                    )}
 
                     <div className="inclus-header">Idéal pour</div>
                     <div className="ideal-pour-tags" style={{ marginBottom: "24px" }}>
