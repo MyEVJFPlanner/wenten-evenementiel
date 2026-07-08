@@ -262,7 +262,6 @@ export const concepts = [
     prixNote: "TTC par personne — à partir de 20 personnes. Forfait modulable selon le nombre de participants & le lieu choisi",
     photo: "/images/concepts/vintage-vinyles.jpg",
     photos: [
-      "/images/concepts/vintage-vinyles.jpg",
       "/images/concepts/vintage-vinyles-02.jpg",
       "/images/concepts/vintage-vinyles-03.jpg",
       "/images/concepts/vintage-vinyles-04.jpg",
