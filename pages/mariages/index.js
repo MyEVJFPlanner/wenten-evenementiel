@@ -75,12 +75,11 @@ export default function Mariages() {
       <main>
         {/* ── HERO ── */}
         <section className="page-hero">
-          <div className="section-eyebrow">Bientôt disponible</div>
+          <div className="section-eyebrow">Nos services mariage</div>
           <h1 className="page-hero-h1">Mariages &amp; <em>grandes occasions</em></h1>
           <p className="page-hero-sub">
-            Borne photo, livre d'or audio, vins d'honneur... De nouveaux services
-            dédiés au mariage arrivent bientôt. Contactez-nous dès maintenant pour
-            être les premiers informés.
+            Borne photo, livre d'or audio, vins d'honneur... Wenten Événementiel
+            vous accompagne pour faire de votre mariage un moment inoubliable à La Réunion.
           </p>
         </section>
 
@@ -106,7 +105,6 @@ export default function Mariages() {
                     ) : (
                       <span className="mariage-card-emoji">{a.emoji}</span>
                     )}
-                    <span className="mariage-soon-badge">Bientôt disponible</span>
                   </div>
 
                   {/* Contenu */}
@@ -128,11 +126,19 @@ export default function Mariages() {
                     </ul>
 
                     <div className="inclus-header">Idéal pour</div>
-                    <div className="ideal-pour-tags" style={{ marginBottom: "8px" }}>
+                    <div className="ideal-pour-tags" style={{ marginBottom: "24px" }}>
                       {a.idealPour.map((tag) => (
                         <span key={tag} className="ideal-pour-tag">{tag}</span>
                       ))}
                     </div>
+
+                    <a
+                      href="mailto:info@wentenevenementielreunion.com"
+                      className="btn-fuchsia"
+                      style={{ display: "inline-block", fontSize: "14px", padding: "12px 24px" }}
+                    >
+                      Demander un devis →
+                    </a>
                   </div>
                 </div>
               ))}
@@ -147,9 +153,8 @@ export default function Mariages() {
             Parlons de votre <em>grand jour</em>
           </h2>
           <p className="cta-final-sub">
-            Ces services arrivent bientôt. En attendant, contactez-nous pour
-            discuter de votre projet — nous trouverons ensemble la meilleure
-            formule pour votre mariage.
+            Partagez-nous votre vision. Nous créons ensemble le mariage qui vous
+            ressemble, sur mesure, à La Réunion.
           </p>
           <a href="mailto:info@wentenevenementielreunion.com" className="btn-fuchsia">
             Nous contacter →
