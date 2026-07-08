@@ -260,12 +260,12 @@ export const concepts = [
     prixUnite: "/pers.",
     minPersonnes: 20,
     prixNote: "TTC par personne — à partir de 20 personnes. Forfait modulable selon le nombre de participants & le lieu choisi",
-    photo: "/images/concepts/vintage-vinyles-03.jpg",
+    photo: "/images/concepts/vintage-1-table-bleue-ok.jpg",
     photos: [
-      "/images/concepts/vintage-vinyles-02.jpg",
-      "/images/concepts/vintage-vinyles-03.jpg",
-      "/images/concepts/vintage-vinyles-04.jpg",
-      "/images/concepts/vintage-vinyles-05.jpg",
+      "/images/concepts/vintage-1-table-bleue-ok.jpg",
+      "/images/concepts/vintage-2-dj-table-rose-ok.jpg",
+      "/images/concepts/vintage-3-dj-ambiance-ok.jpg",
+      "/images/concepts/vintage-4-dj-portrait-ok.jpg",
     ]
   },
   {
