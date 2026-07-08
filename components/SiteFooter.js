@@ -64,6 +64,37 @@ export default function SiteFooter() {
           <TikTokIcon size={22} />
         </SocialLink>
       </div>
+
+      {/* ── CROSS-PROMO MY EVJF PLANNER ── */}
+      <div style={{ marginTop: "28px", display: "flex", flexDirection: "column", alignItems: "center", gap: "10px" }}>
+        <p style={{
+          fontFamily: "'Inter', sans-serif",
+          fontSize: "10px",
+          letterSpacing: "0.12em",
+          textTransform: "uppercase",
+          color: "rgba(255,255,255,0.38)",
+          margin: 0,
+        }}>
+          Découvrez aussi
+        </p>
+        <a
+          href="https://www.myevjfplanner.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ display: "inline-block", background: "#fff", borderRadius: "12px", padding: "8px 18px", lineHeight: 0, opacity: 0.88, transition: "opacity 0.2s" }}
+          onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
+          onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.88")}
+        >
+          <Image
+            src="/images/logo-myevjfplanner.png"
+            alt="My EVJF Planner"
+            width={150}
+            height={75}
+            style={{ height: "38px", width: "auto", display: "block" }}
+          />
+        </a>
+      </div>
+
       <p className="footer-sub footer-legal">
         <a href="/mentions-legales">Mentions légales</a>
         <span style={{ margin: "0 8px", opacity: 0.4 }}>·</span>
