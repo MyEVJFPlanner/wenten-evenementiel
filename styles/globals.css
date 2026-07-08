@@ -643,7 +643,7 @@ a { color: inherit; text-decoration: none; }
 /* ── PAGE HERO (sans photo, fond crème) ── */
 .page-hero {
   background: var(--bg-alt);
-  padding: 140px 24px 72px;
+  padding: 160px 24px 72px;
   text-align: center;
   border-bottom: 1px solid var(--border);
 }

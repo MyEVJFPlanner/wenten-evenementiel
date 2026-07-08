@@ -42,7 +42,7 @@ export default function DemandesEnMariage() {
 
         {/* ── SIGNATURE 100% OUI ── */}
         <p className="demandes-signature">
-          💍 Depuis 14 ans, chaque demande en mariage organisée par Wenten s'est conclue par un OUI. 100&nbsp;% de réussite.
+          💍 Depuis 14 ans, nous accompagnons chaque demande en mariage avec la même attention — et à ce jour, toutes se sont conclues par un OUI.
         </p>
 
         {/* ── GRILLE DES SCÉNARIOS ── */}
