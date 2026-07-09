@@ -3,6 +3,7 @@ import Head from "next/head";
 import Image from "next/image";
 import SiteHeader from "../components/SiteHeader";
 import SiteMeta from "../components/SiteMeta";
+import SectionContact from "../components/SectionContact";
 import SiteFooter from "../components/SiteFooter";
 
 const EXT = { 22: "webp" };
@@ -84,19 +85,9 @@ export default function Galerie() {
           </div>
         </section>
 
-        <section className="cta-final section-dark">
-          <div className="cta-final-eyebrow">Parlons de votre projet</div>
-          <h2 className="cta-final-title">
-            Votre moment unique mérite une <em>attention absolue</em>
-          </h2>
-          <p className="cta-final-sub">
-            Partagez-nous votre vision. Nous créons ensemble l'événement
-            qui vous ressemble, sur mesure, à La Réunion.
-          </p>
-          <a href="mailto:info@wentenevenementielreunion.com" className="btn-fuchsia">
-            Demander un devis personnalisé →
-          </a>
-        </section>
+        <SectionContact
+          sub="Partagez-nous votre vision. Nous créons ensemble l'événement qui vous ressemble, sur mesure, à La Réunion."
+        />
       </main>
 
       <SiteFooter />

@@ -8,7 +8,7 @@ import SejourMauriceSection from "../components/SejourMauriceSection";
 import GoogleReviews from "../components/GoogleReviews";
 import AvisFacebook from "../components/AvisFacebook";
 import FaqAccordeon from "../components/FaqAccordeon";
-import LigneReassurance from "../components/LigneReassurance";
+import SectionContact from "../components/SectionContact";
 import SiteFooter from "../components/SiteFooter";
 
 const HOMEPAGE_SCENARIOS = SCENARIOS.slice(0, 4);
@@ -241,20 +241,10 @@ export default function Home() {
         {/* ── FAQ ── */}
         <FaqAccordeon />
 
-        {/* ── CTA FINAL ── */}
-        <section className="cta-final section-dark" id="contact">
-          <div className="cta-final-eyebrow">Parlons de votre projet</div>
-          <h2 className="cta-final-title">
-            Votre moment unique<br />mérite une <em>attention absolue</em>
-          </h2>
-          <p className="cta-final-sub">
-            Partagez-nous votre vision. Nous créons ensemble l'événement qui vous ressemble, sur mesure, à La Réunion.
-          </p>
-          <a href="mailto:info@wentenevenementielreunion.com" className="btn-fuchsia">
-            Demander un devis personnalisé →
-          </a>
-          <LigneReassurance dark />
-        </section>
+        {/* ── CONTACT / DEVIS ── */}
+        <SectionContact
+          sub="Partagez-nous votre vision. Nous créons ensemble l'événement qui vous ressemble, sur mesure, à La Réunion."
+        />
       </main>
 
       <SiteFooter />

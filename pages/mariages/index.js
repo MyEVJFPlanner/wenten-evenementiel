@@ -2,7 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import SiteHeader from "../../components/SiteHeader";
 import SiteMeta from "../../components/SiteMeta";
-import LigneReassurance from "../../components/LigneReassurance";
+import SectionContact from "../../components/SectionContact";
 import SiteFooter from "../../components/SiteFooter";
 
 const ANNONCES = [
@@ -192,7 +192,7 @@ export default function Mariages() {
                     </div>
 
                     <a
-                      href="mailto:info@wentenevenementielreunion.com"
+                      href="#contact"
                       className="btn-fuchsia"
                       style={{ display: "inline-block", fontSize: "14px", padding: "12px 24px" }}
                     >
@@ -205,21 +205,11 @@ export default function Mariages() {
           </div>
         </section>
 
-        {/* ── CTA FINAL ── */}
-        <section className="cta-final section-dark">
-          <div className="cta-final-eyebrow">Votre mariage sur mesure</div>
-          <h2 className="cta-final-title">
-            Parlons de votre <em>grand jour</em>
-          </h2>
-          <p className="cta-final-sub">
-            Partagez-nous votre vision. Nous créons ensemble le mariage qui vous
-            ressemble, sur mesure, à La Réunion.
-          </p>
-          <a href="mailto:info@wentenevenementielreunion.com" className="btn-fuchsia">
-            Nous contacter →
-          </a>
-          <LigneReassurance dark />
-        </section>
+        <SectionContact
+          eyebrow="Votre mariage sur mesure"
+          titre={<>Parlons de votre <em>grand jour</em></>}
+          sub="Partagez-nous votre vision. Nous créons ensemble le mariage qui vous ressemble, sur mesure, à La Réunion."
+        />
       </main>
 
       <SiteFooter />

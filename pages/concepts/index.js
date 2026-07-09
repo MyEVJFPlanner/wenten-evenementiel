@@ -3,6 +3,7 @@ import Image from "next/image";
 import { concepts } from "../../data/concepts";
 import SiteHeader from "../../components/SiteHeader";
 import SiteMeta from "../../components/SiteMeta";
+import SectionContact from "../../components/SectionContact";
 import SiteFooter from "../../components/SiteFooter";
 
 function getPrixLabel(c) {
@@ -66,19 +67,11 @@ export default function ConceptsIndex() {
           </div>
         </section>
 
-        <section className="cta-final section-dark">
-          <div className="cta-final-eyebrow">Votre événement sur mesure</div>
-          <h2 className="cta-final-title">
-            Un concept, une <em>vision unique</em>
-          </h2>
-          <p className="cta-final-sub">
-            Chaque détail est pensé pour vous. Parlez-nous de votre projet
-            et nous créons ensemble l'événement qui vous ressemble.
-          </p>
-          <a href="mailto:info@wentenevenementielreunion.com" className="btn-fuchsia">
-            Demander un devis personnalisé →
-          </a>
-        </section>
+        <SectionContact
+          eyebrow="Votre événement sur mesure"
+          titre={<>Un concept, une <em>vision unique</em></>}
+          sub="Chaque détail est pensé pour vous. Parlez-nous de votre projet et nous créons ensemble l'événement qui vous ressemble."
+        />
       </main>
 
       <SiteFooter />

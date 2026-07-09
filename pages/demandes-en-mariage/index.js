@@ -4,7 +4,7 @@ import { SCENARIOS } from "../../data/scenarios";
 import SiteHeader from "../../components/SiteHeader";
 import SiteMeta from "../../components/SiteMeta";
 import SejourMauriceSection from "../../components/SejourMauriceSection";
-import LigneReassurance from "../../components/LigneReassurance";
+import SectionContact from "../../components/SectionContact";
 import SiteFooter from "../../components/SiteFooter";
 
 function getPrixLabel(s) {
@@ -82,21 +82,12 @@ export default function DemandesEnMariage() {
         {/* ── SÉJOUR MAURICE ── */}
         <SejourMauriceSection />
 
-        {/* ── CTA FINAL ── */}
-        <section className="cta-final section-dark" id="contact">
-          <div className="cta-final-eyebrow">Parlons de votre projet</div>
-          <h2 className="cta-final-title">
-            Votre moment unique<br />mérite une <em>attention absolue</em>
-          </h2>
-          <p className="cta-final-sub">
-            Partagez-nous votre vision. Nous créons ensemble l'événement
-            qui vous ressemble, sur mesure, à La Réunion.
-          </p>
-          <a href="mailto:info@wentenevenementielreunion.com" className="btn-fuchsia">
-            Demander un devis personnalisé →
-          </a>
-          <LigneReassurance dark />
-        </section>
+        <SectionContact
+          eyebrow="Parlons de votre projet"
+          titre={<>Votre moment unique<br />mérite une <em>attention absolue</em></>}
+          sub="Partagez-nous votre vision. Nous créons ensemble le scénario qui vous ressemble."
+          defaultType="Demande en mariage"
+        />
       </main>
 
       <SiteFooter />
