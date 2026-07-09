@@ -146,6 +146,9 @@ export const concepts = [
     packs: [
       {
         nom: "Rêves d'Étoiles",
+        icon: "⭐",
+        accent: "#5B4A9E",
+        badge: "★ Le plus demandé",
         inclus: [
           "5 tipis",
           "Ambiance \"ciel étoilé\" lumière avec Voie Lactée",
@@ -157,6 +160,8 @@ export const concepts = [
       },
       {
         nom: "Cinéma & Pop-corn",
+        icon: "🎬",
+        accent: "#C9903A",
         inclus: [
           "5 tipis",
           "Écran + rétroprojecteur pour une séance film",
@@ -170,6 +175,8 @@ export const concepts = [
       },
       {
         nom: "Dance Party",
+        icon: "🪩",
+        accent: "#5B4A9E",
         inclus: [
           "5 tipis",
           "Ambiance disco : ciel étoilé + enceinte connectée + micro",
@@ -182,6 +189,8 @@ export const concepts = [
       },
       {
         nom: "Mini Kids",
+        icon: "🧸",
+        accent: "#D97BA8",
         inclus: [
           "5 tipis (sans matelas)",
           "Coussins + tapis pour un après-midi détente ou goûter",
@@ -192,6 +201,8 @@ export const concepts = [
       },
       {
         nom: "Mini Kids Plus",
+        icon: "🎈",
+        accent: "#D97BA8",
         inclus: [
           "5 tipis (sans matelas)",
           "Coussins + tapis + plateaux enfant pour un après-midi festif avant la nuit ou pour plus petits",
@@ -203,16 +214,16 @@ export const concepts = [
     ],
     tipiSupplementaire: "35",
     prixNote: "Tipi supplémentaire : +35€. Frais kilométriques selon secteur : 1€/km",
-    photo: "/images/concepts/pyjama-party-07.png",
+    photo: "/images/concepts/pyjama-party-01.jpg",
     photos: [
-      "/images/concepts/pyjama-party-07.png",
-      "/images/concepts/pyjama-party-08.png",
       "/images/concepts/pyjama-party-01.jpg",
       "/images/concepts/pyjama-party-02.jpg",
       "/images/concepts/pyjama-party-03.jpg",
       "/images/concepts/pyjama-party-04.jpg",
       "/images/concepts/pyjama-party-05.jpg",
-      "/images/concepts/pyjama-party-06.jpg"
+      "/images/concepts/pyjama-party-06.jpg",
+      "/images/concepts/pyjama-party-07.png",
+      "/images/concepts/pyjama-party-08.png"
     ]
   },
   {

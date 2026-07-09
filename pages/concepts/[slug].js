@@ -166,8 +166,23 @@ export default function ConceptDetail({ concept, photos, suggestions }) {
                     <div className="inclus-header">Choisissez votre pack</div>
                     <div className="packs-pyjama-grid">
                       {concept.packs.map((pack) => (
-                        <div key={pack.nom} className="pack-pyjama-card">
-                          <div className="pack-pyjama-nom">{pack.nom}</div>
+                        <div
+                          key={pack.nom}
+                          className="pack-pyjama-card"
+                          style={pack.accent ? { borderTop: `3px solid ${pack.accent}` } : undefined}
+                        >
+                          {pack.icon && (
+                            <div className="pack-pyjama-icon">{pack.icon}</div>
+                          )}
+                          {pack.badge && (
+                            <span className="pack-pyjama-badge">{pack.badge}</span>
+                          )}
+                          <div
+                            className="pack-pyjama-nom"
+                            style={pack.accent ? { color: pack.accent } : undefined}
+                          >
+                            {pack.nom}
+                          </div>
                           <ul className="pack-pyjama-inclus">
                             {pack.inclus.map((item) => (
                               <li key={item} className="inclus-item">
