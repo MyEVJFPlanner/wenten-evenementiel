@@ -322,7 +322,7 @@ export default function Mariages() {
                     <a
                       href="#contact"
                       className="btn-fuchsia"
-                      style={{ display: "inline-block", fontSize: "14px", padding: "12px 24px" }}
+                      style={{ display: "inline-block", fontSize: "14px", padding: "12px 24px", marginTop: "auto" }}
                     >
                       Demander un devis →
                     </a>
