@@ -1494,6 +1494,82 @@ a { color: inherit; text-decoration: none; }
   letter-spacing: 0.01em;
 }
 
+/* ── FORMULES ORGANISATION MARIAGE ── */
+.formules-mariage-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+.formule-mariage-card {
+  background: #fff;
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  padding: 36px 26px 28px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+.formule-mariage-card:hover { box-shadow: 0 12px 36px rgba(14,140,140,0.1); transform: translateY(-4px); }
+.formule-mariage-card--highlight {
+  border-color: var(--fuchsia);
+  box-shadow: 0 4px 28px rgba(214,66,142,0.13);
+}
+.formule-mariage-badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, #D6428E, #B03478);
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 20px;
+  padding: 4px 16px;
+  white-space: nowrap;
+}
+.formule-mariage-num {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.formule-mariage-titre {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.25;
+  margin-bottom: 6px;
+}
+.formule-mariage-prix {
+  font-family: 'Inter', sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+  color: var(--fuchsia);
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+.formule-mariage-tagline {
+  font-size: 14px;
+  color: var(--text-muted);
+  font-style: italic;
+  line-height: 1.5;
+  margin-bottom: 22px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--border);
+}
+@media (max-width: 900px) {
+  .formules-mariage-grid { grid-template-columns: 1fr; }
+}
+
 /* ── IDÉAL POUR (tags pills) ── */
 .ideal-pour-tags {
   display: flex;

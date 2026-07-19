@@ -5,6 +5,50 @@ import SiteMeta from "../../components/SiteMeta";
 import SectionContact from "../../components/SectionContact";
 import SiteFooter from "../../components/SiteFooter";
 
+const FORMULES_ORGA = [
+  {
+    id: "serenite",
+    num: "Formule 1",
+    titre: "Sérénité Jour J",
+    prix: "950 €",
+    tagline: "Tu as tout organisé seule, on prend le relais à la fin.",
+    inclus: [
+      "1 RDV de préparation (1 mois avant)",
+      "Contact et confirmation avec tous les prestataires",
+      "Timing détaillé du jour J",
+      "Présence coordination le jour J (8-10h)",
+    ],
+  },
+  {
+    id: "surmesure",
+    num: "Formule 2",
+    titre: "Accompagnement Sur-Mesure",
+    prix: "1 900 €",
+    tagline: "Tu gardes la main sur certains postes, on gère le reste.",
+    badge: "La plus demandée",
+    inclus: [
+      "3-4 RDV de suivi",
+      "Sélection et négociation de 2-3 prestataires clés (traiteur, déco, ou lieu selon besoin)",
+      "Rétroplanning personnalisé",
+      "Coordination jour J incluse",
+    ],
+  },
+  {
+    id: "signature",
+    num: "Formule 3",
+    titre: "Signature Wenten — A à Z",
+    prix: "dès 3 200 €",
+    tagline: "On gère tout, de la recherche du lieu au jour J.",
+    inclus: [
+      "Recherche et sélection du lieu",
+      "Sélection et coordination de l'ensemble des prestataires",
+      "Gestion du budget et du rétroplanning complet",
+      "RDV illimités sur toute la préparation",
+      "Coordination jour J + débrief",
+    ],
+  },
+];
+
 const ANNONCES = [
   {
     slug: "borne-photo",
@@ -121,8 +165,69 @@ export default function Mariages() {
           </p>
         </section>
 
-        {/* ── GRILLE DES ANNONCES ── */}
-        <section className="section">
+        {/* ── ORGANISATION DE MARIAGE ── */}
+        <section className="section" style={{ background: "#FAFAF8", paddingTop: "72px", paddingBottom: "72px" }}>
+          <div className="container">
+            <div style={{ textAlign: "center", marginBottom: "48px" }}>
+              <div className="section-eyebrow">Nos services mariage</div>
+              <h2 className="section-title">Organiser votre mariage, <em>à votre rythme</em></h2>
+              <p className="section-sub" style={{ maxWidth: "640px", margin: "0 auto" }}>
+                Moins de 50 invités, un lieu qui vous ressemble, une organisation sans stress — que vous ayez déjà tout préparé ou que vous partiez de zéro, Wenten Événementiel vous accompagne dans la formule qui correspond exactement à vos besoins.
+              </p>
+            </div>
+
+            <div className="formules-mariage-grid">
+              {FORMULES_ORGA.map((f) => (
+                <div
+                  key={f.id}
+                  className={`formule-mariage-card${f.badge ? " formule-mariage-card--highlight" : ""}`}
+                >
+                  {f.badge && (
+                    <span className="formule-mariage-badge">{f.badge}</span>
+                  )}
+                  <div className="formule-mariage-num">{f.num}</div>
+                  <div className="formule-mariage-titre">{f.titre}</div>
+                  <div className="formule-mariage-prix">{f.prix}</div>
+                  <p className="formule-mariage-tagline">{f.tagline}</p>
+
+                  <div className="inclus-header">Ce qui est inclus</div>
+                  <ul className="inclus-list" style={{ marginBottom: "20px", flex: 1 }}>
+                    {f.inclus.map((item) => (
+                      <li key={item} className="inclus-item">
+                        <span className="inclus-check">✓</span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="inclus-header" style={{ marginBottom: "10px" }}>Idéal pour</div>
+                  <div className="ideal-pour-tags" style={{ marginBottom: "24px" }}>
+                    <span className="ideal-pour-tag">Mariage intime</span>
+                    <span className="ideal-pour-tag">Moins de 50 invités</span>
+                  </div>
+
+                  <a
+                    href="#contact"
+                    className="btn-fuchsia"
+                    style={{ display: "block", textAlign: "center", fontSize: "14px", padding: "12px 24px" }}
+                  >
+                    Demander un devis →
+                  </a>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── PRESTATIONS À LA CARTE ── */}
+        <section className="section" style={{ paddingTop: "64px" }}>
+          <div className="container" style={{ marginBottom: "40px" }}>
+            <div className="section-eyebrow">Prestations à la carte</div>
+            <h2 className="section-title">Sublimez <em>chaque moment</em></h2>
+            <p className="section-sub" style={{ maxWidth: "560px" }}>
+              Borne photo, livre d'or audio, vins d'honneur... des services à associer librement à votre mariage ou à réserver seuls.
+            </p>
+          </div>
           <div className="container">
             <div className="mariages-grid">
               {ANNONCES.map((a) => (
