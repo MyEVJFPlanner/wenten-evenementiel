@@ -1499,16 +1499,15 @@ a { color: inherit; text-decoration: none; }
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
-  align-items: start;
+  align-items: stretch; /* toutes les cartes à la même hauteur */
 }
 .formule-mariage-card {
   background: #fff;
   border: 1.5px solid var(--border);
   border-radius: 20px;
-  padding: 36px 26px 28px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  position: relative;
   transition: box-shadow 0.25s, transform 0.25s;
 }
 .formule-mariage-card:hover { box-shadow: 0 12px 36px rgba(14,140,140,0.1); transform: translateY(-4px); }
@@ -1516,9 +1515,24 @@ a { color: inherit; text-decoration: none; }
   border-color: var(--fuchsia);
   box-shadow: 0 4px 28px rgba(214,66,142,0.13);
 }
+/* Zone visuelle gradient */
+.formule-mariage-visual {
+  position: relative;
+  aspect-ratio: 16/9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.formule-mariage-visual-emoji {
+  font-size: 52px;
+  line-height: 1;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+}
+/* Badge positionné dans la zone visuelle — ne décale pas le body */
 .formule-mariage-badge {
   position: absolute;
-  top: -14px;
+  bottom: -13px;
   left: 50%;
   transform: translateX(-50%);
   background: linear-gradient(90deg, #D6428E, #B03478);
@@ -1531,6 +1545,14 @@ a { color: inherit; text-decoration: none; }
   border-radius: 20px;
   padding: 4px 16px;
   white-space: nowrap;
+  z-index: 1;
+}
+/* Corps de la carte en flex column — permet margin-top: auto sur le bouton */
+.formule-mariage-body {
+  padding: 28px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 .formule-mariage-num {
   font-family: 'Inter', sans-serif;
@@ -1540,6 +1562,7 @@ a { color: inherit; text-decoration: none; }
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-bottom: 8px;
+  margin-top: 10px; /* espace sous le badge qui déborde */
 }
 .formule-mariage-titre {
   font-family: 'Cormorant Garamond', serif;
@@ -1565,6 +1588,19 @@ a { color: inherit; text-decoration: none; }
   margin-bottom: 22px;
   padding-bottom: 18px;
   border-bottom: 1px solid var(--border);
+}
+/* La liste prend tout l'espace disponible → pousse le bouton en bas */
+.formule-mariage-inclus {
+  flex: 1;
+  margin-bottom: 20px;
+}
+/* Bouton toujours ancré en bas grâce au flex parent */
+.formule-mariage-cta {
+  display: block;
+  text-align: center;
+  font-size: 14px;
+  padding: 12px 24px;
+  margin-top: auto;
 }
 @media (max-width: 900px) {
   .formules-mariage-grid { grid-template-columns: 1fr; }

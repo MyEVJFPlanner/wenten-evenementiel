@@ -12,6 +12,8 @@ const FORMULES_ORGA = [
     titre: "Sérénité Jour J",
     prix: "950 €",
     tagline: "Tu as tout organisé seule, on prend le relais à la fin.",
+    emoji: "💍",
+    gradient: "linear-gradient(135deg, #3A1828 0%, #8B3A5A 55%, #C87A9A 100%)",
     inclus: [
       "1 RDV de préparation (1 mois avant)",
       "Contact et confirmation avec tous les prestataires",
@@ -26,6 +28,8 @@ const FORMULES_ORGA = [
     prix: "1 900 €",
     tagline: "Tu gardes la main sur certains postes, on gère le reste.",
     badge: "La plus demandée",
+    emoji: "💐",
+    gradient: "linear-gradient(135deg, #2C1A08 0%, #7A4A10 55%, #C89840 100%)",
     inclus: [
       "3-4 RDV de suivi",
       "Sélection et négociation de 2-3 prestataires clés (traiteur, déco, ou lieu selon besoin)",
@@ -39,6 +43,8 @@ const FORMULES_ORGA = [
     titre: "Signature Wenten — A à Z",
     prix: "dès 3 200 €",
     tagline: "On gère tout, de la recherche du lieu au jour J.",
+    emoji: "🥂",
+    gradient: "linear-gradient(135deg, #0A1A14 0%, #1A4A30 55%, #4A8A60 100%)",
     inclus: [
       "Recherche et sélection du lieu",
       "Sélection et coordination de l'ensemble des prestataires",
@@ -182,37 +188,44 @@ export default function Mariages() {
                   key={f.id}
                   className={`formule-mariage-card${f.badge ? " formule-mariage-card--highlight" : ""}`}
                 >
-                  {f.badge && (
-                    <span className="formule-mariage-badge">{f.badge}</span>
-                  )}
-                  <div className="formule-mariage-num">{f.num}</div>
-                  <div className="formule-mariage-titre">{f.titre}</div>
-                  <div className="formule-mariage-prix">{f.prix}</div>
-                  <p className="formule-mariage-tagline">{f.tagline}</p>
-
-                  <div className="inclus-header">Ce qui est inclus</div>
-                  <ul className="inclus-list" style={{ marginBottom: "20px", flex: 1 }}>
-                    {f.inclus.map((item) => (
-                      <li key={item} className="inclus-item">
-                        <span className="inclus-check">✓</span>
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div className="inclus-header" style={{ marginBottom: "10px" }}>Idéal pour</div>
-                  <div className="ideal-pour-tags" style={{ marginBottom: "24px" }}>
-                    <span className="ideal-pour-tag">Mariage intime</span>
-                    <span className="ideal-pour-tag">Moins de 50 invités</span>
+                  {/* Zone visuelle gradient + emoji */}
+                  <div className="formule-mariage-visual" style={{ background: f.gradient }}>
+                    <span className="formule-mariage-visual-emoji">{f.emoji}</span>
+                    {f.badge && (
+                      <span className="formule-mariage-badge">{f.badge}</span>
+                    )}
                   </div>
 
-                  <a
-                    href="#contact"
-                    className="btn-fuchsia"
-                    style={{ display: "block", textAlign: "center", fontSize: "14px", padding: "12px 24px" }}
-                  >
-                    Demander un devis →
-                  </a>
+                  {/* Corps de la carte — flex column pour ancrer le bouton en bas */}
+                  <div className="formule-mariage-body">
+                    <div className="formule-mariage-num">{f.num}</div>
+                    <div className="formule-mariage-titre">{f.titre}</div>
+                    <div className="formule-mariage-prix">{f.prix}</div>
+                    <p className="formule-mariage-tagline">{f.tagline}</p>
+
+                    <div className="inclus-header">Ce qui est inclus</div>
+                    <ul className="inclus-list formule-mariage-inclus">
+                      {f.inclus.map((item) => (
+                        <li key={item} className="inclus-item">
+                          <span className="inclus-check">✓</span>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className="inclus-header" style={{ marginBottom: "10px" }}>Idéal pour</div>
+                    <div className="ideal-pour-tags" style={{ marginBottom: "24px" }}>
+                      <span className="ideal-pour-tag">Mariage intime</span>
+                      <span className="ideal-pour-tag">Moins de 50 invités</span>
+                    </div>
+
+                    <a
+                      href="#contact"
+                      className="btn-fuchsia formule-mariage-cta"
+                    >
+                      Demander un devis →
+                    </a>
+                  </div>
                 </div>
               ))}
             </div>
