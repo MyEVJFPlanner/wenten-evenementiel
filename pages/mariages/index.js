@@ -12,8 +12,7 @@ const FORMULES_ORGA = [
     titre: "Sérénité Jour J",
     prix: "950 €",
     tagline: "Tu as tout organisé seule, on prend le relais à la fin.",
-    emoji: "💍",
-    gradient: "linear-gradient(135deg, #3A1828 0%, #8B3A5A 55%, #C87A9A 100%)",
+    photo: "/images/mariages/orga-serenite.jpg",
     inclus: [
       "1 RDV de préparation (1 mois avant)",
       "Contact et confirmation avec tous les prestataires",
@@ -28,8 +27,7 @@ const FORMULES_ORGA = [
     prix: "1 900 €",
     tagline: "Tu gardes la main sur certains postes, on gère le reste.",
     badge: "La plus demandée",
-    emoji: "💐",
-    gradient: "linear-gradient(135deg, #2C1A08 0%, #7A4A10 55%, #C89840 100%)",
+    photo: "/images/mariages/orga-surmesure.jpg",
     inclus: [
       "3-4 RDV de suivi",
       "Sélection et négociation de 2-3 prestataires clés (traiteur, déco, ou lieu selon besoin)",
@@ -43,8 +41,7 @@ const FORMULES_ORGA = [
     titre: "Signature Wenten — A à Z",
     prix: "dès 3 200 €",
     tagline: "On gère tout, de la recherche du lieu au jour J.",
-    emoji: "🥂",
-    gradient: "linear-gradient(135deg, #0A1A14 0%, #1A4A30 55%, #4A8A60 100%)",
+    photo: "/images/mariages/orga-signature.jpg",
     inclus: [
       "Recherche et sélection du lieu",
       "Sélection et coordination de l'ensemble des prestataires",
@@ -188,9 +185,22 @@ export default function Mariages() {
                   key={f.id}
                   className={`formule-mariage-card${f.badge ? " formule-mariage-card--highlight" : ""}`}
                 >
-                  {/* Zone visuelle gradient + emoji */}
-                  <div className="formule-mariage-visual" style={{ background: f.gradient }}>
-                    <span className="formule-mariage-visual-emoji">{f.emoji}</span>
+                  {/* Zone visuelle photo ou gradient */}
+                  <div
+                    className="formule-mariage-visual"
+                    style={!f.photo ? { background: f.gradient } : {}}
+                  >
+                    {f.photo ? (
+                      <Image
+                        src={f.photo}
+                        alt={f.titre}
+                        fill
+                        style={{ objectFit: "cover", objectPosition: "center" }}
+                        sizes="(max-width: 900px) 100vw, 33vw"
+                      />
+                    ) : (
+                      <span className="formule-mariage-visual-emoji">{f.emoji}</span>
+                    )}
                     {f.badge && (
                       <span className="formule-mariage-badge">{f.badge}</span>
                     )}
