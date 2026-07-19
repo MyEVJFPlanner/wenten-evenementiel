@@ -347,5 +347,32 @@ export const concepts = [
       "/images/concepts/beach-brunch-26.jpg",
       "/images/concepts/beach-brunch-27.jpg",
     ]
+  },
+  {
+    slug: "raclette-guinguette",
+    titre: "Raclette Guinguette à la Bougie",
+    emoji: "🫕",
+    accroche: "Une raclette conviviale et généreuse, où que vous soyez.",
+    description: "Wenten Événementiel installe pour vous une raclette guinguette à la bougie, clé en main, sur le lieu de votre choix. Une formule généreuse et authentique, parfaite pour réchauffer une soirée entre proches, en famille ou entre collègues, avec toute la déco, la musique et l'ambiance qui va avec.",
+    inclus: [
+      "Installation complète et décoration guinguette",
+      "Appareils à raclette à la bougie",
+      "150g de fromage à raclette par personne",
+      "150g de charcuterie par personne",
+      "3 pommes de terre par personne",
+      "Cornichons",
+      "1 verre de vin par personne",
+      "Musique et lumières d'ambiance",
+      "Batterie/alimentation autonome incluse",
+      "Installation sur le lieu de votre choix",
+    ],
+    idealPour: ["Événement d'entreprise", "Anniversaire", "Soirée entre amis", "Célébration privée"],
+    infosPratiques: ["Minimum 8 personnes", "Lieu au choix"],
+    prix: 79,
+    prixUnite: "/pers.",
+    minPersonnes: 8,
+    gradient: "linear-gradient(135deg, #2A1208 0%, #7B3B1A 55%, #C8824A 100%)",
+    photo: null,
+    photos: null,
   }
 ];

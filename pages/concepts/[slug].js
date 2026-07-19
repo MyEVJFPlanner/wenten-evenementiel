@@ -19,7 +19,7 @@ export function getStaticPaths() {
 export function getStaticProps({ params }) {
   const index = concepts.findIndex((c) => c.slug === params.slug);
   const concept = concepts[index];
-  const photos = concept.photos || [concept.photo];
+  const photos = (concept.photos || [concept.photo]).filter(Boolean);
   const suggestions = [1, 2].map(
     (offset) => concepts[(index + offset) % concepts.length]
   );
@@ -74,19 +74,24 @@ export default function ConceptDetail({ concept, photos, suggestions }) {
         <section className="detail-hero">
           <div
             className="detail-hero-bg"
-            style={{ cursor: photos.length > 1 ? "zoom-in" : "default" }}
+            style={{
+              cursor: photos.length > 1 ? "zoom-in" : "default",
+              ...(photos.length === 0 && concept.gradient ? { background: concept.gradient } : {}),
+            }}
             onClick={() => photos.length > 1 && setLightboxOpen(true)}
             role={photos.length > 1 ? "button" : undefined}
             aria-label={photos.length > 1 ? "Voir en grand" : undefined}
           >
-            <Image
-              src={photos[activeIdx]}
-              alt={concept.titre}
-              fill
-              priority
-              style={{ objectFit: "cover", objectPosition: "center" }}
-              sizes="100vw"
-            />
+            {photos.length > 0 && (
+              <Image
+                src={photos[activeIdx]}
+                alt={concept.titre}
+                fill
+                priority
+                style={{ objectFit: "cover", objectPosition: "center" }}
+                sizes="100vw"
+              />
+            )}
             {photos.length > 1 && (
               <div className="detail-hero-zoom-hint" aria-hidden="true">
                 <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round">
@@ -370,15 +375,25 @@ export default function ConceptDetail({ concept, photos, suggestions }) {
             <div className="suggestions-grid">
               {suggestions.map((s) => (
                 <a key={s.slug} href={`/concepts/${s.slug}`} className="concept-card">
-                  <div className="concept-img-wrap">
-                    <Image
-                      src={s.photo}
-                      alt={s.titre}
-                      fill
-                      style={{ objectFit: "cover" }}
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                    />
-                    <span className="concept-emoji-badge">{s.emoji}</span>
+                  <div
+                    className="concept-img-wrap"
+                    style={!s.photo ? { background: s.gradient } : {}}
+                  >
+                    {s.photo && (
+                      <Image
+                        src={s.photo}
+                        alt={s.titre}
+                        fill
+                        style={{ objectFit: "cover" }}
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                      />
+                    )}
+                    <span
+                      className="concept-emoji-badge"
+                      style={!s.photo ? { fontSize: "3rem", position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)" } : {}}
+                    >
+                      {s.emoji}
+                    </span>
                   </div>
                   <div className="concept-body">
                     <div className="concept-title">{s.titre}</div>

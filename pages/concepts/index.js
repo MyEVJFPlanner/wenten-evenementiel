@@ -32,7 +32,7 @@ export default function ConceptsIndex() {
 
       <main>
         <section className="page-hero">
-          <div className="section-eyebrow">3 concepts clés en main</div>
+          <div className="section-eyebrow">{concepts.length} concepts clés en main</div>
           <h1 className="page-hero-h1">Nos <em>concepts</em> événementiels</h1>
           <p className="page-hero-sub">
             Guinguette bohème, cinéma en plein air, soirée vintage...
@@ -46,15 +46,25 @@ export default function ConceptsIndex() {
             <div className="concepts-grid">
               {concepts.map((c) => (
                 <a key={c.slug} href={`/concepts/${c.slug}`} className="concept-card">
-                  <div className="concept-img-wrap">
-                    <Image
-                      src={c.photo}
-                      alt={c.titre}
-                      fill
-                      style={{ objectFit: "cover" }}
-                      sizes="(max-width: 768px) 100vw, (max-width: 1100px) 50vw, 33vw"
-                    />
-                    <span className="concept-emoji-badge">{c.emoji}</span>
+                  <div
+                    className="concept-img-wrap"
+                    style={!c.photo ? { background: c.gradient } : {}}
+                  >
+                    {c.photo && (
+                      <Image
+                        src={c.photo}
+                        alt={c.titre}
+                        fill
+                        style={{ objectFit: "cover" }}
+                        sizes="(max-width: 768px) 100vw, (max-width: 1100px) 50vw, 33vw"
+                      />
+                    )}
+                    <span
+                      className="concept-emoji-badge"
+                      style={!c.photo ? { fontSize: "3rem", position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)" } : {}}
+                    >
+                      {c.emoji}
+                    </span>
                   </div>
                   <div className="concept-body">
                     <div className="concept-title">{c.titre}</div>
