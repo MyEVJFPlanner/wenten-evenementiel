@@ -372,8 +372,8 @@ export const concepts = [
     prixUnite: "/pers.",
     minPersonnes: 8,
     gradient: "linear-gradient(135deg, #2A1208 0%, #7B3B1A 55%, #C8824A 100%)",
-    photo: null,
-    photos: null,
+    photo: "/images/concepts/raclette-guinguette-01.jpg",
+    photos: ["/images/concepts/raclette-guinguette-01.jpg"],
   },
   {
     slug: "baby-shower",
