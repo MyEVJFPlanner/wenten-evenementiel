@@ -404,7 +404,7 @@ export const concepts = [
     prixUnite: "/pers.",
     minPersonnes: 8,
     gradient: "linear-gradient(135deg, #F9B8D0 0%, #C3DCEF 60%, #FAD4E6 100%)",
-    photo: null,
-    photos: null,
+    photo: "/images/concepts/baby-shower-01.jpg",
+    photos: ["/images/concepts/baby-shower-01.jpg"],
   }
 ];
