@@ -376,6 +376,56 @@ export const concepts = [
     photos: ["/images/concepts/raclette-guinguette-01.jpg"],
   },
   {
+    slug: "apero-sunset",
+    titre: "L'Apéro Sunset",
+    emoji: "🌴",
+    accroche: "Le sunset le plus stylé de l'année.",
+    description: "Oubliez le resto bruyant ou le pique-nique à l'arrache : pour l'EVJF de votre BFF, Wenten Événementiel installe un apéro dînatoire chic, bohème et 100% plage vibes. Table basse décorée, tapis moelleux, coussins colorés, touches déco en rotin, fleurs et bougies — une ambiance élégante, cocooning et ultra photogénique, face au coucher de soleil.\n\nQuand la nuit tombe, notre guinguette lumineuse prend le relais pour une ambiance douce et dorée, parfaite pour trinquer, danser pieds nus dans le sable et faire durer la magie.",
+    inclus: [
+      "Table basse bohème décorée : tapis, coussins colorés, déco rotin, fleurs, bougies",
+      "Guinguette lumineuse pour l'ambiance à la tombée de la nuit",
+      "Batterie nomade EcoFlow (branchez vos enceintes, rechargez vos téléphones)",
+      "Installation & désinstallation",
+      "Au choix, une formule buffet parmi les 3 suivantes (même tarif) :",
+    ],
+    inclusSections: [
+      {
+        titre: "Formule 1 — Charcuterie & Fromage · en collaboration avec Kaz Lagon",
+        items: [
+          "Plateau charcuterie & fromage de qualité (jambon blanc truffé, rosette de Lyon, chiffonade de jambon cru, comté 18 mois...)",
+          "Pain tranché frais",
+          "Beurre demi-sel en portions individuelles",
+          "1 bouteille de thé glacé maison (1L pour 2 personnes)",
+        ],
+      },
+      {
+        titre: "Formule 2 — 100% Locale, Box Créolité · en collaboration avec Gayar Samoussas",
+        items: [
+          "Bonbons piments, samoussas fromage, beignets de légumes (carotte, courgette)",
+          "Samoussas poulet et poisson (avec ou sans piment), piments farcis (thon)",
+          "Jus de fruits « Les vergers de Marie » selon disponibilité (ananas, goyave, letchis, mangue, fruit de la passion)",
+        ],
+      },
+      {
+        titre: "Formule 3 — Grazing Table",
+        items: [
+          "4 sortes de charcuteries, 4 sortes de fromages",
+          "4 sortes de légumes et fruits, 3 sortes de condiments",
+          "Miel et confiture de fruits rouges, 2 variétés de pains",
+          "3 tartinades maison : houmous, tapenade de lentilles, crémeux aux herbes",
+          "1 boisson fraîche au choix (4L) : citronnade-gingembre ou thé glacé menthe fraîche",
+        ],
+      },
+    ],
+    idealPour: ["EVJF", "Anniversaire", "Soirée entre amies", "Célébration au coucher de soleil"],
+    infosPratiques: ["Lieu au choix"],
+    prix: 65,
+    prixUnite: "/pers.",
+    gradient: "linear-gradient(135deg, #7B1E3A 0%, #C0392B 30%, #E67E22 65%, #F4C14F 100%)",
+    photo: null,
+    photos: null,
+  },
+  {
     slug: "baby-shower",
     titre: "Baby Shower",
     emoji: "🍼",

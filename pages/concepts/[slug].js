@@ -227,6 +227,21 @@ export default function ConceptDetail({ concept, photos, suggestions }) {
                   </>
                 )}
 
+                {/* Sous-sections (formules, etc.) */}
+                {concept.inclusSections && concept.inclusSections.map((section) => (
+                  <div key={section.titre} style={{ marginTop: "24px" }}>
+                    <div className="inclus-header">{section.titre}</div>
+                    <ul className="inclus-list" style={{ marginBottom: "20px" }}>
+                      {section.items.map((item) => (
+                        <li key={item} className="inclus-item">
+                          <span className="inclus-check">✓</span>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+
                 {/* Repas au choix (Vintage & Vinyles) */}
                 {concept.repasAuChoix && (
                   <div style={{ marginTop: "40px" }}>
