@@ -243,7 +243,7 @@ export const concepts = [
         accent: "#14B8A6",
         badge: "★ Le plus demandé",
         inclus: [
-          "5 postes matelas flottants",
+          "5 tipis + matelas flottants",
           "Bouées décoratives",
           "Serviettes de bain",
           "Mini bar à bonbons",
@@ -256,7 +256,7 @@ export const concepts = [
         icon: "🎬",
         accent: "#F5A623",
         inclus: [
-          "5 postes matelas flottants",
+          "5 tipis + matelas flottants",
           "Écran de projection plein air + vidéoprojecteur",
           "Enceinte connectée + Pop Corn",
           "Serviettes de bain",
@@ -270,7 +270,7 @@ export const concepts = [
         icon: "🪩",
         accent: "#FF3D8A",
         inclus: [
-          "5 postes matelas flottants",
+          "5 tipis + matelas flottants",
           "Guinguette lumineuse + enceinte JBL + micro",
           "Jeux de lumière",
           "Serviettes de bain",
@@ -284,7 +284,7 @@ export const concepts = [
         icon: "🧸",
         accent: "#38BDF8",
         inclus: [
-          "5 postes (sans matelas)",
+          "5 tipis (sans matelas)",
           "Bouées + serviettes + tapis pour un après-midi détente ou goûter",
           "Mini bar à bonbons",
           "Décoration adaptée pour les 4-8 ans (à préciser)"
@@ -295,7 +295,7 @@ export const concepts = [
         icon: "🎈",
         accent: "#4ADE80",
         inclus: [
-          "5 postes (sans matelas)",
+          "5 tipis (sans matelas)",
           "Bouées + serviettes + tapis + mini bar à bonbons",
           "Décoration adaptée pour les 4-8 ans (à préciser)"
         ]
