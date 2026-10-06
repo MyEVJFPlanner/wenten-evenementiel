@@ -176,6 +176,17 @@ export default function ConceptDetail({ concept, photos, suggestions }) {
                           className="pack-pyjama-card"
                           style={pack.accent ? { borderTop: `3px solid ${pack.accent}` } : undefined}
                         >
+                          {pack.photo && (
+                            <div className="pack-pyjama-photo-wrap">
+                              <Image
+                                src={pack.photo}
+                                alt={pack.nom}
+                                fill
+                                style={{ objectFit: "cover" }}
+                                sizes="(max-width: 900px) 100vw, 340px"
+                              />
+                            </div>
+                          )}
                           {pack.icon && (
                             <div className="pack-pyjama-icon">{pack.icon}</div>
                           )}
@@ -196,16 +207,18 @@ export default function ConceptDetail({ concept, photos, suggestions }) {
                               </li>
                             ))}
                           </ul>
-                          <div className="pack-pyjama-prix">
-                            <div className="pack-pyjama-prix-row">
-                              <span className="pack-pyjama-prix-label">Livraison seule</span>
-                              <span className="pack-pyjama-prix-val">{pack.prixLivraison} €</span>
+                          {pack.prixLivraison && (
+                            <div className="pack-pyjama-prix">
+                              <div className="pack-pyjama-prix-row">
+                                <span className="pack-pyjama-prix-label">Livraison seule</span>
+                                <span className="pack-pyjama-prix-val">{pack.prixLivraison} €</span>
+                              </div>
+                              <div className="pack-pyjama-prix-row">
+                                <span className="pack-pyjama-prix-label">Livraison + installation</span>
+                                <span className="pack-pyjama-prix-val">{pack.prixLivraisonInstallation} €</span>
+                              </div>
                             </div>
-                            <div className="pack-pyjama-prix-row">
-                              <span className="pack-pyjama-prix-label">Livraison + installation</span>
-                              <span className="pack-pyjama-prix-val">{pack.prixLivraisonInstallation} €</span>
-                            </div>
-                          </div>
+                          )}
                         </div>
                       ))}
                     </div>
@@ -354,6 +367,16 @@ export default function ConceptDetail({ concept, photos, suggestions }) {
                   ) : (
                     <>
                       <div className="info-price">{getMinPrix(concept)}</div>
+                      {concept.formules && (
+                        <div className="pack-pyjama-prix" style={{ marginBottom: "28px" }}>
+                          {concept.formules.map((f) => (
+                            <div key={f.nom} className="pack-pyjama-prix-row">
+                              <span className="pack-pyjama-prix-label">{f.nom}</span>
+                              <span className="pack-pyjama-prix-val">{f.prix}</span>
+                            </div>
+                          ))}
+                        </div>
+                      )}
                       {concept.minPersonnes && (
                         <p className="info-prix-note">
                           À partir de {concept.minPersonnes} personnes

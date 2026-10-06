@@ -149,6 +149,7 @@ export const concepts = [
         icon: "⭐",
         accent: "#5B4A9E",
         badge: "★ Le plus demandé",
+        photo: "/images/concepts/pyjama-party-04.jpg",
         inclus: [
           "5 tipis",
           "Ambiance \"ciel étoilé\" lumière avec Voie Lactée",
@@ -162,6 +163,7 @@ export const concepts = [
         nom: "Cinéma & Pop-corn",
         icon: "🎬",
         accent: "#C9903A",
+        photo: "/images/concepts/pyjama-party-07.png",
         inclus: [
           "5 tipis",
           "Écran + rétroprojecteur pour une séance film",
@@ -177,6 +179,7 @@ export const concepts = [
         nom: "Dance Party",
         icon: "🪩",
         accent: "#5B4A9E",
+        photo: "/images/concepts/pyjama-party-06.jpg",
         inclus: [
           "5 tipis",
           "Ambiance disco : ciel étoilé + enceinte connectée + micro",
@@ -191,6 +194,7 @@ export const concepts = [
         nom: "Mini Kids",
         icon: "🧸",
         accent: "#D97BA8",
+        photo: "/images/concepts/pyjama-party-05.jpg",
         inclus: [
           "5 tipis (sans matelas)",
           "Coussins + tapis pour un après-midi détente ou goûter",
@@ -203,6 +207,7 @@ export const concepts = [
         nom: "Mini Kids Plus",
         icon: "🎈",
         accent: "#D97BA8",
+        photo: "/images/concepts/pyjama-party-03.jpg",
         inclus: [
           "5 tipis (sans matelas)",
           "Coussins + tapis + plateaux enfant pour un après-midi festif avant la nuit ou pour plus petits",
@@ -214,16 +219,99 @@ export const concepts = [
     ],
     tipiSupplementaire: "35",
     prixNote: "Tipi supplémentaire : +35€. Frais kilométriques selon secteur : 1€/km",
-    photo: "/images/concepts/pyjama-party-01.jpg",
+    photo: "/images/concepts/pyjama-party-02.jpg",
     photos: [
-      "/images/concepts/pyjama-party-01.jpg",
       "/images/concepts/pyjama-party-02.jpg",
-      "/images/concepts/pyjama-party-03.jpg",
       "/images/concepts/pyjama-party-04.jpg",
-      "/images/concepts/pyjama-party-05.jpg",
       "/images/concepts/pyjama-party-06.jpg",
       "/images/concepts/pyjama-party-07.png",
+      "/images/concepts/pyjama-party-03.jpg",
+      "/images/concepts/pyjama-party-05.jpg",
       "/images/concepts/pyjama-party-08.png"
+    ]
+  },
+  {
+    slug: "pool-party",
+    titre: "Pool Party",
+    emoji: "🏝️",
+    accroche: "Tipis, matelas gonflables, bouées, serviettes et ballons au bord de votre piscine. Thème tropical ou rose girly.",
+    description: "La version piscine et jardin de notre Pyjama Party. Une gamme de services Pool Party adaptés à vos besoins, avec des packs pratiques et à l'image de votre événement et de vos invités !",
+    packs: [
+      {
+        nom: "Éclat Lagon",
+        icon: "🌺",
+        accent: "#14B8A6",
+        badge: "★ Le plus demandé",
+        inclus: [
+          "5 postes matelas flottants",
+          "Bouées décoratives",
+          "Serviettes de bain",
+          "Mini bar à bonbons",
+          "Décoration tropicale (fleurs, guirlandes)",
+          "Ambiance colorée et vitaminée : coussins et bouées multicolores, jeux de lumières"
+        ]
+      },
+      {
+        nom: "Ciné Piscine & Pop-corn",
+        icon: "🎬",
+        accent: "#F5A623",
+        inclus: [
+          "5 postes matelas flottants",
+          "Écran de projection plein air + vidéoprojecteur",
+          "Enceinte connectée + Pop Corn",
+          "Serviettes de bain",
+          "Mini bar à bonbons",
+          "Décoration tropicale",
+          "Ambiance colorée et vitaminée : coussins et bouées multicolores, jeux de lumières"
+        ]
+      },
+      {
+        nom: "Pool Party Dance",
+        icon: "🪩",
+        accent: "#FF3D8A",
+        inclus: [
+          "5 postes matelas flottants",
+          "Guinguette lumineuse + enceinte JBL + micro",
+          "Jeux de lumière",
+          "Serviettes de bain",
+          "Mini bar à bonbons",
+          "Décoration tropicale",
+          "Ambiance disco vitaminée, festive et colorée à souhait"
+        ]
+      },
+      {
+        nom: "Mini Splash",
+        icon: "🧸",
+        accent: "#38BDF8",
+        inclus: [
+          "5 postes (sans matelas)",
+          "Bouées + serviettes + tapis pour un après-midi détente ou goûter",
+          "Mini bar à bonbons",
+          "Décoration adaptée pour les 4-8 ans (à préciser)"
+        ]
+      },
+      {
+        nom: "Mini Splash Plus",
+        icon: "🎈",
+        accent: "#4ADE80",
+        inclus: [
+          "5 postes (sans matelas)",
+          "Bouées + serviettes + tapis + mini bar à bonbons",
+          "Décoration adaptée pour les 4-8 ans (à préciser)"
+        ]
+      }
+    ],
+    prix: "175",
+    tipiSupplementaire: "35",
+    formules: [
+      { nom: "Livraison seule", prix: "1 €/km" },
+      { nom: "Livraison + installation", prix: "1 €/km + 80 € forfait" }
+    ],
+    prixNote: "TTC — 35 € par tipi, 5 tipis minimum. Tipi supplémentaire : +35 €. Retrait gratuit à La Possession. Animation jardin en option (partenaire, 2h de jeux animés) : 250 €",
+    photo: "/images/concepts/pool-party-01.jpg",
+    photos: [
+      "/images/concepts/pool-party-01.jpg",
+      "/images/concepts/pool-party-02.jpg"
     ]
   },
   {
