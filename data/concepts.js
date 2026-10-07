@@ -510,8 +510,8 @@ export const concepts = [
     prix: 65,
     prixUnite: "/pers.",
     gradient: "linear-gradient(135deg, #7B1E3A 0%, #C0392B 30%, #E67E22 65%, #F4C14F 100%)",
-    photo: null,
-    photos: null,
+    photo: "/images/concepts/apero-sunset-01.jpg",
+    photos: ["/images/concepts/apero-sunset-01.jpg"],
   },
   {
     slug: "baby-shower",
