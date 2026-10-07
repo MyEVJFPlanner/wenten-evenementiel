@@ -308,8 +308,10 @@ export const concepts = [
       { nom: "Livraison + installation", prix: "1 €/km + 80 € forfait" }
     ],
     prixNote: "TTC — 35 € par tipi, 5 tipis minimum. Tipi supplémentaire : +35 €. Retrait gratuit à La Possession. Animation jardin en option (partenaire, 2h de jeux animés) : 250 €",
-    photo: "/images/concepts/pool-party-01.jpg",
+    photo: "/images/concepts/pool-party-rose.jpg",
     photos: [
+      "/images/concepts/pool-party-rose.jpg",
+      "/images/concepts/pool-party-tropical.jpg",
       "/images/concepts/pool-party-01.jpg",
       "/images/concepts/pool-party-02.jpg"
     ]
